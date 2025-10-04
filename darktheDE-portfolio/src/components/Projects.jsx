@@ -3,28 +3,33 @@ import { projects } from '../data/projectsData';
 
 const ProjectCard = ({ project }) => {
   return (
-    <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+    <div className="bg-dark-card rounded-xl shadow-dark-lg overflow-hidden hover:shadow-glow-purple 
+                    transition-all duration-300 transform hover:-translate-y-1 border border-gray-700 
+                    hover:border-accent-purple-light/50">
       {/* Project Image */}
-      <div className="aspect-video bg-gradient-to-br from-blue-200 to-indigo-300 relative overflow-hidden">
+      <div className="aspect-video bg-accent-gradient relative overflow-hidden group">
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center">
-            <div className="w-16 h-16 bg-white/30 rounded-lg mb-4 mx-auto flex items-center justify-center">
-              <span className="text-2xl">🚀</span>
+          <div className="text-center group-hover:scale-110 transition-transform duration-300">
+            <div className="w-16 h-16 bg-dark-primary/50 rounded-lg mb-4 mx-auto flex items-center justify-center 
+                          backdrop-blur-sm group-hover:animate-glow-pulse">
+              <span className="text-2xl group-hover:scale-125 transition-transform duration-300">🚀</span>
             </div>
-            <p className="text-white/80 text-sm">Project Screenshot</p>
+            <p className="text-white/90 text-sm font-medium group-hover:text-white transition-colors">Project Screenshot</p>
           </div>
         </div>
-        {/* Overlay for hover effect */}
-        <div className="absolute inset-0 bg-black/0 hover:bg-black/10 transition-colors"></div>
+        {/* Animated overlay for hover effect */}
+        <div className="absolute inset-0 bg-dark-primary/0 group-hover:bg-dark-primary/20 transition-all duration-300">
+          <div className="absolute inset-0 bg-gradient-to-t from-accent-purple-light/0 group-hover:from-accent-purple-light/20 to-transparent transition-all duration-300"></div>
+        </div>
       </div>
 
       {/* Project Content */}
       <div className="p-6">
-        <h3 className="text-xl font-bold text-gray-900 mb-3">
+        <h3 className="text-xl font-bold text-gray-50 mb-3 hover:text-accent-purple-light transition-colors">
           {project.title}
         </h3>
         
-        <p className="text-gray-600 mb-4 leading-relaxed">
+        <p className="text-gray-300 mb-4 leading-relaxed">
           {project.description}
         </p>
 
@@ -33,7 +38,8 @@ const ProjectCard = ({ project }) => {
           {project.tags.map((tag, index) => (
             <span 
               key={index}
-              className="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full font-medium"
+              className="px-3 py-1 bg-dark-tertiary text-accent-blue-light text-sm rounded-full font-medium 
+                       border border-accent-blue-light/30 hover:bg-accent-blue-light/10 transition-colors"
             >
               {tag}
             </span>
@@ -46,8 +52,9 @@ const ProjectCard = ({ project }) => {
             href={project.liveUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg 
-                     font-medium transition-colors flex items-center justify-center gap-2"
+            className="flex-1 bg-accent-gradient hover:shadow-glow-purple text-white px-4 py-2 rounded-lg 
+                     font-medium transition-all duration-300 flex items-center justify-center gap-2 
+                     hover:scale-105"
           >
             <FiExternalLink className="w-4 h-4" />
             Live Demo
@@ -57,9 +64,9 @@ const ProjectCard = ({ project }) => {
             href={project.repoUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 border-2 border-gray-300 hover:border-gray-400 text-gray-700 
-                     hover:text-gray-900 px-4 py-2 rounded-lg font-medium transition-colors 
-                     flex items-center justify-center gap-2"
+            className="flex-1 border-2 border-accent-blue-light hover:border-accent-purple-light text-accent-blue-light 
+                     hover:text-accent-purple-light hover:bg-accent-purple-light/10 px-4 py-2 rounded-lg font-medium 
+                     transition-all duration-300 flex items-center justify-center gap-2 hover:scale-105"
           >
             <FiGithub className="w-4 h-4" />
             Code
@@ -72,14 +79,14 @@ const ProjectCard = ({ project }) => {
 
 const Projects = () => {
   return (
-    <section id="projects" className="py-20 bg-white">
+    <section id="projects" className="py-20 bg-dark-secondary">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-50 mb-4">
             Featured Projects
           </h2>
-          <div className="w-20 h-1 bg-blue-600 mx-auto mb-6"></div>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <div className="w-20 h-1 bg-accent-gradient mx-auto mb-6 rounded-full"></div>
+          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
             Here are some of my recent projects that showcase my skills and passion for development
           </p>
         </div>
@@ -96,8 +103,10 @@ const Projects = () => {
             href="https://github.com/darktheDE"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-gray-100 hover:bg-gray-200 
-                     text-gray-800 px-6 py-3 rounded-lg font-medium transition-colors"
+            className="inline-flex items-center gap-2 bg-dark-tertiary hover:bg-accent-gradient 
+                     text-gray-300 hover:text-white px-6 py-3 rounded-lg font-medium 
+                     transition-all duration-300 border border-gray-700 hover:border-transparent 
+                     hover:shadow-glow-purple hover:scale-105"
           >
             <FiGithub className="w-5 h-5" />
             View More on GitHub

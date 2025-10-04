@@ -8,13 +8,13 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gray-900 text-white py-12">
+    <footer className="bg-dark-secondary border-t border-gray-800 text-white py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center">
           {/* Back to Top Button */}
           <button
             onClick={scrollToTop}
-            className="mb-8 bg-blue-600 hover:bg-blue-700 text-white w-12 h-12 rounded-full 
+            className="mb-8 bg-accent-gradient hover:shadow-glow-purple text-white w-12 h-12 rounded-full 
                      flex items-center justify-center transition-all duration-300 transform 
                      hover:scale-110 hover:-translate-y-1"
             aria-label="Back to top"
@@ -24,14 +24,15 @@ const Footer = () => {
 
           {/* Name/Logo */}
           <div className="mb-6">
-            <h3 className="text-2xl font-bold text-white">DarktheDE</h3>
+            <h3 className="text-2xl font-bold bg-gradient-to-r from-accent-purple-light to-accent-blue-light 
+                        bg-clip-text text-transparent">darktheDE</h3>
           </div>
 
           {/* Copyright */}
           <div className="text-center">
             <p className="text-gray-400 flex items-center gap-2">
               © {currentYear} DarktheDE. Made with 
-              <FiHeart className="w-4 h-4 text-red-500" />
+              <FiHeart className="w-4 h-4 text-accent-purple-light animate-pulse" />
               using React & Tailwind CSS
             </p>
           </div>
