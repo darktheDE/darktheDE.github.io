@@ -72,8 +72,8 @@ const About = () => {
               <p className="text-lg text-gray-300 leading-relaxed">
                 I'm <strong className="text-accent-purple-light">Đỗ Kiến Hưng</strong>, a third-year Data Engineering student at 
                 Ho Chi Minh City University of Technology and Education (HCMUTE). My passion lies in 
-                <strong className="text-accent-blue-light">Big Data Processing</strong>, <strong className="text-accent-purple-light">Backend Development</strong>, and 
-                <strong className="text-accent-blue-light">Business Analysis</strong> for real-world IT projects.
+                <strong className="text-accent-blue-light"> Big Data Processing</strong>, <strong className="text-accent-purple-light">Backend Development</strong>, and 
+                <strong className="text-accent-blue-light"> Business Analysis</strong> for real-world IT projects.
               </p>
               
               <p className="text-lg text-gray-300 leading-relaxed">
@@ -84,7 +84,7 @@ const About = () => {
               </p>
               
               <p className="text-lg text-gray-300 leading-relaxed">
-                My recent projects include a <strong className="text-accent-blue-light">Big Data Pipeline for NYC Taxi Analysis</strong> 
+                My recent projects include a <strong className="text-accent-blue-light">Big Data Pipeline for NYC Taxi Analysis </strong> 
                 using PySpark with Medallion Architecture, and <strong className="text-accent-purple-light">UTE Phone Hub</strong> - a 
                 complete e-commerce platform built with Java Servlet/JSP. I'm always eager to tackle 
                 new challenges in data engineering and backend architecture.
