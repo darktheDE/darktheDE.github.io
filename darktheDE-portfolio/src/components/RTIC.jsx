@@ -17,7 +17,7 @@ const RTIC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-            HCMUTE <span className="bg-gradient-to-r from-accent-purple-light to-accent-blue-light bg-clip-text text-transparent">RTIC</span> Programming Club
+            HCMUTE <span className="bg-gradient-to-r from-accent-purple-light to-accent-blue-light bg-clip-text text-transparent">RTIC</span> - Research on Technology and Innovation Club
           </h2>
           <div className="w-20 h-1 bg-accent-gradient mx-auto rounded-full"></div>
         </div>
@@ -53,6 +53,20 @@ const RTIC = () => {
                   <span className="text-white text-sm font-bold">Vice Leader</span>
                 </div>
               </div>
+
+              {/* RTIC FIT Photo */}
+              <div className="relative max-w-md mx-auto">
+                <div className="aspect-[1/1] rounded-2xl bg-accent-gradient p-1 shadow-glow-purple hover:shadow-glow-blue transition-all duration-500">
+                  <img 
+                    src="/assets/rtic-fit.JPG" 
+                    alt="RTIC FIT Activities" 
+                    className="w-full h-full rounded-2xl object-cover shadow-dark-lg"
+                  />
+                </div>
+                <div className="absolute -bottom-3 -right-3 bg-accent-gradient p-3 rounded-full shadow-glow-purple">
+                  <span className="text-white text-sm font-bold">FIT CLUBS DAY</span>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -60,25 +74,30 @@ const RTIC = () => {
           <div className="order-1 lg:order-2">
             <div className="space-y-6 bg-dark-primary/70 backdrop-blur-md rounded-2xl p-8 border border-gray-600/70 shadow-xl">
               <p className="text-lg text-gray-100 leading-relaxed drop-shadow-xl" style={{textShadow: '3px 3px 6px rgba(0,0,0,0.9), 1px 1px 3px rgba(0,0,0,0.8)'}}>
-                I'm proud to serve as <strong className="text-accent-purple-light drop-shadow-xl" style={{textShadow: '2px 2px 4px rgba(0,0,0,0.9)'}}>Vice Leader</strong> of the 
-                <strong className="text-accent-blue-light drop-shadow-xl" style={{textShadow: '2px 2px 4px rgba(0,0,0,0.9)'}}> HCMUTE RTIC</strong> (Research & Technology Innovation Center) 
-                programming club at Ho Chi Minh City University of Technology and Education. In this role, 
-                I lead the <strong className="text-accent-purple-light drop-shadow-xl" style={{textShadow: '2px 2px 4px rgba(0,0,0,0.9)'}}>Business Analysis team</strong> and contribute to 
-                strategic club development.
+                I'm proud to serve as <strong className="text-accent-purple-light drop-shadow-xl" style={{textShadow: '2px 2px 4px rgba(0,0,0,0.9)'}}>Vice Leader</strong> of 
+                <strong className="text-accent-blue-light drop-shadow-xl" style={{textShadow: '2px 2px 4px rgba(0,0,0,0.9)'}}> HCMUTE RTIC</strong> (Research on Technology and Innovation Club), 
+                the premier programming and technology community at Ho Chi Minh City University of Technology and Education.
               </p>
               
               <p className="text-lg text-gray-100 leading-relaxed drop-shadow-xl" style={{textShadow: '3px 3px 6px rgba(0,0,0,0.9), 1px 1px 3px rgba(0,0,0,0.8)'}}>
-                RTIC is the premier programming and technology community at our university, fostering 
-                innovation and technical excellence among students. I oversee <strong className="text-accent-blue-light drop-shadow-xl" style={{textShadow: '2px 2px 4px rgba(0,0,0,0.9)'}}>strategic initiatives</strong>, 
-                coordinate technical workshops, and mentor junior members in programming and project management.
+                I lead the <strong className="text-accent-purple-light drop-shadow-xl" style={{textShadow: '2px 2px 4px rgba(0,0,0,0.9)'}}>Business Analysis team</strong> and serve as 
+                <strong className="text-accent-blue-light drop-shadow-xl" style={{textShadow: '2px 2px 4px rgba(0,0,0,0.9)'}}>Backend Developer</strong> on the 
+                <strong className="text-accent-purple-light drop-shadow-xl" style={{textShadow: '2px 2px 4px rgba(0,0,0,0.9)'}}>WebHub Project</strong>, designing RESTful APIs 
+                using Java Spring Boot, Maven, and PostgreSQL.
               </p>
-              
-              <p className="text-lg text-gray-100 leading-relaxed drop-shadow-xl" style={{textShadow: '3px 3px 6px rgba(0,0,0,0.9), 1px 1px 3px rgba(0,0,0,0.8)'}}>
-                Our club specializes in modern technologies including <strong className="text-accent-purple-light drop-shadow-xl" style={{textShadow: '2px 2px 4px rgba(0,0,0,0.9)'}}>Java Spring Boot</strong>, 
-                <strong className="text-accent-blue-light drop-shadow-xl" style={{textShadow: '2px 2px 4px rgba(0,0,0,0.9)'}}> Python</strong>, <strong className="text-accent-purple-light drop-shadow-xl" style={{textShadow: '2px 2px 4px rgba(0,0,0,0.9)'}}>React</strong>, and 
-                <strong className="text-accent-blue-light drop-shadow-xl" style={{textShadow: '2px 2px 4px rgba(0,0,0,0.9)'}}> data analysis</strong>. We organize coding competitions, hackathons, 
-                and business analysis training sessions to prepare students for real-world IT challenges.
-              </p>
+
+              {/* Club Mission */}
+              <div className="bg-gradient-to-r from-accent-purple-dark/20 to-accent-blue-dark/20 rounded-xl p-6 border border-accent-purple-light/30">
+                <div className="text-center">
+                  <h4 className="text-2xl font-bold text-white mb-3 drop-shadow-xl" style={{textShadow: '3px 3px 6px rgba(0,0,0,0.9)'}}>
+                    "Beyond Limits, Into Innovation"
+                  </h4>
+                  <p className="text-lg text-gray-200 italic drop-shadow-lg" style={{textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>
+                    Our mission is to bridge the gap between theoretical knowledge and practical technology solutions, 
+                    fostering a community where students can transform research concepts into real-world innovations.
+                  </p>
+                </div>
+              </div>
 
               <div className="pt-6">
                 <h3 className="text-xl font-semibold text-white mb-4 drop-shadow-xl" style={{textShadow: '3px 3px 6px rgba(0,0,0,0.9), 1px 1px 3px rgba(0,0,0,0.8)'}}>My Leadership Responsibilities:</h3>
@@ -99,6 +118,10 @@ const RTIC = () => {
                     <span className="w-3 h-3 bg-accent-gradient rounded-full mr-3 group-hover:scale-110 transition-transform duration-300 shadow-xl"></span>
                     Mentoring junior members in programming and project management
                   </li>
+                  <li className="flex items-center text-gray-100 group hover:text-accent-blue-light transition-colors duration-300 drop-shadow-xl" style={{textShadow: '2px 2px 4px rgba(0,0,0,0.8), 1px 1px 2px rgba(0,0,0,0.9)'}}>
+                    <span className="w-3 h-3 bg-accent-gradient rounded-full mr-3 group-hover:scale-110 transition-transform duration-300 shadow-xl"></span>
+                    Managing Agile/Scrum workflows and Git collaboration
+                  </li>
                 </ul>
               </div>
 
@@ -111,7 +134,7 @@ const RTIC = () => {
                     <div className="flex items-center space-x-3">
                       <FaUsers className="text-2xl text-accent-purple-light" />
                       <div>
-                        <p className="text-xl font-bold text-white">50+</p>
+                        <p className="text-xl font-bold text-white">30+</p>
                         <p className="text-sm text-gray-400">Active Members</p>
                       </div>
                     </div>
@@ -121,8 +144,8 @@ const RTIC = () => {
                     <div className="flex items-center space-x-3">
                       <FaTrophy className="text-2xl text-yellow-400" />
                       <div>
-                        <p className="text-xl font-bold text-white">8</p>
-                        <p className="text-sm text-gray-400">Competitions Won</p>
+                        <p className="text-xl font-bold text-white">Growing</p>
+                        <p className="text-sm text-gray-400">Community</p>
                       </div>
                     </div>
                   </div>
@@ -131,8 +154,8 @@ const RTIC = () => {
                     <div className="flex items-center space-x-3">
                       <FaCalendarAlt className="text-2xl text-accent-blue-light" />
                       <div>
-                        <p className="text-xl font-bold text-white">25+</p>
-                        <p className="text-sm text-gray-400">Events Organized</p>
+                        <p className="text-xl font-bold text-white">Regular</p>
+                        <p className="text-sm text-gray-400">Training Sessions</p>
                       </div>
                     </div>
                   </div>
@@ -141,11 +164,54 @@ const RTIC = () => {
                     <div className="flex items-center space-x-3">
                       <FaCode className="text-2xl text-green-400" />
                       <div>
-                        <p className="text-xl font-bold text-white">15+</p>
-                        <p className="text-sm text-gray-400">Projects Completed</p>
+                        <p className="text-xl font-bold text-white">5</p>
+                        <p className="text-sm text-gray-400">Projects Developed</p>
                       </div>
                     </div>
                   </div>
+                </div>
+              </div>
+
+              {/* RTIC Web Presence */}
+              <div className="pt-6">
+                <h3 className="text-xl font-semibold text-white mb-4 drop-shadow-xl" style={{textShadow: '3px 3px 6px rgba(0,0,0,0.9), 1px 1px 3px rgba(0,0,0,0.8)'}}>Our Digital Presence:</h3>
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                  <a href="https://hcmutertic.com" target="_blank" rel="noopener noreferrer" 
+                     className="bg-dark-card p-3 rounded-xl border border-gray-700 hover:border-accent-purple-light/50 
+                              hover:shadow-glow-purple transition-all duration-300 hover:scale-105 group">
+                    <div className="text-center">
+                      <div className="text-2xl mb-2 group-hover:scale-110 transition-transform duration-300">🌐</div>
+                      <h4 className="text-accent-purple-light font-semibold text-sm">Website</h4>
+                      <p className="text-xs text-gray-400 mt-1 truncate">hcmutertic.com</p>
+                    </div>
+                  </a>
+                  <a href="https://wiki.hcmutertic.com" target="_blank" rel="noopener noreferrer"
+                     className="bg-dark-card p-3 rounded-xl border border-gray-700 hover:border-accent-blue-light/50 
+                              hover:shadow-glow-blue transition-all duration-300 hover:scale-105 group">
+                    <div className="text-center">
+                      <div className="text-2xl mb-2 group-hover:scale-110 transition-transform duration-300">📚</div>
+                      <h4 className="text-accent-blue-light font-semibold text-sm">Wiki</h4>
+                      <p className="text-xs text-gray-400 mt-1 truncate">wiki.hcmutertic.com</p>
+                    </div>
+                  </a>
+                  <a href="https://chatbot.hcmutertic.com" target="_blank" rel="noopener noreferrer"
+                     className="bg-dark-card p-3 rounded-xl border border-gray-700 hover:border-accent-purple-light/50 
+                              hover:shadow-glow-purple transition-all duration-300 hover:scale-105 group">
+                    <div className="text-center">
+                      <div className="text-2xl mb-2 group-hover:scale-110 transition-transform duration-300">🤖</div>
+                      <h4 className="text-accent-purple-light font-semibold text-sm">Chatbot</h4>
+                      <p className="text-xs text-gray-400 mt-1 truncate">chatbot.hcmutertic.com</p>
+                    </div>
+                  </a>
+                  <a href="https://www.facebook.com/hcmute.rtic" target="_blank" rel="noopener noreferrer"
+                     className="bg-dark-card p-3 rounded-xl border border-gray-700 hover:border-accent-blue-light/50 
+                              hover:shadow-glow-blue transition-all duration-300 hover:scale-105 group">
+                    <div className="text-center">
+                      <div className="text-2xl mb-2 group-hover:scale-110 transition-transform duration-300">📘</div>
+                      <h4 className="text-accent-blue-light font-semibold text-sm">Facebook</h4>
+                      <p className="text-xs text-gray-400 mt-1 truncate">@hcmute.rtic</p>
+                    </div>
+                  </a>
                 </div>
               </div>
 

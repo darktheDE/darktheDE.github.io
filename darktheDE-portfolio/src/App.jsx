@@ -7,9 +7,12 @@ import Homework from './components/Homework'
 import RTIC from './components/RTIC'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import ScrollNavigation from './components/ScrollNavigation'
+// import { useKeyboardNavigation } from './hooks/useKeyboardNavigation'
 import './App.css'
 
 function App() {
+  
   return (
     <div className="min-h-screen">
       <Navbar />
@@ -21,6 +24,7 @@ function App() {
       <RTIC />
       <Contact />
       <Footer />
+      <ScrollNavigation />
     </div>
   )
 }

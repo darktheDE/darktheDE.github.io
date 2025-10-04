@@ -7,19 +7,28 @@ const ProjectCard = ({ project }) => {
                     transition-all duration-300 transform hover:-translate-y-1 border border-gray-700 
                     hover:border-accent-purple-light/50">
       {/* Project Image */}
-      <div className="aspect-video bg-accent-gradient relative overflow-hidden group">
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center group-hover:scale-110 transition-transform duration-300">
-            <div className="w-16 h-16 bg-dark-primary/50 rounded-lg mb-4 mx-auto flex items-center justify-center 
-                          backdrop-blur-sm group-hover:animate-glow-pulse">
-              <span className="text-2xl group-hover:scale-125 transition-transform duration-300">🚀</span>
+      <div className="aspect-video bg-dark-tertiary relative overflow-hidden group">
+        <img 
+          src={project.image} 
+          alt={project.title}
+          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+          onError={(e) => {
+            e.target.style.display = 'none';
+            e.target.nextElementSibling.style.display = 'flex';
+          }}
+        />
+        {/* Fallback content if image fails to load */}
+        <div className="absolute inset-0 hidden items-center justify-center bg-accent-gradient">
+          <div className="text-center">
+            <div className="w-16 h-16 bg-dark-primary/50 rounded-lg mb-4 mx-auto flex items-center justify-center backdrop-blur-sm">
+              <span className="text-2xl">🚀</span>
             </div>
-            <p className="text-white/90 text-sm font-medium group-hover:text-white transition-colors">Project Screenshot</p>
+            <p className="text-white/90 text-sm font-medium">Project Screenshot</p>
           </div>
         </div>
         {/* Animated overlay for hover effect */}
-        <div className="absolute inset-0 bg-dark-primary/0 group-hover:bg-dark-primary/20 transition-all duration-300">
-          <div className="absolute inset-0 bg-gradient-to-t from-accent-purple-light/0 group-hover:from-accent-purple-light/20 to-transparent transition-all duration-300"></div>
+        <div className="absolute inset-0 bg-dark-primary/0 group-hover:bg-dark-primary/30 transition-all duration-300">
+          <div className="absolute inset-0 bg-gradient-to-t from-accent-purple-light/0 group-hover:from-accent-purple-light/30 to-transparent transition-all duration-300"></div>
         </div>
       </div>
 

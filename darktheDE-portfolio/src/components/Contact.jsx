@@ -26,7 +26,7 @@ const Contact = () => {
             </p>
             
             <a
-              href="mailto:dokienhung1105@gmail.com"
+              href="mailto:hungdk@rtic.hcmute.fit"
               className="inline-flex items-center gap-2 bg-accent-gradient hover:shadow-glow-purple text-white 
                        px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 
                        transform hover:scale-105"
