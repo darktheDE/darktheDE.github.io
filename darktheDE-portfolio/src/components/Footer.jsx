@@ -19,7 +19,7 @@ const Footer = () => {
 
   const socialLinks = [
     { name: 'GitHub', icon: FiGithub, href: 'https://github.com/darktheDE', color: 'hover:text-gray-300' },
-    { name: 'LinkedIn', icon: FiLinkedin, href: 'https://www.linkedin.com/in/do-kien-hung/', color: 'hover:text-blue-400' },
+    { name: 'LinkedIn', icon: FiLinkedin, href: 'https://www.linkedin.com/in/darkthede/', color: 'hover:text-blue-400' },
     { name: 'Facebook', icon: FiFacebook, href: 'https://www.facebook.com/darktheDE/', color: 'hover:text-blue-500' },
     { name: 'Email', icon: FiMail, href: 'mailto:hungdk@rtic.hcmute.fit', color: 'hover:text-accent-purple-light' },
   ];
