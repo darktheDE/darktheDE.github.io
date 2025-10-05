@@ -69,7 +69,13 @@ const Navbar = () => {
                 <img 
                   src="/assets/profile01.png" 
                   alt="DarktheDE Logo"
-                  className="w-full h-full rounded-full object-cover transition-transform duration-500 group-hover:rotate-180"
+                  className="w-full h-full rounded-full object-cover transition-transform duration-500"
+                  style={{
+                    imageRendering: '-webkit-optimize-contrast',
+                    backfaceVisibility: 'hidden',
+                    transform: 'translateZ(0)',
+                    WebkitFontSmoothing: 'antialiased'
+                  }}
                 />
                 <div className="absolute inset-0 rounded-full bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-shimmer" />
               </div>
