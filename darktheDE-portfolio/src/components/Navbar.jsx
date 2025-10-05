@@ -7,6 +7,7 @@ const Navbar = () => {
   const { scrollY, isVisible, activeSection } = useScrollNavbar();
 
   const navItems = [
+    { name: 'Home', href: '#hero' },
     { name: 'About', href: '#about' },
     { name: 'Skills', href: '#skills' },
     { name: 'Projects', href: '#projects' },
@@ -43,12 +44,11 @@ const Navbar = () => {
 
   return (
     <nav 
-      className={`fixed top-0 w-full backdrop-blur-md border-b border-gray-800/50 z-50 transition-all duration-500 ease-out ${
+      className={`fixed top-0 w-full backdrop-blur-lg border-b border-gray-700/70 z-50 transition-all duration-500 ease-out ${
         isVisible ? 'translate-y-0' : '-translate-y-full'
-      }`}
+      } bg-dark-gradient/95`}
       style={{
-        background: `linear-gradient(135deg, ${getNavbarBackground()}, ${getNavbarBackground().replace('30', '20')})`,
-        boxShadow: scrollY > 50 ? '0 8px 32px rgba(0, 0, 0, 0.3)' : 'none'
+        boxShadow: scrollY > 50 ? '0 8px 32px rgba(0, 0, 0, 0.4)' : '0 4px 16px rgba(0, 0, 0, 0.2)'
       }}
     >
       {/* Animated progress bar */}
@@ -77,8 +77,8 @@ const Navbar = () => {
                 <span className="text-lg font-bold bg-gradient-to-r from-accent-purple-light to-accent-blue-light bg-clip-text text-transparent hover:from-accent-purple hover:to-accent-blue transition-all duration-500 hover:scale-105">
                   DO KIEN HUNG - darktheDE
                 </span>
-                <div className="text-xs text-gray-400 opacity-70 group-hover:opacity-100 transition-opacity duration-300">
-                  Full-Stack Developer
+                <div className="text-xs text-gray-300 opacity-80 group-hover:opacity-100 transition-opacity duration-300">
+                  Data Engineering Student
                 </div>
               </div>
               <span className="sm:hidden text-sm font-bold bg-gradient-to-r from-accent-purple-light to-accent-blue-light bg-clip-text text-transparent hover:from-accent-purple hover:to-accent-blue transition-all duration-300">
@@ -88,7 +88,7 @@ const Navbar = () => {
           </div>
 
           {/* Enhanced Desktop Navigation */}
-          <div className="hidden md:block">
+          <div className="hidden md:flex items-center gap-4">
             <div className="ml-10 flex items-baseline space-x-4">
               {navItems.map((item, index) => {
                 const isActive = activeSection === getActiveSectionId(item.href);
@@ -126,6 +126,18 @@ const Navbar = () => {
                 );
               })}
             </div>
+            
+            {/* CV Download Button */}
+            <a
+              href="/CV.pdf"
+              download
+              className="ml-4 px-4 py-2 bg-accent-gradient hover:shadow-glow-purple text-white text-sm font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 flex items-center gap-2 border border-accent-purple-light/30"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              CV
+            </a>
           </div>
 
           {/* Enhanced Mobile menu button */}

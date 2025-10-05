@@ -3,7 +3,7 @@ import { SiPython, SiReact, SiSpring } from 'react-icons/si';
 
 const RTIC = () => {
   return (
-    <section id="rtic" className="py-20 bg-dark-secondary relative overflow-hidden">
+    <section id="rtic" className="py-20 bg-dark-gradient relative overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 opacity-30">
         <img 
