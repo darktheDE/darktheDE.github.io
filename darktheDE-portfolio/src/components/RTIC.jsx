@@ -81,8 +81,8 @@ const RTIC = () => {
               
               <p className="text-lg text-gray-100 leading-relaxed drop-shadow-xl" style={{textShadow: '3px 3px 6px rgba(0,0,0,0.9), 1px 1px 3px rgba(0,0,0,0.8)'}}>
                 I lead the <strong className="text-accent-purple-light drop-shadow-xl" style={{textShadow: '2px 2px 4px rgba(0,0,0,0.9)'}}>Business Analysis team</strong> and serve as 
-                <strong className="text-accent-blue-light drop-shadow-xl" style={{textShadow: '2px 2px 4px rgba(0,0,0,0.9)'}}>Backend Developer</strong> on the 
-                <strong className="text-accent-purple-light drop-shadow-xl" style={{textShadow: '2px 2px 4px rgba(0,0,0,0.9)'}}>WebHub Project</strong>, designing RESTful APIs 
+                <strong className="text-accent-blue-light drop-shadow-xl" style={{textShadow: '2px 2px 4px rgba(0,0,0,0.9)'}}> Backend Developer</strong> on the 
+                <strong className="text-accent-purple-light drop-shadow-xl" style={{textShadow: '2px 2px 4px rgba(0,0,0,0.9)'}}> WebHub Project</strong>, designing RESTful APIs 
                 using Java Spring Boot, Maven, and PostgreSQL.
               </p>
 
