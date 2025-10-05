@@ -4,7 +4,11 @@ const About = () => {
   const profileImages = [
     "/assets/profile01.png",
     "/assets/profile02.jpg", 
-    "/assets/profile03.jpg"
+    "/assets/profile03.jpg",
+    "/assets/profile04.jpg",
+    "/assets/profile05.jpg",
+    "/assets/profile06.jpg",
+    "/assets/profile07.jpg"
   ];
   
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -14,7 +18,7 @@ const About = () => {
       setCurrentImageIndex((prevIndex) => 
         (prevIndex + 1) % profileImages.length
       );
-    }, 3000); // Change image every 3 seconds
+    }, 2000); // Change image every 3 seconds
 
     return () => clearInterval(interval);
   }, [profileImages.length]);
