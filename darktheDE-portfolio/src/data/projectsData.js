@@ -5,8 +5,8 @@ export const projects = [
     image: "/assets/utephonehub.png",
     description: "Complete e-commerce platform for phone sales built with Java Servlet/JSP following MVC architecture. Features include product management, shopping cart, user authentication, and admin dashboard.",
     tags: ["Java 17", "Servlet", "JSP", "PostgreSQL", "Bootstrap 5", "Docker"],
-    liveUrl: "#",
-    repoUrl: "https://github.com/darktheDE/ute-phone-hub"
+    liveUrl: "https://www.utephonehub.me/",
+    repoUrl: "https://github.com/QuangDuyReal/ute-phonehub"
   },
   {
     id: 2,
@@ -14,7 +14,7 @@ export const projects = [
     image: "/assets/nyctriptaxi.png",
     description: "Big Data processing pipeline using PySpark with Medallion Architecture (Bronze-Silver-Gold) for analyzing NYC taxi trip data. Includes streaming processing and data quality framework.",
     tags: ["PySpark", "Apache Spark", "Hadoop", "Python", "Pandas", "Data Engineering"],
-    liveUrl: "#",
+    liveUrl: "https://github.com/QuangDuyReal/nyc-taxi-trip-analysis",
     repoUrl: "https://github.com/QuangDuyReal/nyc-taxi-trip-analysis"
   },
   {
