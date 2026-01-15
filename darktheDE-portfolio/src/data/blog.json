@@ -1,0 +1,16 @@
+[
+    {
+        "id": "1",
+        "title": "Welcome to my V3 Portfolio",
+        "date": "2024-05-20",
+        "excerpt": "A deep dive into how I used AI to build this Bento Grid portfolio.",
+        "content": "## Introduction\n\nWelcome to my new portfolio! This project represents a shift towards **AI-Native** design patterns. I wanted to move away from the traditional long-scroll landing pages and explore something more modular.\n\n### Why Bento Grid?\n\nThe **Bento Grid** layout allows for high information density without feeling cluttered. It's inspired by Apple's promotional materials and modern dashboard UIs. It fits perfectly with my role as a Data Engineer - structured, organized, yet visual.\n\n### Tech Stack\n\n- **React** for the UI\n- **Tailwind CSS** for styling\n- **Framer Motion** for animations\n- **AI Agents** for acceleration\n\nStay tuned for more updates on my coding journey!"
+    },
+    {
+        "id": "2",
+        "title": "The Power of Data Engineering",
+        "date": "2024-04-15",
+        "excerpt": "Why I chose Data Engineering as my career path.",
+        "content": "## Data is the New Oil\n\nBut just like oil, it needs to be refined. That's where **Data Engineering** comes in. We build the pipelines, the infrastructure, and the systems that turn raw chaos into actionable insights.\n\n### My Favorite Tools\n\n1. **Apache Spark**: For massive parallel processing.\n2. **Python**: The swiss army knife.\n3. **PostgreSQL**: Reliable, powerful SQL.\n\nI believe the future lies in the intersection of traditional big data engineering and modern AI capabilities."
+    }
+]
