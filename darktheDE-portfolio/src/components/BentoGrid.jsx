@@ -66,7 +66,7 @@ const BentoGrid = () => {
                 <BentoItem className="md:col-span-2 lg:col-span-2 row-span-2 flex flex-col justify-center gap-4 bg-dark">
                     <div className="text-center space-y-2">
                         <div className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">3+</div>
-                        <div className="text-sm text-text-muted uppercase tracking-widest">Years of Code</div>
+                        <div className="text-sm text-text-muted uppercase tracking-widest">Years of Coding and Passion</div>
                     </div>
                     <div className="h-px bg-white/10 w-1/2 mx-auto my-2"></div>
                     <div className="grid grid-cols-2 gap-3">

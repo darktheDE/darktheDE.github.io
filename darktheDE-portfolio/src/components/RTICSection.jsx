@@ -60,7 +60,7 @@ const RTICSection = () => {
                     </div>
 
                     <div className="relative">
-                        <div className="aspect-video rounded-xl overflow-hidden shadow-2xl border border-white/10 group">
+                        <div className="aspect-square rounded-xl overflow-hidden shadow-2xl border border-white/10 group">
                             <img
                                 src="/assets/rtic-pers-pic.jpg"
                                 alt="RTIC Activity"
@@ -68,7 +68,7 @@ const RTICSection = () => {
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                             <div className="absolute bottom-4 left-4 right-4">
-                                <p className="text-white font-medium text-sm drop-shadow-md">Leading Technical Workshops</p>
+                                <p className="text-white font-medium text-sm drop-shadow-md font-bold">Me at FIT Club's Day</p>
                             </div>
                         </div>
                     </div>
