@@ -21,7 +21,7 @@ const Footer = () => {
           </div>
 
           <div className="text-xs text-text-muted flex items-center gap-1">
-            Vibe-coding with Love <FiHeart className="text-red-500 fill-red-500 mx-1" />
+            Backend Development • Data Engineering • Business Analysis
           </div>
         </div>
       </div>
