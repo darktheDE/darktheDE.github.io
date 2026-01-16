@@ -1,11 +1,9 @@
 import { motion as Motion } from 'framer-motion';
-import { clsx } from 'clsx';
-import { twMerge } from 'tailwind-merge';
 import { FiGithub, FiExternalLink, FiUser, FiCode, FiLayers } from 'react-icons/fi';
 import { skillCategories } from '../data/skills';
 import { projects } from '../data/projectsData';
-
-const cn = (...inputs) => twMerge(clsx(inputs));
+import { PERSONAL_INFO, SOCIAL_LINKS, ASSETS } from '../data/config';
+import { cn } from '../utils/cn';
 
 const BentoItem = ({ className, children, delay = 0, id }) => (
     <Motion.div
@@ -24,8 +22,6 @@ const BentoItem = ({ className, children, delay = 0, id }) => (
 );
 
 const BentoGrid = () => {
-    const profileImage = "/assets/profile01.png"; // Default profile
-
     return (
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20" id="bento">
             <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-4 auto-rows-[minmax(180px,auto)]">
@@ -34,7 +30,7 @@ const BentoGrid = () => {
                 <BentoItem id="about" className="md:col-span-4 lg:col-span-4 row-span-2 flex flex-col md:flex-row gap-8 items-center bg-gradient-to-br from-card to-primary/5">
                     <div className="w-full md:w-1/3 shrink-0">
                         <div className="aspect-square rounded-2xl overflow-hidden border-2 border-primary/20 shadow-2xl relative group-hover:scale-105 transition-transform duration-500">
-                            <img src={profileImage} alt="Profile" className="w-full h-full object-cover" />
+                            <img src={ASSETS.profileImage} alt="Profile" className="w-full h-full object-cover" />
                             <div className="absolute inset-0 bg-primary/10 mix-blend-overlay"></div>
                         </div>
                     </div>
@@ -44,7 +40,7 @@ const BentoGrid = () => {
                             <span className="font-mono text-sm tracking-wider uppercase">About Me</span>
                         </div>
                         <h2 className="text-3xl font-bold text-text-light">
-                            Hello, I'm <span className="text-primary text-glow">Đỗ Kiến Hưng</span>
+                            Hello, I'm <span className="text-primary text-glow">{PERSONAL_INFO.name}</span>
                         </h2>
                         <p className="text-text-muted leading-relaxed">
                             I'm an <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-primary font-bold">AI Enthusiast</span> who stays up-to-date with <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-primary font-bold">AI Agents</span> to optimize my workflow, development, and learning.
@@ -70,7 +66,7 @@ const BentoGrid = () => {
                     </div>
                     <div className="h-px bg-white/10 w-1/2 mx-auto my-2"></div>
                     <div className="grid grid-cols-2 gap-3">
-                        <a href="https://github.com/darktheDE" target="_blank" rel="noreferrer" className="flex flex-col items-center p-3 rounded-xl bg-white/5 hover:bg-primary/20 transition-colors cursor-pointer group">
+                        <a href={SOCIAL_LINKS.github} target="_blank" rel="noreferrer" className="flex flex-col items-center p-3 rounded-xl bg-white/5 hover:bg-primary/20 transition-colors cursor-pointer group">
                             <FiGithub className="w-6 h-6 text-text-light group-hover:text-primary mb-1" />
                             <span className="text-xs text-text-muted">GitHub</span>
                         </a>
@@ -131,7 +127,7 @@ const BentoGrid = () => {
 
                 {/* See More Projects Link */}
                 <BentoItem className="md:col-span-2 lg:col-span-2 flex flex-col justify-center items-center bg-primary/5 hover:bg-primary/10 cursor-pointer group">
-                    <a href="https://github.com/darktheDE" target="_blank" rel="noreferrer" className="text-center">
+                    <a href={SOCIAL_LINKS.github} target="_blank" rel="noreferrer" className="text-center">
                         <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
                             <FiGithub className="w-6 h-6 text-primary" />
                         </div>

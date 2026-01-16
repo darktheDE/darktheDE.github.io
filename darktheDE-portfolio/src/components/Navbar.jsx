@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { motion as Motion, AnimatePresence } from 'framer-motion';
 import { FiMenu, FiX, FiGithub, FiLinkedin, FiMail, FiFacebook } from 'react-icons/fi';
+import { SOCIAL_LINKS } from '../data/config';
+import { cn } from '../utils/cn';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,9 +22,12 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'py-4' : 'py-6'}`}>
+    <nav className={cn("fixed top-0 w-full z-50 transition-all duration-300", scrolled ? 'py-4' : 'py-6')}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className={`rounded-full px-6 py-3 transition-all duration-300 ${scrolled ? 'bg-dark/80 backdrop-blur-md border border-white/5 shadow-lg' : 'bg-transparent'}`}>
+        <div className={cn(
+          "rounded-full px-6 py-3 transition-all duration-300",
+          scrolled ? 'bg-dark/80 backdrop-blur-md border border-white/5 shadow-lg' : 'bg-transparent'
+        )}>
           <div className="flex items-center justify-between">
 
             {/* Logo */}
@@ -45,10 +50,10 @@ const Navbar = () => {
               <div className="w-px h-4 bg-white/10"></div>
 
               <div className="flex items-center gap-4">
-                <a href="https://github.com/darktheDE" target="_blank" rel="noreferrer" className="text-text-muted hover:text-primary transition-colors"><FiGithub size={18} /></a>
-                <a href="https://www.linkedin.com/in/darkthede/" target="_blank" rel="noreferrer" className="text-text-muted hover:text-primary transition-colors"><FiLinkedin size={18} /></a>
-                <a href="https://www.facebook.com/dkh1105/" target="_blank" rel="noreferrer" className="text-text-muted hover:text-primary transition-colors"><FiFacebook size={18} /></a>
-                <a href="mailto:kienhung.do1105@gmail.com" className="text-text-muted hover:text-primary transition-colors"><FiMail size={18} /></a>
+                <a href={SOCIAL_LINKS.github} target="_blank" rel="noreferrer" className="text-text-muted hover:text-primary transition-colors"><FiGithub size={18} /></a>
+                <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noreferrer" className="text-text-muted hover:text-primary transition-colors"><FiLinkedin size={18} /></a>
+                <a href={SOCIAL_LINKS.facebook} target="_blank" rel="noreferrer" className="text-text-muted hover:text-primary transition-colors"><FiFacebook size={18} /></a>
+                <a href={SOCIAL_LINKS.email} className="text-text-muted hover:text-primary transition-colors"><FiMail size={18} /></a>
               </div>
             </div>
 
@@ -85,10 +90,10 @@ const Navbar = () => {
               ))}
               <div className="h-px bg-white/10 my-2"></div>
               <div className="flex justify-center gap-6 pt-2">
-                <a href="https://github.com/darktheDE" target="_blank" rel="noreferrer" className="text-text-muted hover:text-primary"><FiGithub size={24} /></a>
-                <a href="https://www.linkedin.com/in/darkthede/" target="_blank" rel="noreferrer" className="text-text-muted hover:text-primary"><FiLinkedin size={24} /></a>
-                <a href="https://www.facebook.com/dkh1105/" target="_blank" rel="noreferrer" className="text-text-muted hover:text-primary"><FiFacebook size={24} /></a>
-                <a href="mailto:kienhung.do1105@gmail.com" className="text-text-muted hover:text-primary"><FiMail size={24} /></a>
+                <a href={SOCIAL_LINKS.github} target="_blank" rel="noreferrer" className="text-text-muted hover:text-primary"><FiGithub size={24} /></a>
+                <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noreferrer" className="text-text-muted hover:text-primary"><FiLinkedin size={24} /></a>
+                <a href={SOCIAL_LINKS.facebook} target="_blank" rel="noreferrer" className="text-text-muted hover:text-primary"><FiFacebook size={24} /></a>
+                <a href={SOCIAL_LINKS.email} className="text-text-muted hover:text-primary"><FiMail size={24} /></a>
               </div>
             </div>
           </Motion.div>

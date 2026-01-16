@@ -1,5 +1,6 @@
 import { motion as Motion } from 'framer-motion';
 import { FiExternalLink, FiUsers, FiGithub, FiGlobe } from 'react-icons/fi';
+import { RTIC_INFO } from '../data/config';
 
 const RTICSection = () => {
     return (
@@ -19,11 +20,11 @@ const RTICSection = () => {
                             <FiUsers /> Community & Leadership
                         </div>
                         <h2 className="text-3xl md:text-4xl font-bold text-white">
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-primary">HCMUTE RTIC</span>
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-primary">{RTIC_INFO.name}</span>
                         </h2>
                         <p className="text-text-muted text-lg leading-relaxed">
-                            As the <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-primary font-bold">Vice Leader</span>, I lead technical initiatives and mentor members in backend development and business analysis.
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-primary font-bold"> HCMUTE RTIC (HCMUTE Research on Technology & Innovation Club)</span> is where we transform ideas into impactful software solutions.
+                            As the <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-primary font-bold">{RTIC_INFO.role}</span>, I lead technical initiatives and mentor members in backend development and business analysis.
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-primary font-bold"> {RTIC_INFO.name} ({RTIC_INFO.fullName})</span> is where we transform ideas into impactful software solutions.
                             <br /><br />
                             Our core activities include:
                             <ul className="list-disc pl-5 mt-2 space-y-1 text-base">
@@ -36,24 +37,24 @@ const RTICSection = () => {
 
                         <div className="flex gap-4 pt-4">
                             <div className="flex flex-col gap-1">
-                                <span className="text-3xl font-bold text-white">40+</span>
+                                <span className="text-3xl font-bold text-white">{RTIC_INFO.memberCount}</span>
                                 <span className="text-xs text-text-muted uppercase tracking-wider">Members Mentored</span>
                             </div>
                             <div className="w-px bg-white/10 h-10"></div>
                             <div className="flex flex-col gap-1">
-                                <span className="text-3xl font-bold text-white">15+</span>
+                                <span className="text-3xl font-bold text-white">{RTIC_INFO.projectCount}</span>
                                 <span className="text-xs text-text-muted uppercase tracking-wider">Major Projects</span>
                             </div>
                         </div>
 
                         <div className="pt-4 flex flex-wrap gap-4">
-                            <a href="https://www.facebook.com/hcmute.rtic" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 px-5 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-medium transition-all shadow-lg hover:shadow-blue-500/25">
+                            <a href={RTIC_INFO.fanpage} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 px-5 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-medium transition-all shadow-lg hover:shadow-blue-500/25">
                                 <FiExternalLink /> Fanpage
                             </a>
-                            <a href="https://github.com/HCMUTE-RTIC" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 px-5 py-3 bg-gray-800 hover:bg-gray-900 text-white border border-white/10 rounded-xl font-medium transition-all shadow-lg hover:shadow-white/5">
+                            <a href={RTIC_INFO.github} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 px-5 py-3 bg-gray-800 hover:bg-gray-900 text-white border border-white/10 rounded-xl font-medium transition-all shadow-lg hover:shadow-white/5">
                                 <FiGithub /> GitHub
                             </a>
-                            <a href="https://hcmutertic.com/" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 px-5 py-3 bg-primary/20 hover:bg-primary/30 text-white border border-primary/20 rounded-xl font-medium transition-all shadow-lg hover:shadow-primary/20">
+                            <a href={RTIC_INFO.website} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 px-5 py-3 bg-primary/20 hover:bg-primary/30 text-white border border-primary/20 rounded-xl font-medium transition-all shadow-lg hover:shadow-primary/20">
                                 <FiGlobe /> Website
                             </a>
                         </div>
