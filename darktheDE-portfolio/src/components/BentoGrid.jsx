@@ -96,7 +96,7 @@ const BentoGrid = () => {
                 {/* Projects Area */}
                 {projects.slice(0, 3).map((project, idx) => (
                     <BentoItem id={idx === 0 ? "projects" : undefined} key={project.id} className={cn("md:col-span-2 lg:col-span-2 row-span-2 flex flex-col p-0 group/project", idx === 0 ? "lg:col-span-4 md:col-span-4" : "")} delay={0.2 + idx * 0.1}>
-                        <div className="h-48 overflow-hidden relative">
+                        <a href={project.liveUrl !== '#' ? project.liveUrl : project.repoUrl} target="_blank" rel="noreferrer" className="h-48 overflow-hidden relative block cursor-pointer">
                             <img src={project.image} alt={project.title} className="w-full h-full object-cover transition-transform duration-700 group-hover/project:scale-110" />
                             <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent"></div>
                             <div className="absolute bottom-4 left-4 right-4 flex justify-between items-end">
@@ -108,7 +108,7 @@ const BentoGrid = () => {
                                     ))}
                                 </div>
                             </div>
-                        </div>
+                        </a>
                         <div className="p-6 flex-1 flex flex-col">
                             <h3 className="text-xl font-bold text-text-light mb-2">{project.title}</h3>
                             <p className="text-text-muted text-sm line-clamp-2 md:line-clamp-3 mb-4">{project.description}</p>

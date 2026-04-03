@@ -2,6 +2,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import BentoGrid from './components/BentoGrid';
 import RTICSection from './components/RTICSection';
+import CertificationsSection from './components/CertificationsSection';
 import Footer from './components/Footer';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Hero />
         <BentoGrid />
         <RTICSection />
+        <CertificationsSection />
       </main>
 
       <div className="relative z-10">
@@ -25,3 +27,4 @@ function App() {
 }
 
 export default App;
+

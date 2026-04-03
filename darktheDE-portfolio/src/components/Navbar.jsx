@@ -19,6 +19,7 @@ const Navbar = () => {
     { name: 'Stack', href: '#stack' },
     { name: 'Projects', href: '#projects' },
     { name: 'RTIC', href: '#rtic' },
+    { name: 'Awards', href: '#certifications' },
   ];
 
   return (

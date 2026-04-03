@@ -10,12 +10,12 @@ export const projects = [
   },
   {
     id: 2,
-    title: "UTE Phone Hub (Web Dev)",
-    image: "/assets/utephonehub.png",
-    description: "E-commerce platform for phone sales built with Java Servlet/JSP. Responsible for Project Management and Payment Module implementation (FE & BE).",
-    tags: ["Java 17", "Servlet", "JSP", "PostgreSQL", "Bootstrap 5", "Docker"],
-    liveUrl: "https://github.com/QuangDuyReal/ute-phonehub",
-    repoUrl: "https://github.com/QuangDuyReal/ute-phonehub"
+    title: "Gene Expression Ensemble Clustering",
+    image: "/assets/gene.png",
+    description: "Applied Weighted SCENA-based ensemble clustering on gene expression data to extract biological insights. Designed and deployed an interactive web application for data visualization using Streamlit.",
+    tags: ["Python", "Machine Learning", "Streamlit", "Data Visualization"],
+    liveUrl: "https://geneexenclug1.streamlit.app/",
+    repoUrl: "#"
   },
   {
     id: 3,

@@ -15,8 +15,8 @@ export const SOCIAL_LINKS = {
     github: 'https://github.com/darktheDE',
     linkedin: 'https://www.linkedin.com/in/darkthede/',
     facebook: 'https://www.facebook.com/dkh1105/',
-    email: 'mailto:kienhung.do1105@gmail.com',
-    blog: 'http://darkthede.notion.site/blog',
+    email: 'mailto:dkh1105.work@gmail.com',
+    blog: 'http://darkthede.notion.site/my-blog',
 };
 
 export const RTIC_INFO = {

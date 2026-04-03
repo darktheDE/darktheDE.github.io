@@ -7,14 +7,18 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: '#020617', // Deep Obsidian
-        primary: '#10B981',    // Emerald 500
-        secondary: '#059669',  // Emerald 600
-        accent: '#34D399',     // Emerald 400
-        card: 'rgba(30, 41, 59, 0.5)', // Slate 800 with opacity
+        background: '#000000',        // True OLED Black
+        surface: {
+          DEFAULT: '#0A0A0A',         // Elevated surface
+          light: '#111111',           // Cards & panels
+        },
+        primary: '#10B981',           // Emerald 500 (main accent)
+        secondary: '#059669',         // Emerald 600
+        accent: '#34D399',            // Emerald 400
+        card: 'rgba(10, 10, 10, 0.6)', // Dark card with opacity
         text: {
-          light: '#F8FAFC',    // Slate 50
-          muted: '#94A3B8',    // Slate 400
+          light: '#E8ECF0',           // Soft white (less harsh)
+          muted: '#6B7A8D',           // Slate muted
         }
       },
       fontFamily: {
