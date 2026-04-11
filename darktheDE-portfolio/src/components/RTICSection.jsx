@@ -25,18 +25,18 @@ const RTICSection = () => {
                         <h2 className="text-3xl md:text-4xl font-bold text-white">
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-primary">{RTIC_INFO.name}</span>
                         </h2>
-                        <p className="text-text-muted text-lg leading-relaxed">
-                            As the <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-primary font-bold">{RTIC_INFO.role}</span>, I lead technical initiatives and mentor members in backend development and business analysis.
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-primary font-bold"> {RTIC_INFO.name} ({RTIC_INFO.fullName})</span> is where we transform ideas into impactful software solutions.
-                            <br /><br />
-                            Our core activities include:
-                            <ul className="list-disc pl-5 mt-2 space-y-1 text-base">
-                                <li>Academic seminars and workshops</li>
-                                <li>Training in AI and Software Development</li>
-                                <li>Participation in real-world AI and Web projects</li>
-                                <li>Organizing academic contests</li>
-                            </ul>
-                        </p>
+                    <div className="text-text-muted text-lg leading-relaxed">
+                        As the <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-primary font-bold">{RTIC_INFO.role}</span>, I lead technical initiatives and mentor members in backend development and business analysis.
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-primary font-bold"> {RTIC_INFO.name} ({RTIC_INFO.fullName})</span> is where we transform ideas into impactful software solutions.
+                        <br /><br />
+                        Our core activities include:
+                        <ul className="list-disc pl-5 mt-2 space-y-1 text-base">
+                            <li>Academic seminars and workshops</li>
+                            <li>Training in AI and Software Development</li>
+                            <li>Participation in real-world AI and Web projects</li>
+                            <li>Organizing academic contests</li>
+                        </ul>
+                    </div>
 
                         <div className="flex gap-4 pt-4">
                             <div className="flex flex-col gap-1">

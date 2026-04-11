@@ -1,15 +1,33 @@
 export const projects = [
   {
     id: 1,
+    title: "Healthcare Data Lakehouse: COVID-19 Analytics",
+    image: "/assets/SYSARCH_HEALTHCARE.jpg",
+    description: "Architected a decoupled Data Lakehouse environment using Docker to process 100K+ simulated patient records. Engineered Medallion Architecture with Iceberg format and Trino for high-speed BI serving.",
+    tags: ["Spark", "Iceberg", "Airflow", "Trino", "MinIO"],
+    liveUrl: "https://sites.plane.so/issues/b18b3636a9c44636aea91add184a8ed9",
+    repoUrl: "https://github.com/darktheDE/healthcare-lakehouse-covid19"
+  },
+  {
+    id: 2,
+    title: "Olist E-Commerce Lakehouse",
+    image: "/assets/SYSARCH_OLIST.jpg",
+    description: "Built a Medallion Architecture on a Dockerized Spark cluster processing 100K+ Brazilian e-commerce records. Implemented automated ETL pipelines with Airflow, Delta Lake, and Superset dashboards.",
+    tags: ["Spark", "Delta Lake", "Airflow", "Superset", "MinIO"],
+    liveUrl: "https://sites.plane.so/issues/fb4056e1975041fb96f169aff25798e6",
+    repoUrl: "https://github.com/darktheDE/Olist-E-Commerce-Lakehouse"
+  },
+  {
+    id: 3,
     title: "UTE Phone Hub (Software Engineering)",
     image: "/assets/newutephonehub.png",
     description: "Advanced e-commerce platform built for Software Engineering course. Features comprehensive authorization system, modern UI with Shadcn, and high-performance backend.",
     tags: ["Next.js 16", "Spring Boot 3.5.8", "ShadcnUI", "PostgreSQL 15", "Docker", "Redis"],
-    liveUrl: "https://github.com/darktheDE/ute-phonehub", // Placeholder as no URL provided
-    repoUrl: "https://github.com/darktheDE/ute-phonehub" // Assuming same repo or placeholder? Keeping same for now or leaving blank if unsure. User provided tech stack but not specific URL. I will use a placeholder or the same repo if it's a v2.
+    liveUrl: "https://github.com/darktheDE/ute-phonehub",
+    repoUrl: "https://github.com/darktheDE/ute-phonehub"
   },
   {
-    id: 2,
+    id: 4,
     title: "Gene Expression Ensemble Clustering",
     image: "/assets/gene.png",
     description: "Applied Weighted SCENA-based ensemble clustering on gene expression data to extract biological insights. Designed and deployed an interactive web application for data visualization using Streamlit.",
@@ -18,7 +36,7 @@ export const projects = [
     repoUrl: "#"
   },
   {
-    id: 3,
+    id: 5,
     title: "NYC Taxi Trip Analysis",
     image: "/assets/nyctriptaxi.png",
     description: "Big Data processing pipeline using PySpark with Medallion Architecture (Bronze-Silver-Gold) for analyzing NYC taxi trip data. Includes streaming processing and data quality framework.",
@@ -27,7 +45,7 @@ export const projects = [
     repoUrl: "https://github.com/QuangDuyReal/nyc-taxi-trip-analysis"
   },
   {
-    id: 4,
+    id: 6,
     title: "RTIC Club Backend System",
     image: "/assets/rtic-background.png",
     description: "Backend system for HCMUTE RTIC programming club with document and folder management modules. Built with Spring Boot and PostgreSQL, following enterprise architecture patterns.",
