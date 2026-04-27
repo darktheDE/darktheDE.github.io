@@ -7,63 +7,62 @@ const RTICSection = () => {
     const [showLightbox, setShowLightbox] = useState(false);
 
     return (
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20" id="rtic">
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12" id="rtic">
             <Motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                className="relative rounded-3xl overflow-hidden bg-gradient-to-r from-blue-900/40 to-primary/10 border border-white/5 p-8 md:p-12"
+                className="relative rounded-3xl overflow-hidden bg-gradient-to-r from-blue-900/30 to-primary/5 border border-white/5 px-8 py-6 md:px-12 md:py-8"
             >
-                <div className="absolute inset-0 bg-[url('/assets/grid.svg')] opacity-20 bg-center"></div>
-                <div className="absolute -top-24 -right-24 w-64 h-64 bg-primary/20 rounded-full blur-[100px]"></div>
+                <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:30px_30px] opacity-20 pointer-events-none"></div>
+                <div className="absolute -top-24 -right-24 w-64 h-64 bg-primary/10 rounded-full blur-[100px]"></div>
 
                 <div className="relative z-10 grid md:grid-cols-2 gap-12 items-center">
-                    <div className="space-y-6">
-                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 font-mono text-xs border border-blue-500/20">
+                    <div className="space-y-4">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 font-mono text-[10px] border border-blue-500/20">
                             <FiUsers /> Community & Leadership
                         </div>
                         <h2 className="text-3xl md:text-4xl font-bold text-white">
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-primary">{RTIC_INFO.name}</span>
                         </h2>
-                    <div className="text-text-muted text-lg leading-relaxed">
+                    <div className="text-text-muted text-base leading-relaxed">
                         As the <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-primary font-bold">{RTIC_INFO.role}</span>, I lead technical initiatives and mentor members in backend development and business analysis.
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-primary font-bold"> {RTIC_INFO.name} ({RTIC_INFO.fullName})</span> is where we transform ideas into impactful software solutions.
-                        <br /><br />
-                        Our core activities include:
-                        <ul className="list-disc pl-5 mt-2 space-y-1 text-base">
-                            <li>Academic seminars and workshops</li>
-                            <li>Training in AI and Software Development</li>
-                            <li>Participation in real-world AI and Web projects</li>
-                            <li>Organizing academic contests</li>
+                        
+                        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1 mt-3 text-sm opacity-90">
+                            <li>• Academic seminars/workshops</li>
+                            <li>• AI & Software Training</li>
+                            <li>• Real-world AI projects</li>
+                            <li>• Academic contests</li>
                         </ul>
                     </div>
 
-                        <div className="flex gap-4 pt-4">
-                            <div className="flex flex-col gap-1">
-                                <span className="text-3xl font-bold text-white">{RTIC_INFO.memberCount}</span>
-                                <span className="text-xs text-text-muted uppercase tracking-wider">Members Mentored</span>
+                        <div className="flex gap-8 pt-2">
+                            <div className="flex flex-col">
+                                <span className="text-3xl font-bold text-white leading-none">{RTIC_INFO.memberCount}</span>
+                                <span className="text-xs text-text-muted uppercase tracking-wider mt-1">Members</span>
                             </div>
-                            <div className="w-px bg-white/10 h-10"></div>
-                            <div className="flex flex-col gap-1">
-                                <span className="text-3xl font-bold text-white">{RTIC_INFO.projectCount}</span>
-                                <span className="text-xs text-text-muted uppercase tracking-wider">Major Projects</span>
+                            <div className="w-px bg-white/10 h-8"></div>
+                            <div className="flex flex-col">
+                                <span className="text-3xl font-bold text-white leading-none">{RTIC_INFO.projectCount}</span>
+                                <span className="text-xs text-text-muted uppercase tracking-wider mt-1">Projects</span>
                             </div>
                         </div>
 
-                        <div className="pt-4 flex flex-wrap gap-4">
-                            <a href={RTIC_INFO.fanpage} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 px-5 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-medium transition-all shadow-lg hover:shadow-blue-500/25">
+                        <div className="pt-2 flex flex-wrap gap-4">
+                            <a href={RTIC_INFO.fanpage} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 px-5 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-sm font-medium transition-all shadow-lg">
                                 <FiExternalLink /> Fanpage
                             </a>
-                            <a href={RTIC_INFO.github} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 px-5 py-3 bg-gray-800 hover:bg-gray-900 text-white border border-white/10 rounded-xl font-medium transition-all shadow-lg hover:shadow-white/5">
+                            <a href={RTIC_INFO.github} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 px-5 py-2 bg-gray-800 hover:bg-gray-900 text-white border border-white/10 rounded-xl text-sm font-medium transition-all shadow-lg">
                                 <FiGithub /> GitHub
-                            </a>
-                            <a href={RTIC_INFO.website} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 px-5 py-3 bg-primary/20 hover:bg-primary/30 text-white border border-primary/20 rounded-xl font-medium transition-all shadow-lg hover:shadow-primary/20">
-                                <FiGlobe /> Website
                             </a>
                         </div>
                     </div>
 
-                    <div className="relative">
+                    <div className="relative max-w-md mx-auto">
+
+
+
                         <div
                             className="aspect-square rounded-xl overflow-hidden shadow-2xl border border-white/10 group cursor-pointer"
                             onClick={() => setShowLightbox(true)}
