@@ -151,7 +151,7 @@ const BentoGrid = () => {
 
 
                 {/* Projects Area */}
-                {projects.slice(0, 5).map((project, idx) => (
+                {projects.slice(0, 7).map((project, idx) => (
                     <BentoItem 
                         id={idx === 0 ? "projects" : undefined} 
                         key={project.id} 

@@ -21,6 +21,16 @@ export const projects = [
   },
   {
     id: 3,
+    title: "Airline Operations & Asset Health DWH",
+    image: "/assets/project/airline-DE.png",
+    categoryTag: "Data Engineering",
+    description: "Enterprise Data Warehouse correlating 2015 U.S. flight logs with FAA Registry data. Built using Kimball methodology with SSIS incremental loading and SSAS OLAP cubes for sub-second analysis.",
+    tags: ["SQL Server", "SSIS", "SSAS", "Power BI", "Kimball"],
+    liveUrl: "https://sites.plane.so/issues/a203be26250d4345ac261041dca5f80b",
+    repoUrl: "https://github.com/darktheDE/airline-dwh"
+  },
+  {
+    id: 4,
     title: "NYC Taxi Trip Analysis",
     image: "/assets/project/nyctriptaxi-DE.png",
     categoryTag: "Data Engineering",
@@ -30,18 +40,17 @@ export const projects = [
     repoUrl: "https://github.com/QuangDuyReal/nyc-taxi-trip-analysis"
   },
   {
-    id: 4,
+    id: 5,
     title: "UTE Phone Hub (E-commerce Platform)",
     image: "/assets/project/ute-phone-hub-SW.png",
     categoryTag: "Software Engineering",
     description: "As Project Manager, I led the development of this e-commerce platform, implementing JWT Auth, Google OAuth2, and Product Reviews & Ratings systems using Spring Boot and Next.js.",
-
     tags: ["Spring Boot 3.5", "Next.js 16", "PostgreSQL", "Redis", "Docker"],
     liveUrl: "https://github.com/darktheDE/ute-phonehub",
     repoUrl: "https://github.com/darktheDE/ute-phonehub"
   },
   {
-    id: 5,
+    id: 6,
     title: "Gene Expression Clustering",
     image: "/assets/project/gene-expression-ML.png",
     categoryTag: "Machine Learning",
@@ -50,4 +59,5 @@ export const projects = [
     liveUrl: "https://geneexenclug1.streamlit.app/",
     repoUrl: "https://github.com/darktheDE/gene-expression-ensemble-clustering"
   }
-];
+];
+
