@@ -69,7 +69,7 @@ const RTICSection = () => {
                             onClick={() => setShowLightbox(true)}
                         >
                             <img
-                                src="/assets/rtic-pers-pic.jpg"
+                                src="/assets/rtic/rtic-pers-pic.jpg"
                                 alt="Me at FIT Club's Day"
                                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                             />

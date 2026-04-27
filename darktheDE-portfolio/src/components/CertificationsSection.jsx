@@ -19,26 +19,42 @@ const certifications = [
         category: 'AWS',
     },
     {
+        title: 'Samsung Big Data Course – Completion Certificate',
+        image: '/assets/certi/certi-samsung.jpg',
+        category: 'Samsung',
+    },
+    {
         title: 'Google AI Essentials',
-        image: '/assets/certi/Coursera 094KUDHE0SP7.png',
+        image: '/assets/certi/Coursera MUBWNUSDXG3A-AI.png',
         category: 'Google',
     },
     {
         title: 'Google Crash Course on Python',
-        image: '/assets/certi/Coursera MUBWNUSDXG3A.png',
+        image: '/assets/certi/Coursera 094KUDHE0SP7-Python.png',
         category: 'Google',
+    },
+    {
+        title: 'FIT Hackathon HCMUTE 2025 – Consolation Prize',
+        image: '/assets/certi/certi-fit-hackathon.jpg',
+        category: 'Award',
+    },
+    {
+        title: 'Scholarship for Academic Excellence (Semester 1 - Year 1)',
+        image: '/assets/certi/chinh-sach-hoc-bong.png',
+        category: 'Achievement',
+    },
+    {
+        title: 'Very Good Student Title (2 Years in a Row)',
+        image: '/assets/certi/quyet-dinh-sinh-vien.png',
+        category: 'Achievement',
     },
     {
         title: 'Mastering IT 2024 – Team Member',
         image: '/assets/certi/Mastering IT.png',
         category: 'Award',
     },
-    {
-        title: 'Hackathon FIT-HCMUTE 2025 – Consolation Prize',
-        image: '/assets/certi/9cnd9hez_1765507690591.png',
-        category: 'Award',
-    },
 ];
+
 
 const CertificationsSection = () => {
     const [selectedIdx, setSelectedIdx] = useState(null);

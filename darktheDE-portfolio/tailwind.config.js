@@ -7,24 +7,25 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: '#000000',        // True OLED Black
+        background: '#020617',        // Slate 950 (Premium Navy/Black)
         surface: {
-          DEFAULT: '#0A0A0A',         // Elevated surface
-          light: '#111111',           // Cards & panels
+          DEFAULT: '#0F172A',         // Slate 900
+          light: '#1E293B',           // Slate 800
         },
-        primary: '#10B981',           // Emerald 500 (main accent)
-        secondary: '#059669',         // Emerald 600
+        primary: '#10B981',           // Emerald 500
+        secondary: '#3B82F6',         // Blue 500
         accent: '#34D399',            // Emerald 400
-        card: 'rgba(10, 10, 10, 0.6)', // Dark card with opacity
+        card: 'rgba(15, 23, 42, 0.7)', // Slate 900 with glass opacity
         text: {
-          light: '#E8ECF0',           // Soft white (less harsh)
-          muted: '#6B7A8D',           // Slate muted
+          light: '#F8FAFC',           // Slate 50
+          muted: '#94A3B8',           // Slate 400
         }
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
-        mono: ['Space Mono', 'monospace'],
+        mono: ['Fira Code', 'monospace'],
       },
+
       animation: {
         'glow': 'glow 2s ease-in-out infinite alternate',
       },

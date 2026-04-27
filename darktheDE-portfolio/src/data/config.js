@@ -5,10 +5,12 @@
 export const PERSONAL_INFO = {
     name: 'Đỗ Kiến Hưng',
     nickname: 'DarktheDE',
-    title: 'Data Engineer & AI Enthusiast',
-    tagline: 'Architecting Data Intelligence',
-    description: 'Transforms raw data into scalable, high-performance systems.',
-    specialties: ['Big Data Pipelines', 'Enterprise Backend Solutions'],
+    title: 'Data Engineering Student @ HCM-UTE',
+    tagline: 'Data Engineering Student & Aspiring Intern',
+
+
+    description: 'Third-year Data Engineering student passionate about building scalable, high-performance data systems.',
+    specialties: ['Data Lakehouse Architectures', 'Big Data Pipelines', 'AI-Assisted Software Planning'],
 };
 
 export const SOCIAL_LINKS = {
@@ -22,7 +24,7 @@ export const SOCIAL_LINKS = {
 export const RTIC_INFO = {
     name: 'HCMUTE RTIC',
     fullName: 'HCMUTE Research on Technology & Innovation Club',
-    role: 'Vice Leader',
+    role: 'Vice Leader & Co-Founder',
     memberCount: '40+',
     projectCount: '15+',
     fanpage: 'https://www.facebook.com/hcmute.rtic',
@@ -32,6 +34,7 @@ export const RTIC_INFO = {
 
 export const ASSETS = {
     cv: '/CV.pdf',
-    profileImage: '/assets/profile01.png',
+    profileImage: '/assets/profile/profile01.png',
     favicon: '/assets/profile-favicon.png',
 };
+
