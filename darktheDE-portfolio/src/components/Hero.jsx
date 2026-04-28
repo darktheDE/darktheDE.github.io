@@ -60,13 +60,20 @@ const Hero = () => {
             <FiBookOpen /> Blog
           </a>
 
-          <a
-            href={ASSETS.cv}
-            download
-            className="px-6 py-2.5 bg-white/5 hover:bg-white/10 text-white border border-white/10 rounded-full font-medium transition-all backdrop-blur-md flex items-center gap-2 hover:scale-105 text-sm md:text-base"
-          >
-            <FiDownload /> Download CV
-          </a>
+           <a
+             href={ASSETS.cvData}
+             download
+             className="px-6 py-2.5 bg-white/5 hover:bg-white/10 text-white border border-white/10 rounded-full font-medium transition-all backdrop-blur-md flex items-center gap-2 hover:scale-105 text-sm md:text-base"
+           >
+             <FiDownload /> Data Engineer CV
+           </a>
+           <a
+             href={ASSETS.cvSoftware}
+             download
+             className="px-6 py-2.5 bg-white/5 hover:bg-white/10 text-white border border-white/10 rounded-full font-medium transition-all backdrop-blur-md flex items-center gap-2 hover:scale-105 text-sm md:text-base"
+           >
+             <FiDownload /> Software Engineer CV
+           </a>
         </div>
       </Motion.div>
     </section>

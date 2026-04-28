@@ -33,7 +33,8 @@ export const RTIC_INFO = {
 };
 
 export const ASSETS = {
-    cv: '/CV.pdf',
+    cvData: '/CV_DATA_OF_DO_KIEN_HUNG.pdf',
+    cvSoftware: '/CV_SOFTWARE_OF_DO_KIEN_HUNG.pdf',
     profileImage: '/assets/profile/profile01.png',
     favicon: '/assets/profile-favicon.png',
 };

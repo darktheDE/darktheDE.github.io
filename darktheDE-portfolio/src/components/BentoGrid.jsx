@@ -14,6 +14,7 @@ const profileImages = [
     '/assets/profile/profile05.jpg',
     '/assets/profile/profile06.jpg',
     '/assets/profile/profile07.jpg',
+    '/assets/profile/profile08.jpg',
 ];
 
 const BentoItem = ({ className, children, delay = 0, id }) => (
