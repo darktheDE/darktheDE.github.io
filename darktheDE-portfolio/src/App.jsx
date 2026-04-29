@@ -1,13 +1,16 @@
+import { lazy, Suspense } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import BentoGrid from './components/BentoGrid';
-import RTICSection from './components/RTICSection';
-import CertificationsSection from './components/CertificationsSection';
 import Footer from './components/Footer';
+
+const RTICSection = lazy(() => import('./components/RTICSection'));
+const CertificationsSection = lazy(() => import('./components/CertificationsSection'));
 
 function App() {
   return (
     <div className="min-h-screen bg-background text-text-light selection:bg-primary/30 relative">
+      <div className="grain-overlay"></div>
       {/* Global Background Atmosphere */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
         <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-primary/25 rounded-full blur-[120px] animate-pulse"></div>
@@ -26,8 +29,11 @@ function App() {
       <main className="relative z-10 space-y-12 pb-20">
         <Hero />
         <BentoGrid />
-        <RTICSection />
-        <CertificationsSection />
+        
+        <Suspense fallback={<div className="h-40 flex items-center justify-center text-text-muted font-mono text-xs italic">Loading section...</div>}>
+          <RTICSection />
+          <CertificationsSection />
+        </Suspense>
       </main>
 
       <div className="relative z-10">

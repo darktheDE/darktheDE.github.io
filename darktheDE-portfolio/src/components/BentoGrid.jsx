@@ -48,9 +48,9 @@ const BentoGrid = () => {
             <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-4 auto-rows-[minmax(180px,auto)]">
 
                 {/* About Me - Large Tile */}
-                <BentoItem id="about" className="md:col-span-4 lg:col-span-4 row-span-2 flex flex-col md:flex-row gap-8 items-center bg-gradient-to-br from-card to-primary/5">
-                    <div className="w-full md:w-1/3 shrink-0">
-                        <div className="aspect-square rounded-2xl overflow-hidden border-2 border-primary/20 shadow-2xl relative group-hover:scale-105 transition-transform duration-500">
+                <BentoItem id="about" className="md:col-span-4 lg:col-span-4 row-span-2 flex flex-col sm:flex-row gap-6 sm:gap-8 items-center bg-gradient-to-br from-card to-primary/5 p-5 sm:p-8">
+                    <div className="w-full sm:w-1/3 shrink-0">
+                        <div className="aspect-square max-w-[180px] mx-auto sm:max-w-none rounded-2xl overflow-hidden border-2 border-primary/20 shadow-2xl relative group-hover:scale-105 transition-transform duration-500">
                             <AnimatePresence mode="wait">
                                 <Motion.img
                                     key={currentImageIdx}
@@ -71,7 +71,7 @@ const BentoGrid = () => {
                             <FiUser className="w-5 h-5" />
                             <span className="font-mono text-sm tracking-wider uppercase">About Me</span>
                         </div>
-                        <h2 className="text-2xl md:text-4xl font-bold text-text-light font-mono tracking-tighter">
+                        <h2 className="text-xl sm:text-2xl md:text-4xl font-bold text-text-light font-mono tracking-tighter leading-tight">
                             Hi, I'm <span className="text-primary text-glow">{PERSONAL_INFO.name}</span>
                         </h2>
                         <div className="text-text-muted text-sm leading-relaxed space-y-2">
@@ -138,7 +138,7 @@ const BentoGrid = () => {
                         <FiCode className="w-5 h-5" />
                         <span className="font-mono text-sm tracking-wider uppercase">Core Technical Stack</span>
                     </div>
-                    <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-12 gap-y-10 gap-x-6">
+                    <div className="grid grid-cols-3 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-12 gap-y-8 sm:gap-y-10 gap-x-4 sm:gap-x-6">
                         {skillCategories.flatMap(cat => cat.skills).slice(0, 24).map((skill, idx) => (
                             <div key={idx} className="flex flex-col items-center gap-3 group/icon">
                                 <div className="p-3 rounded-2xl bg-slate-800/50 group-hover/icon:bg-primary/10 transition-all duration-300 border border-white/5 group-hover/icon:border-primary/20">

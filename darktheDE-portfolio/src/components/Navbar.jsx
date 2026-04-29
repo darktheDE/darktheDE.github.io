@@ -28,7 +28,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className={cn(
           "rounded-full px-6 py-3 transition-all duration-300",
-          scrolled ? 'bg-dark/80 backdrop-blur-md border border-white/5 shadow-lg' : 'bg-transparent'
+          scrolled ? 'bg-background/80 backdrop-blur-md border border-white/5 shadow-lg' : 'bg-transparent'
         )}>
           <div className="flex items-center justify-between">
 
@@ -52,10 +52,10 @@ const Navbar = () => {
               <div className="w-px h-4 bg-white/10"></div>
 
               <div className="flex items-center gap-4">
-                <a href={SOCIAL_LINKS.github} target="_blank" rel="noreferrer" className="text-text-muted hover:text-primary transition-colors"><FiGithub size={18} /></a>
-                <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noreferrer" className="text-text-muted hover:text-primary transition-colors"><FiLinkedin size={18} /></a>
-                <a href={SOCIAL_LINKS.facebook} target="_blank" rel="noreferrer" className="text-text-muted hover:text-primary transition-colors"><FiFacebook size={18} /></a>
-                <a href={SOCIAL_LINKS.email} className="text-text-muted hover:text-primary transition-colors"><FiMail size={18} /></a>
+                <a href={SOCIAL_LINKS.github} target="_blank" rel="noreferrer" className="text-text-muted hover:text-primary transition-colors" aria-label="GitHub Profile"><FiGithub size={18} /></a>
+                <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noreferrer" className="text-text-muted hover:text-primary transition-colors" aria-label="LinkedIn Profile"><FiLinkedin size={18} /></a>
+                <a href={SOCIAL_LINKS.facebook} target="_blank" rel="noreferrer" className="text-text-muted hover:text-primary transition-colors" aria-label="Facebook Profile"><FiFacebook size={18} /></a>
+                <a href={SOCIAL_LINKS.email} className="text-text-muted hover:text-primary transition-colors" aria-label="Send Email"><FiMail size={18} /></a>
               </div>
             </div>
 
@@ -63,6 +63,7 @@ const Navbar = () => {
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="md:hidden text-white p-2 hover:bg-white/10 rounded-full transition-colors"
+              aria-label={isOpen ? "Close Menu" : "Open Menu"}
             >
               {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
             </button>
@@ -77,7 +78,7 @@ const Navbar = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="absolute top-24 left-4 right-4 bg-dark/95 backdrop-blur-xl border border-white/10 rounded-2xl p-6 md:hidden shadow-2xl"
+            className="absolute top-20 left-4 right-4 bg-surface/95 backdrop-blur-xl border border-white/10 rounded-2xl p-6 md:hidden shadow-2xl"
           >
             <div className="flex flex-col space-y-4">
               {navLinks.map((link) => (
@@ -92,10 +93,10 @@ const Navbar = () => {
               ))}
               <div className="h-px bg-white/10 my-2"></div>
               <div className="flex justify-center gap-6 pt-2">
-                <a href={SOCIAL_LINKS.github} target="_blank" rel="noreferrer" className="text-text-muted hover:text-primary"><FiGithub size={24} /></a>
-                <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noreferrer" className="text-text-muted hover:text-primary"><FiLinkedin size={24} /></a>
-                <a href={SOCIAL_LINKS.facebook} target="_blank" rel="noreferrer" className="text-text-muted hover:text-primary"><FiFacebook size={24} /></a>
-                <a href={SOCIAL_LINKS.email} className="text-text-muted hover:text-primary"><FiMail size={24} /></a>
+                <a href={SOCIAL_LINKS.github} target="_blank" rel="noreferrer" className="text-text-muted hover:text-primary" aria-label="GitHub Profile"><FiGithub size={24} /></a>
+                <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noreferrer" className="text-text-muted hover:text-primary" aria-label="LinkedIn Profile"><FiLinkedin size={24} /></a>
+                <a href={SOCIAL_LINKS.facebook} target="_blank" rel="noreferrer" className="text-text-muted hover:text-primary" aria-label="Facebook Profile"><FiFacebook size={24} /></a>
+                <a href={SOCIAL_LINKS.email} className="text-text-muted hover:text-primary" aria-label="Send Email"><FiMail size={24} /></a>
               </div>
             </div>
           </Motion.div>

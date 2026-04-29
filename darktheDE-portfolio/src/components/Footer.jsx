@@ -14,10 +14,10 @@ const Footer = () => {
           </div>
 
           <div className="flex gap-6">
-            <a href={SOCIAL_LINKS.github} target="_blank" rel="noreferrer" className="text-text-muted hover:text-primary transition-colors"><FiGithub size={20} /></a>
-            <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noreferrer" className="text-text-muted hover:text-primary transition-colors"><FiLinkedin size={20} /></a>
-            <a href={SOCIAL_LINKS.facebook} target="_blank" rel="noreferrer" className="text-text-muted hover:text-primary transition-colors"><FiFacebook size={20} /></a>
-            <a href={SOCIAL_LINKS.email} className="text-text-muted hover:text-primary transition-colors"><FiMail size={20} /></a>
+            <a href={SOCIAL_LINKS.github} target="_blank" rel="noreferrer" className="text-text-muted hover:text-primary transition-colors" aria-label="GitHub Profile"><FiGithub size={20} /></a>
+            <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noreferrer" className="text-text-muted hover:text-primary transition-colors" aria-label="LinkedIn Profile"><FiLinkedin size={20} /></a>
+            <a href={SOCIAL_LINKS.facebook} target="_blank" rel="noreferrer" className="text-text-muted hover:text-primary transition-colors" aria-label="Facebook Profile"><FiFacebook size={20} /></a>
+            <a href={SOCIAL_LINKS.email} className="text-text-muted hover:text-primary transition-colors" aria-label="Send Email"><FiMail size={20} /></a>
           </div>
 
           <div className="text-xs text-text-muted flex items-center gap-1">

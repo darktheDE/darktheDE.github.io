@@ -18,18 +18,18 @@ const RTICSection = () => {
                 <div className="absolute -top-24 -right-24 w-64 h-64 bg-primary/10 rounded-full blur-[100px]"></div>
 
                 <div className="relative z-10 grid md:grid-cols-2 gap-12 items-center">
-                    <div className="space-y-4">
+                    <div className="space-y-6">
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 font-mono text-[10px] border border-blue-500/20">
                             <FiUsers /> Community & Leadership
                         </div>
-                        <h2 className="text-3xl md:text-4xl font-bold text-white">
+                        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-tight">
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-primary">{RTIC_INFO.name}</span>
                         </h2>
-                    <div className="text-text-muted text-base leading-relaxed">
+                    <div className="text-text-muted text-sm sm:text-base leading-relaxed">
                         As the <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-primary font-bold">{RTIC_INFO.role}</span>, I lead technical initiatives and mentor members in backend development and business analysis.
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-primary font-bold"> {RTIC_INFO.name} ({RTIC_INFO.fullName})</span> is where we transform ideas into impactful software solutions.
                         
-                        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1 mt-3 text-sm opacity-90">
+                        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2 mt-4 text-xs sm:text-sm opacity-90">
                             <li>• Academic seminars/workshops</li>
                             <li>• AI & Software Training</li>
                             <li>• Real-world AI projects</li>
@@ -100,7 +100,7 @@ const RTICSection = () => {
                             onClick={(e) => e.stopPropagation()}
                         >
                             <img
-                                src="/assets/rtic-pers-pic.jpg"
+                                src="/assets/rtic/rtic-pers-pic.jpg"
                                 alt="Me at FIT Club's Day"
                                 className="w-full h-auto max-h-[80vh] object-contain rounded-xl"
                             />

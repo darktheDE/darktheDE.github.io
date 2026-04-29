@@ -79,7 +79,7 @@ const CertificationsSection = () => {
                     </span>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
                     {certifications.map((cert, idx) => (
                         <Motion.div
                             key={idx}
@@ -141,24 +141,24 @@ const CertificationsSection = () => {
                             {/* Controls */}
                             <button
                                 onClick={closeLightbox}
-                                className="absolute -top-12 right-0 text-text-muted hover:text-white transition-colors p-2"
+                                className="absolute -top-12 right-0 sm:-right-4 text-text-muted hover:text-white transition-colors p-2 bg-white/5 sm:bg-transparent rounded-full"
                                 aria-label="Close"
                             >
                                 <FiX className="w-6 h-6" />
                             </button>
                             <button
                                 onClick={(e) => { e.stopPropagation(); goPrev(); }}
-                                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 text-text-muted hover:text-white transition-colors p-2"
+                                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 sm:-translate-x-14 text-text-muted hover:text-white transition-colors p-2 bg-black/50 sm:bg-transparent rounded-full backdrop-blur-sm"
                                 aria-label="Previous"
                             >
-                                <FiChevronLeft className="w-7 h-7" />
+                                <FiChevronLeft className="w-8 h-8 sm:w-10 sm:h-10" />
                             </button>
                             <button
                                 onClick={(e) => { e.stopPropagation(); goNext(); }}
-                                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 text-text-muted hover:text-white transition-colors p-2"
+                                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 sm:translate-x-14 text-text-muted hover:text-white transition-colors p-2 bg-black/50 sm:bg-transparent rounded-full backdrop-blur-sm"
                                 aria-label="Next"
                             >
-                                <FiChevronRight className="w-7 h-7" />
+                                <FiChevronRight className="w-8 h-8 sm:w-10 sm:h-10" />
                             </button>
                         </Motion.div>
                     </Motion.div>
