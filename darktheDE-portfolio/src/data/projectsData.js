@@ -1,6 +1,36 @@
 export const projects = [
   {
     id: 1,
+    title: "Vietnamese Banking Financial Analytics Platform",
+    image: "/assets/project/vn-banking-de.png",
+    categoryTag: "Data Engineering",
+    description: "Built a BigQuery-based financial data warehouse and ML analytics platform for Vietnam's banking sector. Designed star schema layers, Looker Studio dashboards, and model output tables for LSTM forecasting, K-Means bank profiling, and Random Forest credit-risk warning with 0.9752 AUC-ROC.",
+    tags: ["BigQuery", "Star Schema", "Looker Studio", "LSTM", "Random Forest"],
+    liveUrl: "https://github.com/darktheDE/vn-banking-dwh-analytics",
+    repoUrl: "https://github.com/darktheDE/vn-banking-dwh-analytics"
+  },
+  {
+    id: 2,
+    title: "Food & Restaurant Sentiment Analytics Platform",
+    image: "/assets/project/SYSARCH-FOOD-DE.jpg",
+    categoryTag: "Data Engineering",
+    description: "Engineered a distributed culinary sentiment analytics platform using a hybrid OLTP/OLAP architecture. Orchestrated TripAdvisor scraping, TheMealDB ingestion, MongoDB/MySQL staging, HDFS storage, 8 Hadoop MapReduce jobs, Hive analytical views, and a Streamlit dashboard.",
+    tags: ["Hadoop", "Hive", "MapReduce", "MongoDB", "Streamlit"],
+    liveUrl: "https://github.com/darktheDE/food-sentiment-analytics-platform",
+    repoUrl: "https://github.com/darktheDE/food-sentiment-analytics-platform"
+  },
+  {
+    id: 3,
+    title: "Vietnamese LLM KV Cache Compression Benchmark",
+    image: "/assets/project/vietllm-ml.png",
+    categoryTag: "Machine Learning",
+    description: "Built a reproducible benchmark for TurboQuant and KV Cache compression methods on Vietnamese LLMs. The pipeline curates Vietnamese long-context datasets, runs model inference across vLLM/Ollama-style engines, and logs VRAM, latency, throughput, and perplexity trade-offs.",
+    tags: ["LLM", "vLLM", "TurboQuant", "KV Cache", "NeMo Curator"],
+    liveUrl: "https://github.com/darktheDE/viet-llm-kvcache-benchmark",
+    repoUrl: "https://github.com/darktheDE/viet-llm-kvcache-benchmark"
+  },
+  {
+    id: 4,
     title: "Healthcare Data Lakehouse: COVID-19 Analytics",
     image: "/assets/project/SYSARCH_HEALTHCARE-DE.jpg",
     categoryTag: "Data Engineering",
@@ -10,7 +40,7 @@ export const projects = [
     repoUrl: "https://github.com/darktheDE/healthcare-lakehouse-covid19"
   },
   {
-    id: 2,
+    id: 5,
     title: "Olist E-Commerce Lakehouse",
     image: "/assets/project/SYSARCH_OLIST-DE.jpg",
     categoryTag: "Data Engineering",
@@ -20,7 +50,7 @@ export const projects = [
     repoUrl: "https://github.com/darktheDE/Olist-E-Commerce-Lakehouse"
   },
   {
-    id: 3,
+    id: 6,
     title: "Airline Operations & Asset Health DWH",
     image: "/assets/project/airline-DE.png",
     categoryTag: "Data Engineering",
@@ -30,7 +60,7 @@ export const projects = [
     repoUrl: "https://github.com/darktheDE/airline-dwh"
   },
   {
-    id: 4,
+    id: 7,
     title: "NYC Taxi Trip Analysis",
     image: "/assets/project/nyctriptaxi-DE.png",
     categoryTag: "Data Engineering",
@@ -40,7 +70,7 @@ export const projects = [
     repoUrl: "https://github.com/QuangDuyReal/nyc-taxi-trip-analysis"
   },
   {
-    id: 5,
+    id: 8,
     title: "UTE Phone Hub (E-commerce Platform)",
     image: "/assets/project/ute-phone-hub-SW.png",
     categoryTag: "Software Engineering",
@@ -50,7 +80,7 @@ export const projects = [
     repoUrl: "https://github.com/darktheDE/ute-phonehub"
   },
   {
-    id: 6,
+    id: 9,
     title: "Gene Expression Clustering",
     image: "/assets/project/gene-expression-ML.png",
     categoryTag: "Machine Learning",
@@ -60,4 +90,4 @@ export const projects = [
     repoUrl: "https://github.com/darktheDE/gene-expression-ensemble-clustering"
   }
 ];
-
+

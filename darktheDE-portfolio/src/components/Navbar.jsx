@@ -23,7 +23,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className={cn("fixed top-0 w-full z-50 transition-all duration-300", scrolled ? 'py-2' : 'py-4')}>
+    <nav aria-label="Primary navigation" className={cn("fixed top-0 w-full z-50 transition-all duration-300", scrolled ? 'py-2' : 'py-4')}>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className={cn(
@@ -64,6 +64,8 @@ const Navbar = () => {
               onClick={() => setIsOpen(!isOpen)}
               className="md:hidden text-white p-2 hover:bg-white/10 rounded-full transition-colors"
               aria-label={isOpen ? "Close Menu" : "Open Menu"}
+              aria-expanded={isOpen}
+              aria-controls="mobile-navigation"
             >
               {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
             </button>
@@ -75,6 +77,7 @@ const Navbar = () => {
       <AnimatePresence>
         {isOpen && (
           <Motion.div
+            id="mobile-navigation"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}

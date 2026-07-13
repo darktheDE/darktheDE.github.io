@@ -1,0 +1,17 @@
+{
+  "name": "darktheDE Portfolio",
+  "short_name": "darktheDE",
+  "description": "Data Engineering portfolio of Đỗ Kiến Hưng.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#020617",
+  "theme_color": "#020617",
+  "icons": [
+    {
+      "src": "/assets/profile-favicon.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

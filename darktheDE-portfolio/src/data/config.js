@@ -1,16 +1,19 @@
 /**
- * Centralized configuration for personal information and external links
+ * Centralized configuration for personal information and external links.
  */
 
 export const PERSONAL_INFO = {
     name: 'Đỗ Kiến Hưng',
-    nickname: 'DarktheDE',
+    nickname: 'darktheDE',
     title: 'Data Engineering Student @ HCM-UTE',
-    tagline: 'Data Engineering Student & Aspiring Intern',
-
-
-    description: 'Third-year Data Engineering student passionate about building scalable, high-performance data systems.',
-    specialties: ['Data Lakehouse Architectures', 'Big Data Pipelines', 'AI-Assisted Software Planning'],
+    tagline: 'I build reliable data systems from raw events to AI-ready products.',
+    description: 'Third-year Data Engineering student focused on lakehouse architecture, big data pipelines, backend systems, and agentic AI workflows.',
+    specialties: ['Lakehouse Architecture', 'Big Data Pipelines', 'Agentic AI Workflows'],
+    metrics: [
+        { label: 'Current GPA', value: '8.41' },
+        { label: 'Featured Projects', value: '9' },
+        { label: 'Vice Leader', value: 'RTIC' },
+    ],
 };
 
 export const SOCIAL_LINKS = {
@@ -38,4 +41,3 @@ export const ASSETS = {
     profileImage: '/assets/profile/profile01.png',
     favicon: '/assets/profile-favicon.png',
 };
-

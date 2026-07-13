@@ -1,9 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useMemo, useState, useEffect } from 'react';
 import { motion as Motion, AnimatePresence } from 'framer-motion';
-import { FiGithub, FiExternalLink, FiUser, FiCode, FiLayers } from 'react-icons/fi';
+import { FiArrowRight, FiBriefcase, FiCode, FiDatabase, FiExternalLink, FiGithub, FiLayers, FiTarget, FiUser } from 'react-icons/fi';
 import { skillCategories } from '../data/skills';
 import { projects } from '../data/projectsData';
-import { PERSONAL_INFO, SOCIAL_LINKS, ASSETS } from '../data/config';
+import { PERSONAL_INFO, SOCIAL_LINKS } from '../data/config';
 import { cn } from '../utils/cn';
 
 const profileImages = [
@@ -17,15 +17,38 @@ const profileImages = [
     '/assets/profile/profile08.jpg',
 ];
 
+const operatingProfile = [
+    {
+        title: 'Data Systems',
+        body: 'Designing lakehouse pipelines, DWH models, and analytics layers that make raw data usable.',
+    },
+    {
+        title: 'Backend Thinking',
+        body: 'Building services with clear contracts, auth flows, database design, and deployment constraints in mind.',
+    },
+    {
+        title: 'AI Workflow',
+        body: 'Using agents and AI-assisted planning to speed up research, documentation, and implementation loops.',
+    },
+];
+
+const projectFilters = ['All', 'Data Engineering', 'Software Engineering', 'Machine Learning'];
+
+const projectProof = {
+    'Data Engineering': 'Pipeline / Architecture',
+    'Software Engineering': 'Product / Backend',
+    'Machine Learning': 'Experiment / Model',
+};
+
 const BentoItem = ({ className, children, delay = 0, id }) => (
     <Motion.div
         id={id}
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
+        viewport={{ once: true, margin: '-80px' }}
         transition={{ duration: 0.5, delay }}
         className={cn(
-            "bg-card backdrop-blur-md border border-white/5 rounded-3xl p-6 overflow-hidden relative group hover:border-primary/20 transition-all duration-500",
+            'relative scroll-mt-28 overflow-hidden border border-white/10 bg-card p-6 backdrop-blur-md transition-all duration-500 hover:border-primary/30',
             className
         )}
     >
@@ -33,8 +56,16 @@ const BentoItem = ({ className, children, delay = 0, id }) => (
     </Motion.div>
 );
 
+const SectionLabel = ({ icon, children }) => (
+    <div className="mb-5 flex items-center gap-2 text-primary">
+        {icon}
+        <span className="font-mono text-xs uppercase tracking-[0.22em]">{children}</span>
+    </div>
+);
+
 const BentoGrid = () => {
     const [currentImageIdx, setCurrentImageIdx] = useState(0);
+    const [activeFilter, setActiveFilter] = useState('All');
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -43,173 +74,223 @@ const BentoGrid = () => {
         return () => clearInterval(interval);
     }, []);
 
+    const filteredProjects = useMemo(() => {
+        if (activeFilter === 'All') return projects;
+        return projects.filter((project) => project.categoryTag === activeFilter);
+    }, [activeFilter]);
+
+    const featuredProject = filteredProjects[0] ?? projects[0];
+    const supportingProjects = filteredProjects.slice(1);
+
     return (
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20" id="bento">
-            <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-4 auto-rows-[minmax(180px,auto)]">
+        <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8" id="bento">
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-4 lg:grid-cols-6">
+                <BentoItem id="about" className="md:col-span-4 lg:col-span-4">
+                    <div className="grid gap-7 sm:grid-cols-[180px_1fr] sm:items-center">
+                        <div className="mx-auto w-full max-w-[180px]">
+                            <div className="relative aspect-square overflow-hidden border border-primary/30 bg-slate-950 shadow-2xl shadow-black/30">
+                                <AnimatePresence mode="wait">
+                                    <Motion.img
+                                        key={currentImageIdx}
+                                        src={profileImages[currentImageIdx]}
+                                        alt="Profile"
+                                        loading="lazy"
+                                        decoding="async"
+                                        initial={{ opacity: 0, scale: 1.04 }}
+                                        animate={{ opacity: 1, scale: 1 }}
+                                        exit={{ opacity: 0, scale: 0.98 }}
+                                        transition={{ duration: 0.45 }}
+                                        className="h-full w-full object-cover"
+                                    />
+                                </AnimatePresence>
+                                <div className="absolute inset-0 bg-gradient-to-t from-background/50 to-transparent" />
+                            </div>
+                        </div>
 
-                {/* About Me - Large Tile */}
-                <BentoItem id="about" className="md:col-span-4 lg:col-span-4 row-span-2 flex flex-col sm:flex-row gap-6 sm:gap-8 items-center bg-gradient-to-br from-card to-primary/5 p-5 sm:p-8">
-                    <div className="w-full sm:w-1/3 shrink-0">
-                        <div className="aspect-square max-w-[180px] mx-auto sm:max-w-none rounded-2xl overflow-hidden border-2 border-primary/20 shadow-2xl relative group-hover:scale-105 transition-transform duration-500">
-                            <AnimatePresence mode="wait">
-                                <Motion.img
-                                    key={currentImageIdx}
-                                    src={profileImages[currentImageIdx]}
-                                    alt="Profile"
-                                    initial={{ opacity: 0, x: 10 }}
-                                    animate={{ opacity: 1, x: 0 }}
-                                    exit={{ opacity: 0, x: -10 }}
-                                    transition={{ duration: 0.5 }}
-                                    className="w-full h-full object-cover"
-                                />
-                            </AnimatePresence>
-                            <div className="absolute inset-0 bg-primary/10 mix-blend-overlay"></div>
-                        </div>
-                    </div>
-                    <div className="flex-1 space-y-4">
-                        <div className="flex items-center gap-2 text-primary mb-2">
-                            <FiUser className="w-5 h-5" />
-                            <span className="font-mono text-sm tracking-wider uppercase">About Me</span>
-                        </div>
-                        <h2 className="text-xl sm:text-2xl md:text-4xl font-bold text-text-light font-mono tracking-tighter leading-tight">
-                            Hi, I'm <span className="text-primary text-glow">{PERSONAL_INFO.name}</span>
-                        </h2>
-                        <div className="text-text-muted text-sm leading-relaxed space-y-2">
-                            <p>
-                                I am a <b>Data Engineering student</b> at <b>HCM-UTE</b>. I have a deep passion for how data moves and transforms to create value.
-                            </p>
-                            <p>
-                                As the <b>Vice Leader & Co-Founder of HCMUTE RTIC</b>, I lead academic initiatives and technical workshops to foster innovation.
-                            </p>
-                            <p>
-                                I specialize in building <b>Medallion Architectures</b>, distributed systems, and leveraging <b>Agentic AI</b> to optimize development workflows.
-                            </p>
-                        </div>
-                        <div className="flex flex-wrap gap-2 pt-2">
-                            {['Data Engineering', 'Backend', 'AI Agents', 'RTIC Vice Leader'].map(tag => (
-                                <span key={tag} className="px-3 py-1 rounded-full bg-primary/10 text-primary text-[10px] font-mono border border-primary/20 hover:bg-primary/20 transition-colors">
-                                    {tag}
-                                </span>
-                            ))}
+                        <div>
+                            <SectionLabel icon={<FiUser className="h-5 w-5" />}>Operating Profile</SectionLabel>
+                            <h2 className="max-w-2xl text-2xl font-black leading-tight text-white sm:text-3xl">
+                                A data engineering learner turning academic projects into production-shaped systems.
+                            </h2>
+                            <div className="mt-5 grid gap-3 sm:grid-cols-3">
+                                {operatingProfile.map((item) => (
+                                    <div key={item.title} className="border border-white/10 bg-white/[0.035] p-4">
+                                        <h3 className="text-sm font-bold text-white">{item.title}</h3>
+                                        <p className="mt-2 text-xs leading-6 text-text-muted">{item.body}</p>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
                     </div>
                 </BentoItem>
 
-                {/* Quick Stats / Socials - Vertical */}
-                <BentoItem className="md:col-span-2 lg:col-span-2 row-span-2 flex flex-col justify-center gap-6 bg-slate-900/50">
-                    <div className="text-center space-y-3 relative group/gpa">
-                        <div className="text-6xl font-bold font-mono tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-primary to-blue-500 drop-shadow-sm">
-                            8.41
-                        </div>
-                        <div className="text-[10px] text-text-muted uppercase tracking-[0.4em] font-mono font-bold">Current GPA</div>
-                        
-                        {/* GPA Sparkline Decoration */}
-                        <div className="flex justify-center items-end gap-[2px] h-8 mt-2 opacity-50 group-hover/gpa:opacity-100 transition-opacity">
-                            {[0.4, 0.6, 0.5, 0.8, 0.7, 0.9, 0.85, 1.0].map((h, i) => (
-                                <Motion.div
-                                    key={i}
-                                    initial={{ height: 0 }}
-                                    animate={{ height: `${h * 100}%` }}
-                                    transition={{ duration: 0.5, delay: i * 0.1 }}
-                                    className="w-2 bg-primary/40 rounded-t-sm"
-                                />
-                            ))}
-                        </div>
-                    </div>
-                    
-                    <div className="h-px bg-white/5 w-2/3 mx-auto"></div>
-                    
-                    <div className="grid grid-cols-2 gap-4 px-2">
-                        <a href={SOCIAL_LINKS.github} target="_blank" rel="noreferrer" className="flex flex-col items-center p-4 rounded-2xl bg-slate-800/50 hover:bg-primary/10 border border-white/5 hover:border-primary/30 transition-all cursor-pointer group">
-                            <FiGithub className="w-6 h-6 text-text-muted group-hover:text-primary mb-2 transition-colors" />
-                            <span className="text-[10px] font-mono uppercase tracking-wider text-text-muted group-hover:text-text-light">GitHub</span>
-                        </a>
-                        <a href="#projects" className="flex flex-col items-center p-4 rounded-2xl bg-slate-800/50 hover:bg-primary/10 border border-white/5 hover:border-primary/30 transition-all cursor-pointer group">
-                            <FiLayers className="w-6 h-6 text-text-muted group-hover:text-primary mb-2 transition-colors" />
-                            <span className="text-[10px] font-mono uppercase tracking-wider text-text-muted group-hover:text-text-light">Projects</span>
+                <BentoItem className="md:col-span-2 lg:col-span-2">
+                    <SectionLabel icon={<FiTarget className="h-5 w-5" />}>Signal</SectionLabel>
+                    <div className="grid grid-cols-2 gap-3">
+                        {PERSONAL_INFO.metrics.map((metric) => (
+                            <div key={metric.label} className="border border-white/10 bg-slate-950/60 p-4">
+                                <div className="font-mono text-3xl font-bold text-white">{metric.value}</div>
+                                <div className="mt-2 text-[10px] uppercase tracking-[0.18em] text-text-muted">{metric.label}</div>
+                            </div>
+                        ))}
+                        <a href={SOCIAL_LINKS.github} target="_blank" rel="noreferrer" className="group col-span-2 flex items-center justify-between border border-primary/20 bg-primary/10 p-4 text-primary transition-colors hover:bg-primary/15">
+                            <span className="font-semibold">Open GitHub Portfolio</span>
+                            <FiArrowRight className="transition-transform group-hover:translate-x-1" />
                         </a>
                     </div>
                 </BentoItem>
 
-
-                {/* Skills Marquee / Grid */}
-                <BentoItem id="stack" className="md:col-span-6 lg:col-span-6 row-span-auto bg-slate-900/40 p-8 border-white/5">
-                    <div className="flex items-center gap-2 text-primary mb-8">
-                        <FiCode className="w-5 h-5" />
-                        <span className="font-mono text-sm tracking-wider uppercase">Core Technical Stack</span>
+                <BentoItem id="stack" className="md:col-span-4 lg:col-span-6">
+                    <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+                        <div>
+                            <SectionLabel icon={<FiCode className="h-5 w-5" />}>Technical Stack</SectionLabel>
+                            <h2 className="max-w-2xl text-2xl font-black text-white sm:text-3xl">Tools grouped by the work they support.</h2>
+                        </div>
+                        <p className="max-w-md text-sm leading-6 text-text-muted">
+                            The emphasis is on data platforms first, with enough backend and UI range to ship complete products.
+                        </p>
                     </div>
-                    <div className="grid grid-cols-3 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-12 gap-y-8 sm:gap-y-10 gap-x-4 sm:gap-x-6">
-                        {skillCategories.flatMap(cat => cat.skills).slice(0, 24).map((skill, idx) => (
-                            <div key={idx} className="flex flex-col items-center gap-3 group/icon">
-                                <div className="p-3 rounded-2xl bg-slate-800/50 group-hover/icon:bg-primary/10 transition-all duration-300 border border-white/5 group-hover/icon:border-primary/20">
-                                    <skill.icon className={cn("w-8 h-8 transition-all duration-300 group-hover/icon:scale-110", skill.color)} />
+
+                    <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+                        {skillCategories.map((category) => (
+                            <div key={category.title} className="border border-white/10 bg-slate-950/50 p-5">
+                                <h3 className="font-mono text-xs uppercase tracking-[0.2em] text-primary">{category.title}</h3>
+                                <div className="mt-5 grid grid-cols-2 gap-3">
+                                    {category.skills.slice(0, 6).map((skill) => (
+                                        <div key={skill.name} className="flex items-center gap-2 text-sm text-text-muted">
+                                            <skill.icon className={cn('h-5 w-5 shrink-0', skill.color)} />
+                                            <span className="min-w-0 text-xs leading-tight sm:text-sm">{skill.name}</span>
+                                        </div>
+                                    ))}
                                 </div>
-                                <span className="text-[10px] font-mono text-text-muted uppercase tracking-tight opacity-60 group-hover/icon:opacity-100 transition-opacity text-center line-clamp-1">{skill.name}</span>
                             </div>
                         ))}
                     </div>
                 </BentoItem>
 
-
-                {/* Projects Area */}
-                {projects.slice(0, 7).map((project, idx) => (
-                    <BentoItem 
-                        id={idx === 0 ? "projects" : undefined} 
-                        key={project.id} 
-                        className={cn(
-                            "md:col-span-2 lg:col-span-2 row-span-2 flex flex-col p-0 group/project",
-                            idx === 0 ? "lg:col-span-4 md:col-span-4" : ""
-                        )} 
-                        delay={0.2 + idx * 0.1}
+                <div id="projects" className="scroll-mt-28 md:col-span-4 lg:col-span-6">
+                    <Motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: '-80px' }}
+                        className="mb-5 flex flex-col justify-between gap-5 border-y border-white/10 py-6 sm:flex-row sm:items-end"
                     >
-                        <a href={project.liveUrl !== '#' ? project.liveUrl : project.repoUrl} target="_blank" rel="noreferrer" className="h-48 overflow-hidden relative block cursor-pointer">
-                            <img src={project.image} alt={project.title} className="w-full h-full object-cover transition-transform duration-700 group-hover/project:scale-110" />
-                            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent"></div>
-                            <div className="absolute top-4 right-4 z-20">
-                                <span className="px-3 py-1 rounded-full bg-slate-950/80 backdrop-blur-md text-primary text-[10px] font-mono font-bold border border-primary/30 shadow-xl">
-                                    {project.categoryTag}
-                                </span>
-                            </div>
-                            <div className="absolute bottom-4 left-4 right-4 flex justify-between items-end">
-                                <div className="flex gap-2">
-                                    {project.tags.slice(0, 3).map((tag, i) => (
-                                        <span key={i} className="text-[10px] bg-primary/20 text-primary px-2 py-1 rounded border border-primary/20 backdrop-blur-sm">
+                        <div>
+                            <SectionLabel icon={<FiLayers className="h-5 w-5" />}>Selected Projects</SectionLabel>
+                            <h2 className="text-3xl font-black text-white">Case studies over screenshots.</h2>
+                            <p className="mt-3 max-w-2xl text-sm leading-6 text-text-muted">
+                                Filtered around the kind of work recruiters need to evaluate: architecture, implementation, and project evidence.
+                            </p>
+                        </div>
+
+                        <div className="flex flex-wrap gap-2">
+                            {projectFilters.map((filter) => (
+                                <button
+                                    key={filter}
+                                    onClick={() => setActiveFilter(filter)}
+                                    className={cn(
+                                        'border px-3 py-2 text-xs font-semibold transition-colors',
+                                        activeFilter === filter
+                                            ? 'border-primary bg-primary text-slate-950'
+                                            : 'border-white/10 bg-white/[0.03] text-text-muted hover:border-primary/40 hover:text-white'
+                                    )}
+                                >
+                                    {filter.replace(' Engineering', '')}
+                                </button>
+                            ))}
+                        </div>
+                    </Motion.div>
+                </div>
+
+                {featuredProject && (
+                    <BentoItem className="md:col-span-4 lg:col-span-4 p-0" delay={0.1}>
+                        <div className="grid h-full md:grid-cols-[1.1fr_0.9fr]">
+                            <a href={featuredProject.liveUrl !== '#' ? featuredProject.liveUrl : featuredProject.repoUrl} target="_blank" rel="noreferrer" className="relative min-h-[280px] overflow-hidden">
+                                <img src={featuredProject.image} alt={featuredProject.title} loading="lazy" decoding="async" className="h-full w-full object-cover transition-transform duration-700 hover:scale-105" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/35 to-transparent" />
+                                <div className="absolute left-5 top-5 border border-primary/30 bg-slate-950/80 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-primary">
+                                    Featured {projectProof[featuredProject.categoryTag] ?? 'Project'}
+                                </div>
+                            </a>
+
+                            <div className="flex flex-col p-6">
+                                <div className="mb-4 flex items-center gap-2 text-primary">
+                                    <FiDatabase />
+                                    <span className="font-mono text-[10px] uppercase tracking-[0.2em]">{featuredProject.categoryTag}</span>
+                                </div>
+                                <h3 className="text-2xl font-black leading-tight text-white">{featuredProject.title}</h3>
+                                <p className="mt-4 text-sm leading-7 text-text-muted">{featuredProject.description}</p>
+
+                                <div className="mt-5 flex flex-wrap gap-2">
+                                    {featuredProject.tags.slice(0, 5).map((tag) => (
+                                        <span key={tag} className="border border-white/10 bg-white/[0.04] px-2.5 py-1 text-[11px] text-text-muted">
                                             {tag}
                                         </span>
                                     ))}
                                 </div>
+
+                                <div className="mt-auto flex gap-4 pt-6">
+                                    <a href={featuredProject.liveUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline">
+                                        <FiExternalLink /> Case Study
+                                    </a>
+                                    <a href={featuredProject.repoUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-sm font-semibold text-text-muted transition-colors hover:text-white">
+                                        <FiGithub /> Source
+                                    </a>
+                                </div>
                             </div>
+                        </div>
+                    </BentoItem>
+                )}
+
+                <BentoItem className="md:col-span-2 lg:col-span-2">
+                    <SectionLabel icon={<FiBriefcase className="h-5 w-5" />}>Project Lens</SectionLabel>
+                    <div className="space-y-4 text-sm leading-7 text-text-muted">
+                        <p>
+                            Data projects are framed as systems: ingestion, storage, transformation, serving, and the decision layer.
+                        </p>
+                        <p>
+                            Software projects show product delivery range: auth, API design, deployment constraints, and team leadership.
+                        </p>
+                    </div>
+                </BentoItem>
+
+                {supportingProjects.map((project, idx) => (
+                    <BentoItem
+                        key={project.id}
+                        className="md:col-span-2 lg:col-span-2 flex flex-col p-0"
+                        delay={0.15 + idx * 0.07}
+                    >
+                        <a href={project.liveUrl !== '#' ? project.liveUrl : project.repoUrl} target="_blank" rel="noreferrer" className="relative block h-44 overflow-hidden">
+                            <img src={project.image} alt={project.title} loading="lazy" decoding="async" className="h-full w-full object-cover transition-transform duration-700 hover:scale-105" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/45 to-transparent" />
+                            <span className="absolute right-4 top-4 border border-primary/25 bg-slate-950/80 px-3 py-1 font-mono text-[10px] text-primary">
+                                {project.categoryTag}
+                            </span>
                         </a>
-                        <div className="p-6 flex-1 flex flex-col">
-                            <h3 className="text-xl font-bold text-text-light mb-2 line-clamp-1">{project.title}</h3>
-                            <p className="text-text-muted text-sm line-clamp-2 md:line-clamp-3 mb-4">{project.description}</p>
-                            <div className="mt-auto flex gap-4">
-                                <a href={project.liveUrl} target="_blank" rel="noreferrer" className="flex items-center gap-1 text-xs font-mono text-primary hover:underline">
-                                    <FiExternalLink /> Live
+                        <div className="flex flex-1 flex-col p-5">
+                            <h3 className="text-lg font-bold leading-tight text-white">{project.title}</h3>
+                            <p className="mt-3 line-clamp-3 text-sm leading-6 text-text-muted">{project.description}</p>
+                            <div className="mt-4 flex flex-wrap gap-2">
+                                {project.tags.slice(0, 3).map((tag) => (
+                                    <span key={tag} className="border border-white/10 bg-white/[0.04] px-2 py-1 text-[10px] text-text-muted">
+                                        {tag}
+                                    </span>
+                                ))}
+                            </div>
+                            <div className="mt-auto flex gap-4 pt-5">
+                                <a href={project.liveUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 text-xs font-mono text-primary hover:underline">
+                                    <FiExternalLink /> Case
                                 </a>
-                                <a href={project.repoUrl} target="_blank" rel="noreferrer" className="flex items-center gap-1 text-xs font-mono text-text-muted hover:text-white transition-colors">
+                                <a href={project.repoUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 text-xs font-mono text-text-muted transition-colors hover:text-white">
                                     <FiGithub /> Source
                                 </a>
                             </div>
                         </div>
                     </BentoItem>
                 ))}
-
-                {/* See More Projects Link */}
-                <BentoItem className="md:col-span-2 lg:col-span-2 flex flex-col justify-center items-center bg-primary/5 hover:bg-primary/10 cursor-pointer group">
-                    <a href={SOCIAL_LINKS.github} target="_blank" rel="noreferrer" className="text-center">
-                        <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
-                            <FiGithub className="w-6 h-6 text-primary" />
-                        </div>
-                        <span className="font-bold text-text-light">Full Portfolio</span>
-                        <p className="text-xs text-text-muted mt-1">Visit my GitHub</p>
-                    </a>
-                </BentoItem>
-
             </div>
         </section>
     );
 };
 
 export default BentoGrid;
-

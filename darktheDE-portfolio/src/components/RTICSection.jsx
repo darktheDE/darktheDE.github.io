@@ -1,94 +1,98 @@
 import { useState } from 'react';
 import { motion as Motion, AnimatePresence } from 'framer-motion';
-import { FiExternalLink, FiUsers, FiGithub, FiGlobe, FiX } from 'react-icons/fi';
+import { FiExternalLink, FiGithub, FiUsers, FiX } from 'react-icons/fi';
 import { RTIC_INFO } from '../data/config';
+
+const impactItems = [
+    'Academic seminars and workshops',
+    'AI and software training',
+    'Real-world student projects',
+    'Academic contest preparation',
+];
 
 const RTICSection = () => {
     const [showLightbox, setShowLightbox] = useState(false);
 
     return (
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12" id="rtic">
+        <section className="mx-auto max-w-7xl scroll-mt-28 px-4 pb-12 sm:px-6 lg:px-8" id="rtic">
             <Motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="relative rounded-3xl overflow-hidden bg-gradient-to-r from-blue-900/30 to-primary/5 border border-white/5 px-8 py-6 md:px-12 md:py-8"
+                className="relative overflow-hidden border border-white/10 bg-slate-950/70 px-6 py-8 backdrop-blur-md md:px-10"
             >
-                <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:30px_30px] opacity-20 pointer-events-none"></div>
-                <div className="absolute -top-24 -right-24 w-64 h-64 bg-primary/10 rounded-full blur-[100px]"></div>
+                <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:30px_30px] opacity-20 pointer-events-none" />
 
-                <div className="relative z-10 grid md:grid-cols-2 gap-12 items-center">
-                    <div className="space-y-6">
-                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 font-mono text-[10px] border border-blue-500/20">
-                            <FiUsers /> Community & Leadership
+                <div className="relative z-10 grid gap-10 lg:grid-cols-[1fr_0.85fr] lg:items-center">
+                    <div>
+                        <div className="mb-5 inline-flex items-center gap-2 border border-blue-400/20 bg-blue-400/10 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.2em] text-blue-300">
+                            <FiUsers /> Community Leadership
                         </div>
-                        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-tight">
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-primary">{RTIC_INFO.name}</span>
+                        <h2 className="max-w-3xl text-3xl font-black leading-tight text-white sm:text-4xl">
+                            Building a technical community through {RTIC_INFO.name}.
                         </h2>
-                    <div className="text-text-muted text-sm sm:text-base leading-relaxed">
-                        As the <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-primary font-bold">{RTIC_INFO.role}</span>, I lead technical initiatives and mentor members in backend development and business analysis.
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-primary font-bold"> {RTIC_INFO.name} ({RTIC_INFO.fullName})</span> is where we transform ideas into impactful software solutions.
-                        
-                        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2 mt-4 text-xs sm:text-sm opacity-90">
-                            <li>• Academic seminars/workshops</li>
-                            <li>• AI & Software Training</li>
-                            <li>• Real-world AI projects</li>
-                            <li>• Academic contests</li>
-                        </ul>
-                    </div>
+                        <p className="mt-5 max-w-3xl text-sm leading-7 text-text-muted sm:text-base">
+                            As {RTIC_INFO.role}, I help lead technical initiatives, mentor members in backend and business analysis, and turn student ideas into software projects with clearer execution paths.
+                        </p>
 
-                        <div className="flex gap-8 pt-2">
-                            <div className="flex flex-col">
-                                <span className="text-3xl font-bold text-white leading-none">{RTIC_INFO.memberCount}</span>
-                                <span className="text-xs text-text-muted uppercase tracking-wider mt-1">Members</span>
+                        <div className="mt-7 grid gap-3 sm:grid-cols-2">
+                            {impactItems.map((item) => (
+                                <div key={item} className="border border-white/10 bg-white/[0.035] p-4 text-sm font-medium text-text-light">
+                                    {item}
+                                </div>
+                            ))}
+                        </div>
+
+                        <div className="mt-8 flex flex-wrap gap-4">
+                            <div className="border-r border-white/10 pr-6">
+                                <div className="text-3xl font-black text-white">{RTIC_INFO.memberCount}</div>
+                                <div className="mt-1 text-[10px] uppercase tracking-[0.2em] text-text-muted">Members</div>
                             </div>
-                            <div className="w-px bg-white/10 h-8"></div>
-                            <div className="flex flex-col">
-                                <span className="text-3xl font-bold text-white leading-none">{RTIC_INFO.projectCount}</span>
-                                <span className="text-xs text-text-muted uppercase tracking-wider mt-1">Projects</span>
+                            <div className="pr-4">
+                                <div className="text-3xl font-black text-white">{RTIC_INFO.projectCount}</div>
+                                <div className="mt-1 text-[10px] uppercase tracking-[0.2em] text-text-muted">Projects</div>
                             </div>
                         </div>
 
-                        <div className="pt-2 flex flex-wrap gap-4">
-                            <a href={RTIC_INFO.fanpage} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 px-5 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-sm font-medium transition-all shadow-lg">
+                        <div className="mt-8 flex flex-wrap gap-3">
+                            <a href={RTIC_INFO.fanpage} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 bg-blue-500 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-blue-400">
                                 <FiExternalLink /> Fanpage
                             </a>
-                            <a href={RTIC_INFO.github} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 px-5 py-2 bg-gray-800 hover:bg-gray-900 text-white border border-white/10 rounded-xl text-sm font-medium transition-all shadow-lg">
+                            <a href={RTIC_INFO.github} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 border border-white/10 bg-white/[0.04] px-5 py-3 text-sm font-semibold text-text-light transition-colors hover:border-primary/40 hover:text-primary">
                                 <FiGithub /> GitHub
                             </a>
                         </div>
                     </div>
 
-                    <div className="relative max-w-md mx-auto">
-
-
-
-                        <div
-                            className="aspect-square rounded-xl overflow-hidden shadow-2xl border border-white/10 group cursor-pointer"
-                            onClick={() => setShowLightbox(true)}
-                        >
-                            <img
-                                src="/assets/rtic/rtic-pers-pic.jpg"
-                                alt="Me at FIT Club's Day"
-                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                            <div className="absolute bottom-4 left-4 right-4">
-                                <p className="text-white font-medium text-sm drop-shadow-md font-bold">Me at FIT Club's Day</p>
-                            </div>
+                    <button
+                        type="button"
+                        className="group relative mx-auto w-full max-w-md overflow-hidden border border-white/10 text-left shadow-2xl shadow-black/30"
+                        onClick={() => setShowLightbox(true)}
+                        aria-label="Open RTIC photo"
+                    >
+                        <img
+                            src="/assets/rtic/rtic-pers-pic.jpg"
+                            alt="Me at FIT Club's Day"
+                            loading="lazy"
+                            decoding="async"
+                            className="aspect-square w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                        <div className="absolute bottom-4 left-4 right-4">
+                            <p className="font-semibold text-white">Me at FIT Club's Day</p>
+                            <p className="mt-1 text-xs text-text-muted">Leadership, community, and student technology culture.</p>
                         </div>
-                    </div>
+                    </button>
                 </div>
             </Motion.div>
 
-            {/* Lightbox */}
             <AnimatePresence>
                 {showLightbox && (
                     <Motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm p-4"
+                        className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 backdrop-blur-sm"
                         onClick={() => setShowLightbox(false)}
                     >
                         <Motion.div
@@ -96,23 +100,21 @@ const RTICSection = () => {
                             animate={{ scale: 1, opacity: 1 }}
                             exit={{ scale: 0.9, opacity: 0 }}
                             transition={{ type: 'spring', damping: 25 }}
-                            className="relative max-w-4xl max-h-[85vh] w-full"
+                            className="relative max-h-[85vh] w-full max-w-4xl"
                             onClick={(e) => e.stopPropagation()}
                         >
                             <img
                                 src="/assets/rtic/rtic-pers-pic.jpg"
                                 alt="Me at FIT Club's Day"
-                                className="w-full h-auto max-h-[80vh] object-contain rounded-xl"
+                                decoding="async"
+                                className="max-h-[80vh] w-full object-contain"
                             />
-                            <p className="text-center text-text-light text-sm mt-3 font-medium">
-                                Me at FIT Club's Day
-                            </p>
                             <button
                                 onClick={() => setShowLightbox(false)}
-                                className="absolute -top-12 right-0 text-text-muted hover:text-white transition-colors p-2"
+                                className="absolute -top-12 right-0 p-2 text-text-muted transition-colors hover:text-white"
                                 aria-label="Close"
                             >
-                                <FiX className="w-6 h-6" />
+                                <FiX className="h-6 w-6" />
                             </button>
                         </Motion.div>
                     </Motion.div>
@@ -123,4 +125,3 @@ const RTICSection = () => {
 };
 
 export default RTICSection;
-
