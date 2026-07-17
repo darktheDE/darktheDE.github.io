@@ -40,17 +40,7 @@ export const skillCategories = [
         ]
     },
     {
-        title: "Frontend & UI",
-        skills: [
-            { name: "Next.js", icon: SiNextdotjs, color: "text-white" },
-            { name: "React", icon: FaReact, color: "text-blue-400" },
-            { name: "Tailwind CSS", icon: SiTailwindcss, color: "text-teal-400" },
-            { name: "shadcn/ui", icon: FaCode, color: "text-white" },
-            { name: "Vite", icon: SiVite, color: "text-purple-400" }
-        ]
-    },
-    {
-        title: "Cloud & Methodology",
+        title: "Cloud & DataOps",
         skills: [
             { name: "AWS", icon: SiAmazonwebservices, color: "text-orange-400" },
             { name: "Docker", icon: FaDocker, color: "text-blue-500" },
@@ -58,7 +48,6 @@ export const skillCategories = [
             { name: "GitHub", icon: FaGithub, color: "text-gray-200" },
             { name: "Linux", icon: FaLinux, color: "text-gray-200" },
             { name: "Agile/Scrum", icon: VscAzureDevops, color: "text-blue-500" }
-
         ]
     }
 ];

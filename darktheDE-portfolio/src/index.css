@@ -12,8 +12,10 @@ html {
 }
 
 body {
-    background-color: #020617; /* Slate 950 */
-    color: #F8FAFC; /* Slate 50 */
+    background-color: #020617;
+    /* Slate 950 */
+    color: #F8FAFC;
+    /* Slate 50 */
     font-family: 'Inter', sans-serif;
     overflow-x: hidden;
     text-rendering: optimizeLegibility;
@@ -59,22 +61,26 @@ button:focus-visible {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #1e293b; /* Slate 800 */
+    background: #1e293b;
+    /* Slate 800 */
     border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #10B981; /* Emerald 500 */
+    background: #10B981;
+    /* Emerald 500 */
 }
 
 .glass {
-    background: rgba(15, 23, 42, 0.4); /* Slate 900 */
+    background: rgba(15, 23, 42, 0.4);
+    /* Slate 900 */
     backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .glass-card {
-    background: rgba(15, 23, 42, 0.7); /* Slate 900 */
+    background: rgba(15, 23, 42, 0.7);
+    /* Slate 900 */
     backdrop-filter: blur(16px);
     border: 1px solid rgba(16, 185, 129, 0.1);
     box-shadow: 0 10px 30px -15px rgba(2, 6, 23, 0.5);
@@ -105,6 +111,7 @@ button:focus-visible {
 }
 
 @media (prefers-reduced-motion: reduce) {
+
     *,
     *::before,
     *::after {

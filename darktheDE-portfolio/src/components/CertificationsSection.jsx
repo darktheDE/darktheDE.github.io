@@ -87,9 +87,6 @@ const CertificationsSection = () => {
                             <span className="font-mono text-xs uppercase tracking-[0.22em]">Certifications & Awards</span>
                         </div>
                         <h2 className="text-3xl font-black text-white">Evidence, grouped for scanning.</h2>
-                        <p className="mt-3 max-w-2xl text-sm leading-6 text-text-muted">
-                            Certificates and awards are organized by signal type so the section reads like proof, not a loose gallery.
-                        </p>
                     </div>
 
                     <div className="flex flex-wrap gap-2">

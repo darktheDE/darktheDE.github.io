@@ -28,7 +28,7 @@ function App() {
       <main id="main-content" className="relative z-10 space-y-10 pb-20">
         <Hero />
         <BentoGrid />
-        
+
         <Suspense fallback={<div className="h-40 flex items-center justify-center text-text-muted font-mono text-xs italic">Loading section...</div>}>
           <RTICSection />
           <CertificationsSection />

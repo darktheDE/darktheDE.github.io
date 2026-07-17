@@ -1,6 +1,6 @@
 import { useMemo, useState, useEffect } from 'react';
 import { motion as Motion, AnimatePresence } from 'framer-motion';
-import { FiArrowRight, FiBriefcase, FiCode, FiDatabase, FiExternalLink, FiGithub, FiLayers, FiTarget, FiUser } from 'react-icons/fi';
+import { FiArrowRight, FiCode, FiDatabase, FiExternalLink, FiGithub, FiLayers, FiTarget, FiUser, FiX, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import { skillCategories } from '../data/skills';
 import { projects } from '../data/projectsData';
 import { PERSONAL_INFO, SOCIAL_LINKS } from '../data/config';
@@ -18,18 +18,9 @@ const profileImages = [
 ];
 
 const operatingProfile = [
-    {
-        title: 'Data Systems',
-        body: 'Designing lakehouse pipelines, DWH models, and analytics layers that make raw data usable.',
-    },
-    {
-        title: 'Backend Thinking',
-        body: 'Building services with clear contracts, auth flows, database design, and deployment constraints in mind.',
-    },
-    {
-        title: 'AI Workflow',
-        body: 'Using agents and AI-assisted planning to speed up research, documentation, and implementation loops.',
-    },
+    { title: 'Data Systems' },
+    { title: 'Backend Thinking' },
+    { title: 'AI Workflow' },
 ];
 
 const projectFilters = ['All', 'Data Engineering', 'Software Engineering', 'Machine Learning'];
@@ -66,6 +57,7 @@ const SectionLabel = ({ icon, children }) => (
 const BentoGrid = () => {
     const [currentImageIdx, setCurrentImageIdx] = useState(0);
     const [activeFilter, setActiveFilter] = useState('All');
+    const [selectedProjectIdx, setSelectedProjectIdx] = useState(null);
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -74,6 +66,10 @@ const BentoGrid = () => {
         return () => clearInterval(interval);
     }, []);
 
+    useEffect(() => {
+        setSelectedProjectIdx(null);
+    }, [activeFilter]);
+
     const filteredProjects = useMemo(() => {
         if (activeFilter === 'All') return projects;
         return projects.filter((project) => project.categoryTag === activeFilter);
@@ -81,6 +77,11 @@ const BentoGrid = () => {
 
     const featuredProject = filteredProjects[0] ?? projects[0];
     const supportingProjects = filteredProjects.slice(1);
+
+    const selectedProject = selectedProjectIdx !== null ? filteredProjects[selectedProjectIdx] : null;
+    const closeProjectLightbox = () => setSelectedProjectIdx(null);
+    const goPrevProject = () => setSelectedProjectIdx((prev) => (prev > 0 ? prev - 1 : filteredProjects.length - 1));
+    const goNextProject = () => setSelectedProjectIdx((prev) => (prev < filteredProjects.length - 1 ? prev + 1 : 0));
 
     return (
         <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8" id="bento">
@@ -114,9 +115,8 @@ const BentoGrid = () => {
                             </h2>
                             <div className="mt-5 grid gap-3 sm:grid-cols-3">
                                 {operatingProfile.map((item) => (
-                                    <div key={item.title} className="border border-white/10 bg-white/[0.035] p-4">
-                                        <h3 className="text-sm font-bold text-white">{item.title}</h3>
-                                        <p className="mt-2 text-xs leading-6 text-text-muted">{item.body}</p>
+                                    <div key={item.title} className="border border-white/10 bg-white/[0.035] p-4 flex items-center justify-center min-h-[64px]">
+                                        <h3 className="text-sm font-bold text-white text-center">{item.title}</h3>
                                     </div>
                                 ))}
                             </div>
@@ -146,12 +146,9 @@ const BentoGrid = () => {
                             <SectionLabel icon={<FiCode className="h-5 w-5" />}>Technical Stack</SectionLabel>
                             <h2 className="max-w-2xl text-2xl font-black text-white sm:text-3xl">Tools grouped by the work they support.</h2>
                         </div>
-                        <p className="max-w-md text-sm leading-6 text-text-muted">
-                            The emphasis is on data platforms first, with enough backend and UI range to ship complete products.
-                        </p>
                     </div>
 
-                    <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+                    <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
                         {skillCategories.map((category) => (
                             <div key={category.title} className="border border-white/10 bg-slate-950/50 p-5">
                                 <h3 className="font-mono text-xs uppercase tracking-[0.2em] text-primary">{category.title}</h3>
@@ -178,9 +175,6 @@ const BentoGrid = () => {
                         <div>
                             <SectionLabel icon={<FiLayers className="h-5 w-5" />}>Selected Projects</SectionLabel>
                             <h2 className="text-3xl font-black text-white">Case studies over screenshots.</h2>
-                            <p className="mt-3 max-w-2xl text-sm leading-6 text-text-muted">
-                                Filtered around the kind of work recruiters need to evaluate: architecture, implementation, and project evidence.
-                            </p>
                         </div>
 
                         <div className="flex flex-wrap gap-2">
@@ -203,15 +197,19 @@ const BentoGrid = () => {
                 </div>
 
                 {featuredProject && (
-                    <BentoItem className="md:col-span-4 lg:col-span-4 p-0" delay={0.1}>
+                    <BentoItem className="md:col-span-4 lg:col-span-6 p-0" delay={0.1}>
                         <div className="grid h-full md:grid-cols-[1.1fr_0.9fr]">
-                            <a href={featuredProject.liveUrl !== '#' ? featuredProject.liveUrl : featuredProject.repoUrl} target="_blank" rel="noreferrer" className="relative min-h-[280px] overflow-hidden">
-                                <img src={featuredProject.image} alt={featuredProject.title} loading="lazy" decoding="async" className="h-full w-full object-cover transition-transform duration-700 hover:scale-105" />
+                            <button
+                                type="button"
+                                onClick={() => setSelectedProjectIdx(0)}
+                                className="relative min-h-[280px] overflow-hidden w-full text-left cursor-zoom-in group"
+                            >
+                                <img src={featuredProject.image} alt={featuredProject.title} loading="lazy" decoding="async" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
                                 <div className="absolute inset-0 bg-gradient-to-t from-background via-background/35 to-transparent" />
                                 <div className="absolute left-5 top-5 border border-primary/30 bg-slate-950/80 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-primary">
                                     Featured {projectProof[featuredProject.categoryTag] ?? 'Project'}
                                 </div>
-                            </a>
+                            </button>
 
                             <div className="flex flex-col p-6">
                                 <div className="mb-4 flex items-center gap-2 text-primary">
@@ -242,31 +240,23 @@ const BentoGrid = () => {
                     </BentoItem>
                 )}
 
-                <BentoItem className="md:col-span-2 lg:col-span-2">
-                    <SectionLabel icon={<FiBriefcase className="h-5 w-5" />}>Project Lens</SectionLabel>
-                    <div className="space-y-4 text-sm leading-7 text-text-muted">
-                        <p>
-                            Data projects are framed as systems: ingestion, storage, transformation, serving, and the decision layer.
-                        </p>
-                        <p>
-                            Software projects show product delivery range: auth, API design, deployment constraints, and team leadership.
-                        </p>
-                    </div>
-                </BentoItem>
-
                 {supportingProjects.map((project, idx) => (
                     <BentoItem
                         key={project.id}
                         className="md:col-span-2 lg:col-span-2 flex flex-col p-0"
                         delay={0.15 + idx * 0.07}
                     >
-                        <a href={project.liveUrl !== '#' ? project.liveUrl : project.repoUrl} target="_blank" rel="noreferrer" className="relative block h-44 overflow-hidden">
-                            <img src={project.image} alt={project.title} loading="lazy" decoding="async" className="h-full w-full object-cover transition-transform duration-700 hover:scale-105" />
+                        <button
+                            type="button"
+                            onClick={() => setSelectedProjectIdx(idx + 1)}
+                            className="relative block h-44 w-full overflow-hidden text-left cursor-zoom-in group"
+                        >
+                            <img src={project.image} alt={project.title} loading="lazy" decoding="async" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
                             <div className="absolute inset-0 bg-gradient-to-t from-background via-background/45 to-transparent" />
                             <span className="absolute right-4 top-4 border border-primary/25 bg-slate-950/80 px-3 py-1 font-mono text-[10px] text-primary">
                                 {project.categoryTag}
                             </span>
-                        </a>
+                        </button>
                         <div className="flex flex-1 flex-col p-5">
                             <h3 className="text-lg font-bold leading-tight text-white">{project.title}</h3>
                             <p className="mt-3 line-clamp-3 text-sm leading-6 text-text-muted">{project.description}</p>
@@ -289,6 +279,99 @@ const BentoGrid = () => {
                     </BentoItem>
                 ))}
             </div>
+
+            <AnimatePresence>
+                {selectedProject && (
+                    <Motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 p-4 backdrop-blur-sm overflow-y-auto"
+                        onClick={closeProjectLightbox}
+                    >
+                        <Motion.div
+                            initial={{ scale: 0.9, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            exit={{ scale: 0.9, opacity: 0 }}
+                            transition={{ type: 'spring', damping: 25 }}
+                            className="relative w-full max-w-3xl bg-slate-950 border border-white/10 p-6 flex flex-col gap-5 shadow-2xl overflow-y-auto max-h-[90vh]"
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            <div className="relative aspect-[16/9] w-full overflow-hidden border border-white/5 bg-slate-900">
+                                <img
+                                    src={selectedProject.image}
+                                    alt={selectedProject.title}
+                                    decoding="async"
+                                    className="h-full w-full object-cover"
+                                />
+                                <span className="absolute right-4 top-4 border border-primary/25 bg-slate-950/80 px-3 py-1 font-mono text-[10px] text-primary">
+                                    {selectedProject.categoryTag}
+                                </span>
+                            </div>
+
+                            <div className="space-y-3">
+                                <h3 className="text-xl sm:text-2xl font-black text-white leading-tight">
+                                    {selectedProject.title}
+                                </h3>
+                                <p className="text-sm sm:text-base leading-7 text-text-muted">
+                                    {selectedProject.description}
+                                </p>
+                            </div>
+
+                            <div className="flex flex-wrap gap-2">
+                                {selectedProject.tags.map((tag) => (
+                                    <span key={tag} className="border border-white/10 bg-white/[0.04] px-2.5 py-1 text-[11px] text-text-muted">
+                                        {tag}
+                                    </span>
+                                ))}
+                            </div>
+
+                            <div className="mt-2 flex flex-wrap gap-4 border-t border-white/10 pt-4">
+                                <a
+                                    href={selectedProject.liveUrl}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    className="inline-flex items-center gap-2 bg-primary px-5 py-2.5 text-xs font-mono font-semibold text-slate-950 shadow-lg shadow-primary/20 transition-all hover:bg-accent hover:shadow-primary/30"
+                                >
+                                    <FiExternalLink /> Case Study
+                                </a>
+                                <a
+                                    href={selectedProject.repoUrl}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    className="inline-flex items-center gap-2 border border-white/10 bg-white/[0.03] px-5 py-2.5 text-xs font-mono font-semibold text-text-muted backdrop-blur-md transition-all hover:border-white/20 hover:text-white"
+                                >
+                                    <FiGithub /> Source Code
+                                </a>
+                            </div>
+
+                            <button
+                                onClick={closeProjectLightbox}
+                                className="absolute top-4 right-4 bg-white/5 p-2 text-text-muted transition-colors hover:text-white"
+                                aria-label="Close"
+                            >
+                                <FiX className="h-5 w-5" />
+                            </button>
+
+                            {/* Navigation Arrows */}
+                            <button
+                                onClick={(e) => { e.stopPropagation(); goPrevProject(); }}
+                                className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/70 border border-white/10 p-2 text-text-muted backdrop-blur-sm transition-colors hover:text-white hover:border-primary/45 hidden md:block"
+                                aria-label="Previous"
+                            >
+                                <FiChevronLeft className="h-6 w-6" />
+                            </button>
+                            <button
+                                onClick={(e) => { e.stopPropagation(); goNextProject(); }}
+                                className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/70 border border-white/10 p-2 text-text-muted backdrop-blur-sm transition-colors hover:text-white hover:border-primary/45 hidden md:block"
+                                aria-label="Next"
+                            >
+                                <FiChevronRight className="h-6 w-6" />
+                            </button>
+                        </Motion.div>
+                    </Motion.div>
+                )}
+            </AnimatePresence>
         </section>
     );
 };
