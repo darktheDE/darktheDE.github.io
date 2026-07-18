@@ -1,0 +1,151 @@
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[left=0.5in, right=0.5in, top=0.5in, bottom=0.5in]{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xcolor}
+
+% Setup hyperlink colors
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=black,      
+    urlcolor=black,
+}
+
+% Section formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large\bfseries
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Custom commands for CV structuring
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \small#2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+\begin{document}
+
+%----------HEADING-----------------
+\begin{center}
+    {\Huge \textbf{DO KIEN HUNG}} \\ \vspace{5pt}
+    Ho Chi Minh City, Vietnam \\
+    \small +84 379 481 633 $|$ \href{mailto:dkh1105.work@gmail.com}{\underline{dkh1105.work@gmail.com}} \\
+    \href{https://www.linkedin.com/in/darkthede/}{\underline{linkedin.com/in/darkthede}} $|$
+    \href{https://github.com/darktheDE}{\underline{github.com/darktheDE}} $|$
+    \href{https://darkthede.github.io/}{\underline{darkthede.github.io}}
+\end{center}
+
+%-----------SUMMARY-----------------
+\section{Summary}
+Software Engineering student with a focus on building high-performance, secure, and scalable web applications. Experienced in architecting monolithic and modular systems using Spring Boot and Next.js, with a strong emphasis on security (JWT, OAuth2) and optimized user experiences. Proven Project Manager adept at leading large cross-functional teams using Agile/Scrum methodologies. Committed to clean code, robust system design, and continuous technical innovation.
+
+%-----------EDUCATION-----------------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Ho Chi Minh City University of Technology and Engineering (HCM-UTE)}{HCMC, Vietnam}
+      {Bachelor of Engineering in Data Engineering $|$ \textbf{Current GPA: 8.41/10.0}}{Sep 2023 -- Expected 2027}
+      \resumeItemListStart
+        \resumeItem{Awarded Semester 1 -- Year 1 Scholarship for Academic Excellence (GPA 8.79/10.0).}
+        \resumeItem{Core Coursework: Software Engineering, Web Programming, Data Structures \& Algorithms, Database Systems, Distributed Systems, OOP, Big Data Analytics.}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+%-----------SKILLS-----------------
+\section{Technical Skills}
+  \resumeSubHeadingListStart
+    \resumeItemListStart
+        \resumeItem{\textbf{Backend:} Java (Spring Boot 3.x), RESTful API, Spring Security (JWT, OAuth2), Hibernate.}
+        \resumeItem{\textbf{Frontend:} TypeScript, Next.js (App Router), React 19, Tailwind CSS, Zustand, Framer Motion.}
+        \resumeItem{\textbf{Database \& Cache:} PostgreSQL, Redis (Session/Cart management), SQL Server, MinIO (S3).}
+        \resumeItem{\textbf{DevOps \& Tools:} Docker, Docker Compose, Linux, Git/GitHub, Agile/Scrum (Plane.so), CI/CD.}
+    \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+%-----------EXPERIENCE-----------------
+\section{Experience}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Teaching Assistant -- Database Systems}{HCMC, Vietnam}
+      {Ho Chi Minh City University of Technology and Engineering (HCM-UTE)}{Oct 2025 -- Present}
+      \resumeItemListStart
+        \resumeItem{Assisting in teaching relational database design (ERD), normalization, and SQL optimization for 200+ students.}
+        \resumeItem{Guiding students in implementing complex queries and understanding internal database execution plans.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Freelance Business Analyst \& Software Planner}{Remote}
+      {Requirement Management \& Documentation}{Jul 2025 -- Present}
+      \resumeItemListStart
+        \resumeItem{Elicited technical requirements and drafted Business Requirement Documents (BRDs) for diverse clients.}
+        \resumeItem{\textbf{Key Projects:} Din Ky Restaurant Management, B2B Pharmacy E-commerce, Zalo Mini App.}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+%-----------PROJECTS-----------------
+\section{Projects}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {UTE PhoneHub (E-commerce Platform)}{Java, Spring Boot, Next.js, Redis, PostgreSQL}
+      {Project Manager \& Core Developer $|$ \href{https://github.com/darktheDE/ute-phonehub}{\underline{GitHub}} }{Oct 2025 -- Jan 2026}
+      \resumeItemListStart
+        \resumeItem{Led a 10-member team through 4 Agile sprints to deliver a modern e-commerce hub with BFF architecture.}
+        \resumeItem{Engineered the security layer using Spring Security 6, implementing stateless JWT authentication and Google OAuth2 integration for seamless user onboarding.}
+        \resumeItem{Developed the Product Reviews and Ratings module with dynamic filtering and PostgreSQL JSONB attributes.}
+        \resumeItem{Optimized frontend performance using Next.js Server Components and Streaming SSR (FCP $<$ 1s).}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Olist E-Commerce Infrastructure}{Docker, MinIO, Spark, Agile/Scrum}
+      {Software Architect \& Team Lead $|$ \href{https://github.com/darktheDE/Olist-E-Commerce-Lakehouse}{\underline{GitHub}} $|$ \href{https://sites.plane.so/issues/fb4056e1975041fb96f169aff25798e6}{\underline{Plane.so}}}{March 2026 -- Apr 2026}
+      \resumeItemListStart
+        \resumeItem{Designed and deployed a containerized data infrastructure using Docker Compose, orchestrating Spark clusters, MinIO (S3-compatible storage), and Hive Metastore.}
+        \resumeItem{Managed the project lifecycle on Plane.so, coordinating task distribution and sprint planning for a cross-functional team under strict Agile principles.}
+        \resumeItem{Implemented S3-compatible storage layers using MinIO to handle unstructured data ingestion and storage.}
+      \resumeItemListEnd
+
+
+  \resumeSubHeadingListEnd
+
+
+
+%-----------LEADERSHIP & ACTIVITIES-----------------
+\section{Leadership \& Activities}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {HCMUTE RTIC (University Academic Club) $|$ \href{https://www.facebook.com/hcmute.rtic}{\underline{Facebook}}}{HCM City, Vietnam}
+      {Vice Leader and Co-Founder}{May 2025 -- Present}
+      \resumeItemListStart
+        \resumeItem{Leading academic initiatives and managing internal technical projects: \textit{hcmutertic.com Web Hub} (Lead BA/BE), and \textit{HCMUTE Wellness App} (BA/FE).}
+        \resumeItem{Coordinating technical workshops and mentoring members in algorithm design and server management.}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+%-----------CERTIFICATIONS & AWARDS-----------------
+\section{Certifications \& Awards}
+ \begin{itemize}[leftmargin=0.15in, itemsep=-2pt]
+    \item \small \textbf{Hackathon FIT-HCMUTE 2025:} Consolation Prize
+    \item \small \textbf{AWS Academy Graduate:} Data Engineering $|$ Cloud Web App Builder $|$ Cloud Foundations.
+    \item \small \textbf{Google Career Certificates:} AI Essentials $|$ Crash Course on Python.
+    \item \small \textbf{Gemini Certified Student} $|$ \textbf{Scholarship for Academic Excellence} (Semester 1 - Year 1).
+ \end{itemize}
+
+\end{document}

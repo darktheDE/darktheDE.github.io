@@ -1,0 +1,158 @@
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[left=0.5in, right=0.5in, top=0.5in, bottom=0.5in]{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xcolor}
+
+% Setup hyperlink colors
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=black,      
+    urlcolor=black,
+}
+
+% Section formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large\bfseries
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Custom commands for CV structuring
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \small#2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+\begin{document}
+
+%----------HEADING-----------------
+\begin{center}
+    {\Huge \textbf{DO KIEN HUNG}} \\ \vspace{5pt}
+    Ho Chi Minh City, Vietnam \\
+    \small +84 379 481 633 $|$ \href{mailto:dkh1105.work@gmail.com}{\underline{dkh1105.work@gmail.com}} \\
+    \href{https://www.linkedin.com/in/darkthede/}{\underline{linkedin.com/in/darkthede}} $|$
+    \href{https://github.com/darktheDE}{\underline{github.com/darktheDE}} $|$
+    \href{https://darkthede.github.io/}{\underline{darkthede.github.io}}
+\end{center}
+
+%-----------SUMMARY-----------------
+\section{Summary}
+Data Engineering student specializing in building scalable data architectures and automated ETL/ELT pipelines. Experienced in implementing Medallion architectures using Spark, Iceberg, and Airflow, as well as enterprise-grade Data Warehousing with the Microsoft SQL Server stack. Proficient in Kimball dimensional modeling and incremental loading strategies. Passionate about architecting data intelligence to drive high-performance analytical insights.
+
+%-----------EDUCATION-----------------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Ho Chi Minh City University of Technology and Engineering (HCM-UTE)}{HCMC, Vietnam}
+      {Bachelor of Engineering in Data Engineering $|$ \textbf{Current GPA: 8.41/10.0}}{Sep 2023 -- Expected 2027}
+      \resumeItemListStart
+        \resumeItem{Awarded Semester 1 -- Year 1 Scholarship for Academic Excellence (GPA 8.79/10.0).}
+        \resumeItem{Core Coursework: Database Systems, Data Structures \& Algorithms, Data Warehouse, Big Data Analytics, Distributed Systems, Software Engineering, OOP.}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+%-----------SKILLS-----------------
+\section{Technical Skills}
+  \resumeSubHeadingListStart
+    \resumeItemListStart
+        \resumeItem{\textbf{Data Engineering:} Apache Spark (PySpark), Apache Iceberg, Delta Lake, Trino, MinIO (S3), Hive Metastore.}
+        \resumeItem{\textbf{ETL/Orchestration:} Apache Airflow, SQL Server Integration Services (SSIS), MS SQL Server, PostgreSQL.}
+        \resumeItem{\textbf{Analytics \& BI:} SQL Server Analysis Services (SSAS - OLAP), Power BI (DAX), Superset, Kimball Methodology.}
+        \resumeItem{\textbf{Tools \& Infrastructure:} Docker, Linux, Git/GitHub, Agile/Scrum (Plane.so), Prompt/Context Engineering.}
+    \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+%-----------EXPERIENCE-----------------
+\section{Experience}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Teaching Assistant -- Database Systems}{HCMC, Vietnam}
+      {Ho Chi Minh City University of Technology and Engineering (HCM-UTE)}{Oct 2025 -- Present}
+      \resumeItemListStart
+        \resumeItem{Assisting in teaching relational database design (ERD), normalization, and SQL optimization for 200+ students.}
+        \resumeItem{Guiding students in implementing complex queries and understanding internal database execution plans.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Freelance Business Analyst \& Software Planner}{Remote}
+      {Requirement Management \& Documentation}{Jul 2025 -- Present}
+      \resumeItemListStart
+        \resumeItem{Elicited technical requirements and drafted Data-focused Requirement Documents for diverse clients.}
+        \resumeItem{\textbf{Key Projects:} Din Ky Restaurant Management (Inventory Data Flow), B2B Pharmacy E-commerce.}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+%-----------PROJECTS-----------------
+\section{Projects}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Healthcare Data Lakehouse: COVID-19 Analytics}{Spark, Iceberg, Airflow, Trino, MinIO}
+      {Lead Data Engineer $|$ \href{https://github.com/darktheDE/healthcare-lakehouse-covid19}{\underline{GitHub}} $|$ \href{https://sites.plane.so/issues/b18b3636a9c44636aea91add184a8ed9}{\underline{Plane.so}}}{March 2026 -- April 2026}
+      \resumeItemListStart
+        \resumeItem{Architected a decoupled Data Lakehouse environment using Docker to process 100K+ simulated patient records.}
+        \resumeItem{Engineered the Medallion Architecture (Bronze layer) using Apache Spark to write data in Apache Iceberg format, ensuring ACID compliance and schema evolution.}
+        \resumeItem{Designed automated batch ingestion pipelines via Airflow from PostgreSQL to MinIO, and configured Trino as a distributed SQL engine for high-speed analytical serving.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Olist E-Commerce Lakehouse}{Spark, Delta Lake, Airflow, Superset, MinIO}
+      {Lead Data Engineer $|$ \href{https://github.com/darktheDE/Olist-E-Commerce-Lakehouse}{\underline{GitHub}} $|$ \href{https://sites.plane.so/issues/fb4056e1975041fb96f169aff25798e6}{\underline{Plane.so}}}{March 2026 -- April 2026}
+      \resumeItemListStart
+        \resumeItem{Built a Medallion Architecture (Bronze, Silver, Gold) on a Dockerized Spark cluster to process 100K+ records.}
+        \resumeItem{Implemented automated ETL pipelines with Airflow, transforming raw data into Delta Lake format on S3 (MinIO) with Hive Metastore for SQL-based management.}
+        \resumeItem{Developed the Gold layer for customer segmentation (RFM analysis) and sales views to support high-performance BI.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Airline Operations \& Asset Health Data Warehouse}{SQL Server, SSIS, SSAS, Power BI}
+      {Project Lead \& Data Architect $|$ \href{https://github.com/darktheDE/airline-dwh}{\underline{GitHub}} $|$ \href{https://sites.plane.so/issues/a203be26250d4345ac261041dca5f80b}{\underline{Plane.so}}}{March 2026 -- April 2026}
+      \resumeItemListStart
+        \resumeItem{Implemented a Kimball Lifecycle Data Warehouse correlating 2015 U.S. flight logs with technical FAA Registry data.}
+        \resumeItem{Developed a robust SSIS ETL pipeline with Incremental Loading (Watermark logic) and SCD Type 2 management for asset technical specifications.}
+        \resumeItem{Designed an SSAS Multidimensional Cube (OLAP) with Fact grains for Financial Loss, Delay Root Cause, and Ground Turnaround Efficiency to provide sub-second analytical querying.}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+
+
+%-----------LEADERSHIP & ACTIVITIES-----------------
+\section{Leadership \& Activities}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {HCMUTE RTIC (University Academic Club) $|$ \href{https://www.facebook.com/hcmute.rtic}{\underline{Facebook}}}{HCM City, Vietnam}
+      {Vice Leader and Co-Founder}{May 2025 -- Present}
+      \resumeItemListStart
+        \resumeItem{Leading academic initiatives and managing internal technical projects: \textit{hcmutertic.com Web Hub} (Lead BA/BE), and \textit{HCMUTE Wellness App} (BA/FE).}
+        \resumeItem{Coordinating technical workshops and mentoring members in algorithm design and server management.}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+%-----------CERTIFICATIONS & AWARDS-----------------
+\section{Certifications \& Awards}
+ \begin{itemize}[leftmargin=0.15in, itemsep=-2pt]
+    \item \small \textbf{Hackathon FIT-HCMUTE 2025:} Consolation Prize
+    \item \small \textbf{AWS Academy Graduate:} Data Engineering $|$ Cloud Web App Builder $|$ Cloud Foundations.
+    \item \small \textbf{Google Career Certificates:} AI Essentials $|$ Crash Course on Python.
+    \item \small \textbf{Gemini Certified Student} $|$ \textbf{Scholarship for Academic Excellence} (Semester 1 - Year 1).
+ \end{itemize}
+
+\end{document}

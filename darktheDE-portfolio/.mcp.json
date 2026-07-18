@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json.schemastore.org/claude-mcp.json",
+  "mcpServers": {
+    "github": {
+      "type": "http",
+      "url": "https://api.github.com/mcp",
+      "description": "GitHub API for repository management, issues, and pull requests"
+    },
+    "filesystem": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "./src", "./public"],
+      "description": "File system access for reading and writing project files"
+    }
+  }
+}
