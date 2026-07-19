@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion as Motion, AnimatePresence } from 'framer-motion';
 import { FiExternalLink, FiGithub, FiUsers, FiX } from 'react-icons/fi';
 import { RTIC_INFO } from '../data/config';
+import { trackOutboundLink } from '../utils/analytics';
 
 const impactItems = [
     'Academic seminars and workshops',
@@ -55,10 +56,22 @@ const RTICSection = () => {
                         </div>
 
                         <div className="mt-8 flex flex-wrap gap-3">
-                            <a href={RTIC_INFO.fanpage} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 bg-blue-500 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-blue-400">
+                            <a
+                              href={RTIC_INFO.fanpage}
+                              target="_blank"
+                              rel="noreferrer"
+                              onClick={() => trackOutboundLink(RTIC_INFO.fanpage, 'RTIC Fanpage')}
+                              className="inline-flex items-center gap-2 bg-blue-500 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-blue-400"
+                            >
                                 <FiExternalLink /> Fanpage
                             </a>
-                            <a href={RTIC_INFO.github} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 border border-white/10 bg-white/[0.04] px-5 py-3 text-sm font-semibold text-text-light transition-colors hover:border-primary/40 hover:text-primary">
+                            <a
+                              href={RTIC_INFO.github}
+                              target="_blank"
+                              rel="noreferrer"
+                              onClick={() => trackOutboundLink(RTIC_INFO.github, 'RTIC GitHub')}
+                              className="inline-flex items-center gap-2 border border-white/10 bg-white/[0.04] px-5 py-3 text-sm font-semibold text-text-light transition-colors hover:border-primary/40 hover:text-primary"
+                            >
                                 <FiGithub /> GitHub
                             </a>
                         </div>

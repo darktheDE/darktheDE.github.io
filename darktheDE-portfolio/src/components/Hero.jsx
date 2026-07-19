@@ -1,6 +1,7 @@
 import { motion as Motion } from 'framer-motion';
 import { FiArrowRight, FiBookOpen, FiDownload } from 'react-icons/fi';
 import { PERSONAL_INFO, SOCIAL_LINKS, ASSETS } from '../data/config';
+import { trackCTA, trackOutboundLink, trackFileDownload } from '../utils/analytics';
 
 const focusAreas = ['Spark', 'Airflow', 'Lakehouse', 'Backend', 'AI Agents'];
 
@@ -39,6 +40,7 @@ const Hero = () => {
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <a
               href="#projects"
+              onClick={() => trackCTA('View Data Projects', 'hero')}
               className="inline-flex items-center justify-center gap-2 bg-primary px-6 py-3 font-semibold text-slate-950 shadow-lg shadow-primary/20 transition-all hover:bg-accent hover:shadow-primary/30"
             >
               View Data Projects <FiArrowRight className="shrink-0" />
@@ -46,6 +48,7 @@ const Hero = () => {
             <a
               href={ASSETS.cvData}
               download
+              onClick={() => trackFileDownload('Data CV', 'pdf')}
               className="inline-flex items-center justify-center gap-2 border border-primary/30 bg-surface/70 px-6 py-3 font-semibold text-primary backdrop-blur-md transition-all hover:border-primary hover:bg-primary/10"
             >
               <FiDownload className="shrink-0" /> Download Data CV
@@ -54,6 +57,7 @@ const Hero = () => {
               href={SOCIAL_LINKS.blog}
               target="_blank"
               rel="noreferrer"
+              onClick={() => trackOutboundLink(SOCIAL_LINKS.blog, 'Blog')}
               className="inline-flex items-center justify-center gap-2 border border-white/10 bg-white/[0.03] px-6 py-3 font-semibold text-text-muted backdrop-blur-md transition-all hover:border-white/20 hover:text-white"
             >
               <FiBookOpen className="shrink-0" /> Blog

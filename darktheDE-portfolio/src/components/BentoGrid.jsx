@@ -5,6 +5,7 @@ import { skillCategories } from '../data/skills';
 import { projects } from '../data/projectsData';
 import { PERSONAL_INFO, SOCIAL_LINKS } from '../data/config';
 import { cn } from '../utils/cn';
+import { trackFilter, trackProjectInteraction, trackOutboundLink } from '../utils/analytics';
 
 const profileImages = [
     '/assets/profile/profile01.png',
@@ -133,7 +134,13 @@ const BentoGrid = () => {
                                 <div className="mt-2 text-[10px] uppercase tracking-[0.18em] text-text-muted">{metric.label}</div>
                             </div>
                         ))}
-                        <a href={SOCIAL_LINKS.github} target="_blank" rel="noreferrer" className="group col-span-2 flex items-center justify-between border border-primary/20 bg-primary/10 p-4 text-primary transition-colors hover:bg-primary/15">
+                        <a
+                          href={SOCIAL_LINKS.github}
+                          target="_blank"
+                          rel="noreferrer"
+                          onClick={() => trackOutboundLink(SOCIAL_LINKS.github, 'GitHub Portfolio (Bento)')}
+                          className="group col-span-2 flex items-center justify-between border border-primary/20 bg-primary/10 p-4 text-primary transition-colors hover:bg-primary/15"
+                        >
                             <span className="font-semibold">Open GitHub Portfolio</span>
                             <FiArrowRight className="transition-transform group-hover:translate-x-1" />
                         </a>
@@ -181,7 +188,10 @@ const BentoGrid = () => {
                             {projectFilters.map((filter) => (
                                 <button
                                     key={filter}
-                                    onClick={() => setActiveFilter(filter)}
+                                    onClick={() => {
+                                      setActiveFilter(filter);
+                                      trackFilter(filter);
+                                    }}
                                     className={cn(
                                         'border px-3 py-2 text-xs font-semibold transition-colors',
                                         activeFilter === filter
@@ -201,7 +211,10 @@ const BentoGrid = () => {
                         <div className="grid h-full md:grid-cols-[1.1fr_0.9fr]">
                             <button
                                 type="button"
-                                onClick={() => setSelectedProjectIdx(0)}
+                                onClick={() => {
+                                  setSelectedProjectIdx(0);
+                                  trackProjectInteraction(featuredProject.title, 'view');
+                                }}
                                 className="relative min-h-[280px] overflow-hidden w-full text-left cursor-zoom-in group"
                             >
                                 <img src={featuredProject.image} alt={featuredProject.title} loading="lazy" decoding="async" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
@@ -228,10 +241,22 @@ const BentoGrid = () => {
                                 </div>
 
                                 <div className="mt-auto flex gap-4 pt-6">
-                                    <a href={featuredProject.liveUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline">
+                                    <a
+                                      href={featuredProject.liveUrl}
+                                      target="_blank"
+                                      rel="noreferrer"
+                                      onClick={() => trackProjectInteraction(featuredProject.title, 'click_case_study')}
+                                      className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline"
+                                    >
                                         <FiExternalLink /> Case Study
                                     </a>
-                                    <a href={featuredProject.repoUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-sm font-semibold text-text-muted transition-colors hover:text-white">
+                                    <a
+                                      href={featuredProject.repoUrl}
+                                      target="_blank"
+                                      rel="noreferrer"
+                                      onClick={() => trackProjectInteraction(featuredProject.title, 'click_source')}
+                                      className="inline-flex items-center gap-2 text-sm font-semibold text-text-muted transition-colors hover:text-white"
+                                    >
                                         <FiGithub /> Source
                                     </a>
                                 </div>
@@ -248,7 +273,10 @@ const BentoGrid = () => {
                     >
                         <button
                             type="button"
-                            onClick={() => setSelectedProjectIdx(idx + 1)}
+                            onClick={() => {
+                              setSelectedProjectIdx(idx + 1);
+                              trackProjectInteraction(project.title, 'view');
+                            }}
                             className="relative block h-44 w-full overflow-hidden text-left cursor-zoom-in group"
                         >
                             <img src={project.image} alt={project.title} loading="lazy" decoding="async" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
@@ -268,10 +296,22 @@ const BentoGrid = () => {
                                 ))}
                             </div>
                             <div className="mt-auto flex gap-4 pt-5">
-                                <a href={project.liveUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 text-xs font-mono text-primary hover:underline">
+                                <a
+                                  href={project.liveUrl}
+                                  target="_blank"
+                                  rel="noreferrer"
+                                  onClick={() => trackProjectInteraction(project.title, 'click_case_study')}
+                                  className="inline-flex items-center gap-1 text-xs font-mono text-primary hover:underline"
+                                >
                                     <FiExternalLink /> Case
                                 </a>
-                                <a href={project.repoUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 text-xs font-mono text-text-muted transition-colors hover:text-white">
+                                <a
+                                  href={project.repoUrl}
+                                  target="_blank"
+                                  rel="noreferrer"
+                                  onClick={() => trackProjectInteraction(project.title, 'click_source')}
+                                  className="inline-flex items-center gap-1 text-xs font-mono text-text-muted transition-colors hover:text-white"
+                                >
                                     <FiGithub /> Source
                                 </a>
                             </div>
@@ -331,6 +371,7 @@ const BentoGrid = () => {
                                     href={selectedProject.liveUrl}
                                     target="_blank"
                                     rel="noreferrer"
+                                    onClick={() => trackProjectInteraction(selectedProject.title, 'click_case_study', { location: 'lightbox' })}
                                     className="inline-flex items-center gap-2 bg-primary px-5 py-2.5 text-xs font-mono font-semibold text-slate-950 shadow-lg shadow-primary/20 transition-all hover:bg-accent hover:shadow-primary/30"
                                 >
                                     <FiExternalLink /> Case Study
@@ -339,6 +380,7 @@ const BentoGrid = () => {
                                     href={selectedProject.repoUrl}
                                     target="_blank"
                                     rel="noreferrer"
+                                    onClick={() => trackProjectInteraction(selectedProject.title, 'click_source', { location: 'lightbox' })}
                                     className="inline-flex items-center gap-2 border border-white/10 bg-white/[0.03] px-5 py-2.5 text-xs font-mono font-semibold text-text-muted backdrop-blur-md transition-all hover:border-white/20 hover:text-white"
                                 >
                                     <FiGithub /> Source Code

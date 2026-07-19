@@ -3,6 +3,7 @@ import { motion as Motion, AnimatePresence } from 'framer-motion';
 import { FiMenu, FiX, FiGithub, FiLinkedin, FiMail, FiFacebook } from 'react-icons/fi';
 import { SOCIAL_LINKS } from '../data/config';
 import { cn } from '../utils/cn';
+import { trackNavigation, trackOutboundLink } from '../utils/analytics';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -43,6 +44,7 @@ const Navbar = () => {
                 <a
                   key={link.name}
                   href={link.href}
+                  onClick={() => trackNavigation(link.name)}
                   className="text-sm font-medium text-text-muted hover:text-primary transition-colors hover:text-glow-light"
                 >
                   {link.name}
@@ -52,9 +54,9 @@ const Navbar = () => {
               <div className="w-px h-4 bg-white/10"></div>
 
               <div className="flex items-center gap-4">
-                <a href={SOCIAL_LINKS.github} target="_blank" rel="noreferrer" className="text-text-muted hover:text-primary transition-colors" aria-label="GitHub Profile"><FiGithub size={18} /></a>
-                <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noreferrer" className="text-text-muted hover:text-primary transition-colors" aria-label="LinkedIn Profile"><FiLinkedin size={18} /></a>
-                <a href={SOCIAL_LINKS.facebook} target="_blank" rel="noreferrer" className="text-text-muted hover:text-primary transition-colors" aria-label="Facebook Profile"><FiFacebook size={18} /></a>
+                <a href={SOCIAL_LINKS.github} target="_blank" rel="noreferrer" onClick={() => trackOutboundLink(SOCIAL_LINKS.github, 'GitHub (Navbar)')} className="text-text-muted hover:text-primary transition-colors" aria-label="GitHub Profile"><FiGithub size={18} /></a>
+                <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noreferrer" onClick={() => trackOutboundLink(SOCIAL_LINKS.linkedin, 'LinkedIn (Navbar)')} className="text-text-muted hover:text-primary transition-colors" aria-label="LinkedIn Profile"><FiLinkedin size={18} /></a>
+                <a href={SOCIAL_LINKS.facebook} target="_blank" rel="noreferrer" onClick={() => trackOutboundLink(SOCIAL_LINKS.facebook, 'Facebook (Navbar)')} className="text-text-muted hover:text-primary transition-colors" aria-label="Facebook Profile"><FiFacebook size={18} /></a>
                 <a href={SOCIAL_LINKS.email} className="text-text-muted hover:text-primary transition-colors" aria-label="Send Email"><FiMail size={18} /></a>
               </div>
             </div>

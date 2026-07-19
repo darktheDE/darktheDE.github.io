@@ -1,5 +1,6 @@
 import { FiArrowRight, FiFacebook, FiGithub, FiLinkedin, FiMail } from 'react-icons/fi';
 import { SOCIAL_LINKS, PERSONAL_INFO } from '../data/config';
+import { trackCTA, trackOutboundLink } from '../utils/analytics';
 
 const Footer = () => {
   return (
@@ -14,6 +15,7 @@ const Footer = () => {
             <div className="mt-5 flex flex-col gap-3 sm:flex-row">
               <a
                 href={SOCIAL_LINKS.email}
+                onClick={() => trackCTA('Contact Me', 'footer')}
                 className="inline-flex items-center justify-center gap-2 bg-primary px-5 py-3 font-semibold text-slate-950 transition-colors hover:bg-accent"
               >
                 Contact Me <FiArrowRight />
@@ -22,6 +24,7 @@ const Footer = () => {
                 href={SOCIAL_LINKS.linkedin}
                 target="_blank"
                 rel="noreferrer"
+                onClick={() => trackOutboundLink(SOCIAL_LINKS.linkedin, 'LinkedIn (Footer)')}
                 className="inline-flex items-center justify-center gap-2 border border-white/10 bg-white/[0.03] px-5 py-3 font-semibold text-text-light transition-colors hover:border-primary/40 hover:text-primary"
               >
                 LinkedIn <FiLinkedin />
