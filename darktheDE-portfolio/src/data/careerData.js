@@ -1,0 +1,76 @@
+/**
+ * Career timeline and experience data.
+ */
+
+export const careerExperiences = [
+    {
+        id: 'deloitte-vietnam',
+        role: 'IT Audit Intern',
+        company: 'Deloitte Vietnam',
+        division: 'Audit & Assurance',
+        location: 'Ho Chi Minh City, Vietnam',
+        period: 'Sep 2026 — Present',
+        badge: 'Deloitte Vietnam',
+        isCurrent: true,
+        summary: 'Intern at Deloitte Vietnam within Audit & Assurance, learning and supporting IT audit procedures.',
+        responsibilities: [
+            'Assist the team in reviewing IT General Controls (ITGC) including access management, change management, and IT operations.',
+            'Support testing of application controls and automated system interfaces.',
+            'Perform data extraction and queries using SQL to support audit work.',
+            'Prepare working papers and documentation under senior guidance.',
+            'Participate in client walkthroughs and meetings.',
+        ],
+        competencies: ['ITGC Testing', 'Application Controls', 'SQL Analytics', 'Audit Documentation', 'Client Walkthroughs'],
+    },
+    {
+        id: 'self-employed-ba',
+        role: 'Business Analyst & Software Planner',
+        company: 'Freelance',
+        division: 'Requirements & Technical Documentation',
+        location: 'Remote / Ho Chi Minh City, Vietnam',
+        period: 'Jul 2025 — Jun 2026',
+        badge: 'Business Analysis',
+        isCurrent: false,
+        summary: 'Analyzed business requirements, designed workflows, and drafted technical specifications for web projects.',
+        responsibilities: [
+            'Met with clients to understand business processes and gathered functional requirements.',
+            'Drafted software requirements and designed database entity diagrams for banthuocsi.vn and dinkybinhduong.vn.',
+            'Performed testing to verify delivered features against documented requirements.',
+        ],
+        competencies: ['Requirements Gathering', 'Technical Documentation', 'Workflow Design', 'UAT Testing'],
+    },
+    {
+        id: 'aura-group',
+        role: 'Data Engineer Intern',
+        company: 'AURA GROUP',
+        division: 'Data Platform',
+        location: 'Ho Chi Minh City, Vietnam',
+        period: 'Apr 2026 — Jun 2026',
+        badge: 'Data Engineering',
+        isCurrent: false,
+        summary: 'Researched and documented existing enterprise data pipelines connecting Lark Suite ERP to BigQuery.',
+        responsibilities: [
+            'Mapped data flows from Lark Suite ERP and Supabase through Airbyte and Airflow into Google BigQuery and Google Sheets.',
+            'Monitored pipeline runs and investigated error logs to resolve sync issues.',
+            'Documented data lineage and noted system control gaps (such as direct commits without PR review and credentials management).',
+        ],
+        competencies: ['Lark Suite ERP', 'Apache Airflow', 'Airbyte', 'Google BigQuery', 'Pipeline Monitoring'],
+    },
+    {
+        id: 'hcmute-ta',
+        role: 'Teaching Assistant (Database Systems)',
+        company: 'Ho Chi Minh City University of Technology and Engineering (HCM-UTE)',
+        division: 'Faculty of Information Technology',
+        location: 'Ho Chi Minh City, Vietnam',
+        period: 'Jan 2026 — Apr 2026',
+        badge: 'Teaching Assistant',
+        isCurrent: false,
+        summary: 'Assisted instructors in teaching relational database concepts and SQL optimization for undergraduate students.',
+        responsibilities: [
+            'Supported 200+ students with database design (ERD), normalization, and SQL query exercises.',
+            'Guided students in analyzing query execution plans and index usage.',
+            'Graded lab assignments and provided feedback to students.',
+        ],
+        competencies: ['Database Design (ERD)', 'Normalization', 'SQL Optimization', 'Student Guidance'],
+    },
+];

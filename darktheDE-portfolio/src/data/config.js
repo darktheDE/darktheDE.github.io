@@ -1,18 +1,25 @@
 /**
- * Centralized configuration for personal information and external links.
+ * Centralized configuration for personal information, external links, and assets.
  */
 
 export const PERSONAL_INFO = {
-    name: 'Đỗ Kiến Hưng',
+    name: 'DO KIEN HUNG',
+    vietnameseName: 'Đỗ Kiến Hưng',
     nickname: 'darktheDE',
-    title: 'Data Engineering Student @ HCM-UTE',
-    tagline: 'I build reliable data systems from raw events to AI-ready products.',
-    description: 'Third-year Data Engineering student focused on lakehouse architecture, big data pipelines, backend systems, and agentic AI workflows.',
-    specialties: ['Lakehouse Architecture', 'Big Data Pipelines', 'Agentic AI Workflows'],
+    title: 'IT Audit Intern @ Deloitte Vietnam | HCM-UTE',
+    tagline: 'Applying data engineering background to IT general controls, system processes, and audit analytics.',
+    description: 'Final-year Data Engineering student at HCM-UTE (GPA 8.41/10) and IT Audit Intern at Deloitte Vietnam.',
+    specialties: [
+        'IT General Controls (ITGC)',
+        'Audit Analytics (SQL)',
+        'ERP Data Flows',
+        'System Risk & Controls',
+    ],
     metrics: [
         { label: 'Current GPA', value: '8.41' },
-        { label: 'Featured Projects', value: '9' },
-        { label: 'Vice Leader', value: 'RTIC' },
+        { label: 'Verified Certs', value: '11' },
+        { label: 'Core Projects', value: '4' },
+        { label: 'Co-Founder', value: 'RTIC' },
     ],
 };
 
@@ -21,7 +28,6 @@ export const SOCIAL_LINKS = {
     linkedin: 'https://www.linkedin.com/in/darkthede/',
     facebook: 'https://www.facebook.com/dkh1105/',
     email: 'mailto:dkh1105.work@gmail.com',
-    blog: 'http://darkthede.notion.site/my-blog',
 };
 
 export const RTIC_INFO = {
@@ -36,8 +42,7 @@ export const RTIC_INFO = {
 };
 
 export const ASSETS = {
-    cvData: '/CV_DATA_OF_DO_KIEN_HUNG.pdf',
-    cvSoftware: '/CV_SOFTWARE_OF_DO_KIEN_HUNG.pdf',
+    certificatesBundle: '/docs/Certificates_Bundle_DO_KIEN_HUNG.pdf',
     profileImage: '/assets/profile/profile01.png',
     favicon: '/assets/profile-favicon.png',
 };

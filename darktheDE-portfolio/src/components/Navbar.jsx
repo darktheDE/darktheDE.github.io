@@ -17,35 +17,33 @@ const Navbar = () => {
 
   const navLinks = [
     { name: 'About', href: '#about' },
-    { name: 'Stack', href: '#stack' },
+    { name: 'Career', href: '#career' },
     { name: 'Projects', href: '#projects' },
     { name: 'RTIC', href: '#rtic' },
-    { name: 'Awards', href: '#certifications' },
+    { name: 'Credentials', href: '#certifications' },
   ];
 
   return (
     <nav aria-label="Primary navigation" className={cn("fixed top-0 w-full z-50 transition-all duration-300", scrolled ? 'py-2' : 'py-4')}>
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className={cn(
           "rounded-full px-6 py-3 transition-all duration-300",
-          scrolled ? 'bg-background/80 backdrop-blur-md border border-white/5 shadow-lg' : 'bg-transparent'
+          scrolled ? 'bg-background/85 backdrop-blur-md border border-primary/20 shadow-lg shadow-black/40' : 'bg-transparent'
         )}>
           <div className="flex items-center justify-between">
-
-            {/* Logo */}
-            <a href="#" className="text-xl font-bold font-mono tracking-tighter text-white hover:text-primary transition-colors">
-              darkthe<span className="text-primary">DE</span>
+            {/* Logo: darktheDE. with Deloitte Green Dot */}
+            <a href="#" className="text-xl font-bold font-mono tracking-tighter text-white hover:text-primary transition-colors flex items-center">
+              <span>darkthe</span><span className="text-white">DE</span><span className="text-primary text-2xl leading-none">.</span>
             </a>
 
             {/* Desktop Nav */}
-            <div className="hidden md:flex items-center gap-8">
+            <div className="hidden md:flex items-center gap-7">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
                   onClick={() => trackNavigation(link.name)}
-                  className="text-sm font-medium text-text-muted hover:text-primary transition-colors hover:text-glow-light"
+                  className="text-xs font-mono font-semibold uppercase tracking-wider text-text-muted hover:text-primary transition-colors hover:text-glow-light"
                 >
                   {link.name}
                 </a>
@@ -53,11 +51,11 @@ const Navbar = () => {
 
               <div className="w-px h-4 bg-white/10"></div>
 
-              <div className="flex items-center gap-4">
-                <a href={SOCIAL_LINKS.github} target="_blank" rel="noreferrer" onClick={() => trackOutboundLink(SOCIAL_LINKS.github, 'GitHub (Navbar)')} className="text-text-muted hover:text-primary transition-colors" aria-label="GitHub Profile"><FiGithub size={18} /></a>
-                <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noreferrer" onClick={() => trackOutboundLink(SOCIAL_LINKS.linkedin, 'LinkedIn (Navbar)')} className="text-text-muted hover:text-primary transition-colors" aria-label="LinkedIn Profile"><FiLinkedin size={18} /></a>
-                <a href={SOCIAL_LINKS.facebook} target="_blank" rel="noreferrer" onClick={() => trackOutboundLink(SOCIAL_LINKS.facebook, 'Facebook (Navbar)')} className="text-text-muted hover:text-primary transition-colors" aria-label="Facebook Profile"><FiFacebook size={18} /></a>
-                <a href={SOCIAL_LINKS.email} className="text-text-muted hover:text-primary transition-colors" aria-label="Send Email"><FiMail size={18} /></a>
+              <div className="flex items-center gap-3.5">
+                <a href={SOCIAL_LINKS.github} target="_blank" rel="noreferrer" onClick={() => trackOutboundLink(SOCIAL_LINKS.github, 'GitHub (Navbar)')} className="text-text-muted hover:text-primary transition-colors" aria-label="GitHub Profile"><FiGithub size={17} /></a>
+                <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noreferrer" onClick={() => trackOutboundLink(SOCIAL_LINKS.linkedin, 'LinkedIn (Navbar)')} className="text-text-muted hover:text-primary transition-colors" aria-label="LinkedIn Profile"><FiLinkedin size={17} /></a>
+                <a href={SOCIAL_LINKS.facebook} target="_blank" rel="noreferrer" onClick={() => trackOutboundLink(SOCIAL_LINKS.facebook, 'Facebook (Navbar)')} className="text-text-muted hover:text-primary transition-colors" aria-label="Facebook Profile"><FiFacebook size={17} /></a>
+                <a href={SOCIAL_LINKS.email} className="text-text-muted hover:text-primary transition-colors" aria-label="Send Email"><FiMail size={17} /></a>
               </div>
             </div>
 
@@ -69,7 +67,7 @@ const Navbar = () => {
               aria-expanded={isOpen}
               aria-controls="mobile-navigation"
             >
-              {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
+              {isOpen ? <FiX size={22} /> : <FiMenu size={22} />}
             </button>
           </div>
         </div>
@@ -83,7 +81,7 @@ const Navbar = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="absolute top-20 left-4 right-4 bg-surface/95 backdrop-blur-xl border border-white/10 rounded-2xl p-6 md:hidden shadow-2xl"
+            className="absolute top-20 left-4 right-4 bg-surface/95 backdrop-blur-xl border border-primary/25 rounded-2xl p-6 md:hidden shadow-2xl"
           >
             <div className="flex flex-col space-y-4">
               {navLinks.map((link) => (
@@ -91,17 +89,17 @@ const Navbar = () => {
                   key={link.name}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className="text-lg font-medium text-text-muted hover:text-primary transition-colors"
+                  className="text-base font-mono font-medium text-text-muted hover:text-primary transition-colors"
                 >
                   {link.name}
                 </a>
               ))}
               <div className="h-px bg-white/10 my-2"></div>
               <div className="flex justify-center gap-6 pt-2">
-                <a href={SOCIAL_LINKS.github} target="_blank" rel="noreferrer" className="text-text-muted hover:text-primary" aria-label="GitHub Profile"><FiGithub size={24} /></a>
-                <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noreferrer" className="text-text-muted hover:text-primary" aria-label="LinkedIn Profile"><FiLinkedin size={24} /></a>
-                <a href={SOCIAL_LINKS.facebook} target="_blank" rel="noreferrer" className="text-text-muted hover:text-primary" aria-label="Facebook Profile"><FiFacebook size={24} /></a>
-                <a href={SOCIAL_LINKS.email} className="text-text-muted hover:text-primary" aria-label="Send Email"><FiMail size={24} /></a>
+                <a href={SOCIAL_LINKS.github} target="_blank" rel="noreferrer" className="text-text-muted hover:text-primary" aria-label="GitHub Profile"><FiGithub size={22} /></a>
+                <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noreferrer" className="text-text-muted hover:text-primary" aria-label="LinkedIn Profile"><FiLinkedin size={22} /></a>
+                <a href={SOCIAL_LINKS.facebook} target="_blank" rel="noreferrer" className="text-text-muted hover:text-primary" aria-label="Facebook Profile"><FiFacebook size={22} /></a>
+                <a href={SOCIAL_LINKS.email} className="text-text-muted hover:text-primary" aria-label="Send Email"><FiMail size={22} /></a>
               </div>
             </div>
           </Motion.div>

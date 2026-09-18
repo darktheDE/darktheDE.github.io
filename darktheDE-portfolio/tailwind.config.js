@@ -7,15 +7,21 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: '#020617',        // Slate 950 (Premium Navy/Black)
+        background: '#090D16',        // Deloitte Dark Executive (#090D16)
         surface: {
           DEFAULT: '#0F172A',         // Slate 900
           light: '#1E293B',           // Slate 800
         },
-        primary: '#10B981',           // Emerald 500
-        secondary: '#3B82F6',         // Blue 500
-        accent: '#34D399',            // Emerald 400
-        card: 'rgba(15, 23, 42, 0.7)', // Slate 900 with glass opacity
+        primary: '#86BC25',           // Deloitte Iconic Green (#86BC25)
+        secondary: '#046A38',         // Deloitte Deep Green (#046A38)
+        accent: '#26890D',            // Deloitte Mid Green (#26890D)
+        deloitte: {
+          green: '#86BC25',
+          deep: '#046A38',
+          mid: '#26890D',
+          dark: '#1C3D26',
+        },
+        card: 'rgba(15, 23, 42, 0.75)', // Slate 900 with glass opacity
         text: {
           light: '#F8FAFC',           // Slate 50
           muted: '#94A3B8',           // Slate 400
@@ -31,8 +37,8 @@ export default {
       },
       keyframes: {
         glow: {
-          '0%': { boxShadow: '0 0 5px #10B981, 0 0 10px #10B981' },
-          '100%': { boxShadow: '0 0 20px #10B981, 0 0 30px #10B981' },
+          '0%': { boxShadow: '0 0 5px #86BC25, 0 0 10px #86BC25' },
+          '100%': { boxShadow: '0 0 20px #86BC25, 0 0 30px #86BC25' },
         }
       }
     },

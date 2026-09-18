@@ -1,6 +1,7 @@
 import { lazy, Suspense } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import CareerSection from './components/CareerSection';
 import BentoGrid from './components/BentoGrid';
 import Footer from './components/Footer';
 
@@ -14,19 +15,20 @@ function App() {
         Skip to main content
       </a>
       <div className="grain-overlay"></div>
+      
+      {/* Deloitte Green Radial Ambient Lighting */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,rgba(16,185,129,0.12),transparent_28%),radial-gradient(circle_at_80%_20%,rgba(59,130,246,0.10),transparent_24%),linear-gradient(180deg,rgba(2,6,23,0)_0%,#020617_78%)]"></div>
-        <div className="absolute inset-x-0 top-0 h-64 bg-[linear-gradient(90deg,transparent,rgba(16,185,129,0.10),transparent)]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,rgba(134,188,37,0.10),transparent_30%),radial-gradient(circle_at_80%_20%,rgba(4,106,56,0.08),transparent_25%),linear-gradient(180deg,rgba(9,13,22,0)_0%,#090D16_80%)]"></div>
+        <div className="absolute inset-x-0 top-0 h-64 bg-[linear-gradient(90deg,transparent,rgba(134,188,37,0.08),transparent)]"></div>
       </div>
 
-      <div className="fixed inset-0 z-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none opacity-30"></div>
-
-
+      <div className="fixed inset-0 z-0 bg-[linear-gradient(to_right,#80808010_1px,transparent_1px),linear-gradient(to_bottom,#80808010_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none opacity-25"></div>
 
       <Navbar />
 
-      <main id="main-content" className="relative z-10 space-y-10 pb-20">
+      <main id="main-content" className="relative z-10 space-y-12 pb-20">
         <Hero />
+        <CareerSection />
         <BentoGrid />
 
         <Suspense fallback={<div className="h-40 flex items-center justify-center text-text-muted font-mono text-xs italic">Loading section...</div>}>
@@ -43,4 +45,3 @@ function App() {
 }
 
 export default App;
-

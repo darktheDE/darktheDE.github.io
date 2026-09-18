@@ -26,7 +26,7 @@ const RTICSection = () => {
 
                 <div className="relative z-10 grid gap-10 lg:grid-cols-[1fr_0.85fr] lg:items-center">
                     <div>
-                        <div className="mb-5 inline-flex items-center gap-2 border border-blue-400/20 bg-blue-400/10 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.2em] text-blue-300">
+                        <div className="mb-5 inline-flex items-center gap-2 rounded border border-primary/30 bg-primary/10 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.2em] text-primary">
                             <FiUsers /> Community Leadership
                         </div>
                         <h2 className="max-w-3xl text-3xl font-black leading-tight text-white sm:text-4xl">
@@ -38,7 +38,7 @@ const RTICSection = () => {
 
                         <div className="mt-7 grid gap-3 sm:grid-cols-2">
                             {impactItems.map((item) => (
-                                <div key={item} className="border border-white/10 bg-white/[0.035] p-4 text-sm font-medium text-text-light">
+                                <div key={item} className="rounded-lg border border-white/10 bg-white/[0.035] p-4 text-sm font-medium text-text-light">
                                     {item}
                                 </div>
                             ))}
@@ -61,16 +61,16 @@ const RTICSection = () => {
                               target="_blank"
                               rel="noreferrer"
                               onClick={() => trackOutboundLink(RTIC_INFO.fanpage, 'RTIC Fanpage')}
-                              className="inline-flex items-center gap-2 bg-blue-500 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-blue-400"
+                              className="inline-flex items-center gap-2 rounded bg-primary px-5 py-2.5 text-xs font-mono font-semibold text-slate-950 transition-colors hover:bg-emerald-400 shadow-sm"
                             >
-                                <FiExternalLink /> Fanpage
+                                <FiExternalLink /> RTIC Fanpage
                             </a>
                             <a
                               href={RTIC_INFO.github}
                               target="_blank"
                               rel="noreferrer"
                               onClick={() => trackOutboundLink(RTIC_INFO.github, 'RTIC GitHub')}
-                              className="inline-flex items-center gap-2 border border-white/10 bg-white/[0.04] px-5 py-3 text-sm font-semibold text-text-light transition-colors hover:border-primary/40 hover:text-primary"
+                              className="inline-flex items-center gap-2 rounded border border-white/10 bg-white/[0.04] px-5 py-2.5 text-xs font-mono font-semibold text-text-light transition-colors hover:border-primary/40 hover:text-primary"
                             >
                                 <FiGithub /> GitHub
                             </a>

@@ -27,7 +27,7 @@ export const useScrollNavbar = () => {
       ticking = false;
 
       // Detect active section
-      const sections = ['hero', 'about', 'skills', 'projects', 'homework', 'rtic', 'contact'];
+      const sections = ['hero', 'career', 'about', 'projects', 'rtic', 'certifications'];
       const sectionElements = sections.map(id => document.getElementById(id));
       
       for (let i = sectionElements.length - 1; i >= 0; i--) {
