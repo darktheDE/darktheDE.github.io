@@ -1,6 +1,6 @@
 /**
- * Selected core projects (reduced from 9 to 4 projects according to refactor strategy).
- * Each project highlights both Technical Architecture and IT Audit / Technology Risk perspectives.
+ * Selected core projects.
+ * Focuses on actual technical architecture and practical implementation details.
  */
 
 export const projects = [
@@ -8,11 +8,15 @@ export const projects = [
     id: 1,
     title: "Vietnamese Banking Financial Analytics Platform",
     image: "/assets/project/vn-banking-de.png",
-    categoryTag: "Data Integrity & Risk",
-    auditBadge: "Data Assurance & Model Risk",
-    description: "Architected a BigQuery financial data warehouse analyzing Vietnam's banking sector across 20+ years. Implemented Star Schema layers, automated ELT pipelines, and Machine Learning credit-risk warning systems (0.9752 AUC-ROC) served through Looker Studio and Streamlit.",
-    auditPerspective: "Engineered Audit Columns (loaded_at, source_system, hash_diff) within the Star Schema to ensure full lineage traceability and data reconcilability. Evaluated the automated credit-risk classification pipeline against Model Risk Management principles (inspired by Fed SR 11-7), verifying model validation independence, feature stability, and mitigation of automated decision bias.",
-    tags: ["BigQuery", "Star Schema", "Audit Columns", "Model Risk (SR 11-7)", "Random Forest (0.9752 AUC)", "Looker Studio"],
+    featuredBadge: "Featured Project",
+    description: "An end-to-end financial data warehouse analyzing 20+ years of Vietnamese banking performance on Google BigQuery. Automated ELT pipelines clean and transform financial datasets into a Star Schema, coupled with a Random Forest credit-risk classification model and interactive analytics dashboards.",
+    highlights: [
+      "Ingested and transformed 20+ years of banking financial statements and metrics into Google BigQuery using automated ELT workflows.",
+      "Designed Star Schema dimensional models (fact tables for financial metrics, dimension tables for banks, time, and indicators) optimized for analytical SQL queries.",
+      "Trained a Random Forest classifier to detect early credit risk and distress signals from financial ratios (achieving 0.9752 AUC-ROC).",
+      "Built interactive dashboards in Looker Studio and Streamlit for multi-year trend analysis and comparative bank performance metrics."
+    ],
+    tags: ["Google BigQuery", "Python", "SQL", "Star Schema", "Random Forest", "Looker Studio", "Streamlit"],
     liveUrl: "https://datastudio.google.com/u/0/reporting/340892d5-4366-4e40-9403-47901040b1d7/page/v1e2F",
     repoUrl: "https://github.com/darktheDE/vn-banking-dwh-analytics"
   },
@@ -20,11 +24,14 @@ export const projects = [
     id: 2,
     title: "UTE Phone Hub (E-Commerce Platform)",
     image: "/assets/project/ute-phone-hub-SW.png",
-    categoryTag: "Access Control & Security",
-    auditBadge: "ITGC Access Management",
-    description: "Led development of a modular e-commerce platform using Next.js and Spring Boot. Architected the complete authentication, authorization, and session management infrastructure with PostgreSQL, Redis caching, and third-party payment gateways.",
-    auditPerspective: "Designed role-based access control (RBAC) separating administrative, operational, and customer capabilities to enforce Segregation of Duties (SoD). Configured Spring Security with JWT token expiration, Redis-backed refresh token revocation, session hijacking prevention, and encrypted credential storage to satisfy enterprise access control benchmarks.",
-    tags: ["Spring Boot 3.5", "Next.js 16", "RBAC & SoD", "JWT Lifecycle", "PostgreSQL", "Redis Security"],
+    description: "Full-stack e-commerce web platform for browsing and purchasing mobile devices and tech accessories. Built with Next.js and Spring Boot, featuring user authentication, product catalogs, shopping cart management, order checkout, and administrative dashboard.",
+    highlights: [
+      "Developed responsive frontend user interface with Next.js, React, and Tailwind CSS for seamless catalog browsing and shopping.",
+      "Built robust backend REST APIs with Spring Boot 3, handling product inventory, customer accounts, and order processing.",
+      "Implemented secure authentication with JWT tokens and Redis session management with role-based permissions (Admin, Staff, Customer).",
+      "Configured PostgreSQL database with relational schema, foreign key constraints, and transactional consistency for checkout flows."
+    ],
+    tags: ["Spring Boot 3", "Next.js", "PostgreSQL", "Redis", "JWT", "Tailwind CSS", "REST API"],
     liveUrl: "https://github.com/darktheDE/ute-phonehub",
     repoUrl: "https://github.com/darktheDE/ute-phonehub"
   },
@@ -32,11 +39,14 @@ export const projects = [
     id: 3,
     title: "Olist E-Commerce Lakehouse",
     image: "/assets/project/SYSARCH_OLIST-DE.jpg",
-    categoryTag: "Pipeline Governance",
-    auditBadge: "Automated Data Controls",
-    description: "Built an enterprise-grade Lakehouse processing 100K+ Brazilian e-commerce transaction records using PySpark and Delta Lake on a containerized infrastructure, orchestrated via Apache Airflow with MinIO S3 object storage.",
-    auditPerspective: "Implemented stringent automated input controls and schema validation across the Medallion Architecture (Bronze -> Silver -> Gold). Developed PySpark idempotency checks, deduplication rules, and Delta Lake ACID transaction logs that prevent duplicate postings and data corruption. Configured Airflow automated alerting and audit logging for pipeline failure monitoring.",
-    tags: ["PySpark", "Delta Lake (ACID)", "Input Validation", "Apache Airflow", "Data Governance", "MinIO S3"],
+    description: "A modern Data Lakehouse pipeline processing 100K+ Brazilian e-commerce transaction records from the Olist public dataset. Built using PySpark and Delta Lake following the Medallion Architecture (Bronze -> Silver -> Gold), orchestrated by Apache Airflow with MinIO S3 object storage.",
+    highlights: [
+      "Implemented Medallion Architecture: Bronze layer for raw ingestion, Silver layer for cleaning & deduplication, and Gold layer for business analytics aggregations.",
+      "Utilized PySpark for scalable distributed data transformations and Delta Lake for ACID transaction logging and reliable schema enforcement.",
+      "Scheduled and monitored automated pipeline execution with Apache Airflow DAGs, including error logging and notifications.",
+      "Deployed the entire data stack locally in containerized Docker environments with MinIO serving as S3-compatible object storage."
+    ],
+    tags: ["PySpark", "Delta Lake", "Apache Airflow", "MinIO (S3)", "Docker", "Python", "Data Lakehouse"],
     liveUrl: "https://sites.plane.so/issues/fb4056e1975041fb96f169aff25798e6",
     repoUrl: "https://github.com/darktheDE/Olist-E-Commerce-Lakehouse"
   },
@@ -44,11 +54,14 @@ export const projects = [
     id: 4,
     title: "Vietnamese LLM KV Cache Compression Benchmark",
     image: "/assets/project/vietllm-ml.png",
-    categoryTag: "AI System Governance",
-    auditBadge: "Algorithmic Assurance",
-    description: "Designed a reproducible benchmarking framework for TurboQuant and KV Cache compression techniques on Vietnamese Large Language Models. Evaluated throughput, VRAM consumption, latency, and perplexity across distributed inference engines.",
-    auditPerspective: "Demonstrates practical acumen in Emerging Technology Risk and AI Governance. Established rigorous quantitative testing protocols to audit model accuracy degradation (perplexity shifts) versus computational efficiency trade-offs, providing objective technical evidence for high-stakes enterprise AI deployment audits.",
-    tags: ["LLM Governance", "vLLM", "TurboQuant", "Algorithmic Risk", "Benchmarking", "NeMo Curator"],
+    description: "An experimental benchmarking suite evaluating memory optimization and compression techniques (KV Cache compression and TurboQuant) on Vietnamese Large Language Models. Measures real-world tradeoffs across inference throughput, VRAM usage, latency, and language quality.",
+    highlights: [
+      "Built reproducible benchmark pipelines across open-source Vietnamese LLMs using vLLM and PyTorch frameworks.",
+      "Analyzed KV Cache quantization and compression methods to reduce GPU VRAM consumption during long-context generation.",
+      "Collected quantitative metrics: token generation throughput, latency per token, memory allocation, and perplexity changes.",
+      "Documented practical efficiency benchmarks to inform cost-effective model serving on various GPU hardware tiers."
+    ],
+    tags: ["Python", "vLLM", "PyTorch", "Hugging Face", "KV Cache", "TurboQuant", "LLM Benchmarking"],
     liveUrl: "https://github.com/darktheDE/viet-llm-kvcache-benchmark",
     repoUrl: "https://github.com/darktheDE/viet-llm-kvcache-benchmark"
   }

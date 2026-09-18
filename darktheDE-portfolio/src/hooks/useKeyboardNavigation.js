@@ -58,7 +58,7 @@ export const useKeyboardNavigation = () => {
         case '7':
           if (event.altKey) {
             event.preventDefault();
-            const sections = ['hero', 'career', 'about', 'projects', 'rtic', 'certifications'];
+            const sections = ['hero', 'about', 'career', 'projects', 'rtic', 'certifications'];
             const sectionIndex = parseInt(event.key) - 1;
             if (sections[sectionIndex]) {
               const element = document.getElementById(sections[sectionIndex]);
@@ -72,7 +72,7 @@ export const useKeyboardNavigation = () => {
     };
 
     const scrollToNextSection = () => {
-      const sections = ['hero', 'career', 'about', 'projects', 'rtic', 'certifications'];
+      const sections = ['hero', 'about', 'career', 'projects', 'rtic', 'certifications'];
       const currentSection = sections.find(id => {
         const element = document.getElementById(id);
         if (element) {
@@ -93,7 +93,7 @@ export const useKeyboardNavigation = () => {
     };
 
     const scrollToPreviousSection = () => {
-      const sections = ['hero', 'career', 'about', 'projects', 'rtic', 'certifications'];
+      const sections = ['hero', 'about', 'career', 'projects', 'rtic', 'certifications'];
       const currentSection = sections.find(id => {
         const element = document.getElementById(id);
         if (element) {

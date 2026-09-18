@@ -15,6 +15,7 @@ const profileImages = [
     '/assets/profile/profile06.jpg',
     '/assets/profile/profile07.jpg',
     '/assets/profile/profile08.jpg',
+    '/assets/profile/profile09.jpg',
 ];
 
 const operatingProfile = [

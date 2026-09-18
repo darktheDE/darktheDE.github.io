@@ -1,8 +1,9 @@
 import { lazy, Suspense } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import AboutSection from './components/AboutSection';
 import CareerSection from './components/CareerSection';
-import BentoGrid from './components/BentoGrid';
+import ProjectsSection from './components/ProjectsSection';
 import Footer from './components/Footer';
 
 const RTICSection = lazy(() => import('./components/RTICSection'));
@@ -28,8 +29,9 @@ function App() {
 
       <main id="main-content" className="relative z-10 space-y-12 pb-20">
         <Hero />
+        <AboutSection />
         <CareerSection />
-        <BentoGrid />
+        <ProjectsSection />
 
         <Suspense fallback={<div className="h-40 flex items-center justify-center text-text-muted font-mono text-xs italic">Loading section...</div>}>
           <RTICSection />
