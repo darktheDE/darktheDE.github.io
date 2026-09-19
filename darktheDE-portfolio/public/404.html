@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#090D16" />
+  <title>404 - Page Not Found | DO KIEN HUNG (darktheDE)</title>
+  <link rel="icon" type="image/png" href="/assets/favicon-32x32.png" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: #090D16;
+      color: #F8FAFC;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .ambient {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 30%, rgba(134, 188, 37, 0.12), transparent 50%),
+                  radial-gradient(circle at 80% 80%, rgba(4, 106, 56, 0.08), transparent 40%);
+      pointer-events: none;
+    }
+    .card {
+      position: relative;
+      z-index: 10;
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid rgba(134, 188, 37, 0.25);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-radius: 16px;
+      padding: 48px 32px;
+      max-width: 480px;
+      width: 100%;
+      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7);
+    }
+    .badge {
+      display: inline-block;
+      font-family: monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: #86BC25;
+      background: rgba(134, 188, 37, 0.1);
+      border: 1px solid rgba(134, 188, 37, 0.3);
+      padding: 6px 12px;
+      border-radius: 4px;
+      margin-bottom: 20px;
+    }
+    h1 {
+      font-size: 64px;
+      font-weight: 900;
+      line-height: 1;
+      margin-bottom: 12px;
+      color: #FFFFFF;
+      font-family: monospace;
+    }
+    h1 span { color: #86BC25; }
+    h2 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: #F8FAFC;
+    }
+    p {
+      font-size: 14px;
+      color: #94A3B8;
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+    a.btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #86BC25;
+      color: #020617;
+      font-weight: 700;
+      font-family: monospace;
+      font-size: 13px;
+      text-decoration: none;
+      padding: 12px 24px;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+      box-shadow: 0 8px 16px -4px rgba(134, 188, 37, 0.3);
+    }
+    a.btn:hover {
+      background-color: #A8D84E;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 20px -4px rgba(134, 188, 37, 0.4);
+    }
+  </style>
+</head>
+<body>
+  <div class="ambient"></div>
+  <div class="card">
+    <div class="badge">404 Exception</div>
+    <h1>404<span>.</span></h1>
+    <h2>Resource Not Found</h2>
+    <p>The system control route you are looking for does not exist or has been relocated to another endpoint.</p>
+    <a href="/" class="btn">Return to Home &rarr;</a>
+  </div>
+</body>
+</html>

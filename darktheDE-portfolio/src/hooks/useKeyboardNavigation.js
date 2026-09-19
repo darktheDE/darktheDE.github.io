@@ -35,18 +35,7 @@ export const useKeyboardNavigation = () => {
             scrollToNextSection();
           }
           break;
-          
-        case ' ': // Spacebar
-          if (event.shiftKey) {
-            event.preventDefault();
-            // Scroll up one screen
-            window.scrollBy({ top: -window.innerHeight * 0.9, behavior: 'smooth' });
-          } else {
-            event.preventDefault();
-            // Scroll down one screen
-            window.scrollBy({ top: window.innerHeight * 0.9, behavior: 'smooth' });
-          }
-          break;
+
           
         // Number keys 1-7 for quick section navigation
         case '1':

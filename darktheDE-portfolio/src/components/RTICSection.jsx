@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion as Motion, AnimatePresence } from 'framer-motion';
 import { FiExternalLink, FiGithub, FiUsers, FiX } from 'react-icons/fi';
 import { RTIC_INFO } from '../data/config';
@@ -13,6 +13,21 @@ const impactItems = [
 
 const RTICSection = () => {
     const [showLightbox, setShowLightbox] = useState(false);
+
+    useEffect(() => {
+        if (!showLightbox) return;
+        document.body.style.overflow = 'hidden';
+
+        const handleKeyDown = (e) => {
+            if (e.key === 'Escape') setShowLightbox(false);
+        };
+
+        window.addEventListener('keydown', handleKeyDown);
+        return () => {
+            document.body.style.overflow = '';
+            window.removeEventListener('keydown', handleKeyDown);
+        };
+    }, [showLightbox]);
 
     return (
         <section className="mx-auto max-w-7xl scroll-mt-28 px-4 pb-12 sm:px-6 lg:px-8" id="rtic">
@@ -84,7 +99,7 @@ const RTICSection = () => {
                         aria-label="Open RTIC photo"
                     >
                         <img
-                            src="/assets/rtic/rtic-pers-pic.jpg"
+                            src="/assets/rtic/rtic-pers-pic.webp"
                             alt="Me at FIT Club's Day"
                             loading="lazy"
                             decoding="async"
@@ -109,6 +124,9 @@ const RTICSection = () => {
                         onClick={() => setShowLightbox(false)}
                     >
                         <Motion.div
+                            role="dialog"
+                            aria-modal="true"
+                            aria-label="RTIC Community Photo"
                             initial={{ scale: 0.9, opacity: 0 }}
                             animate={{ scale: 1, opacity: 1 }}
                             exit={{ scale: 0.9, opacity: 0 }}
@@ -117,7 +135,7 @@ const RTICSection = () => {
                             onClick={(e) => e.stopPropagation()}
                         >
                             <img
-                                src="/assets/rtic/rtic-pers-pic.jpg"
+                                src="/assets/rtic/rtic-pers-pic.webp"
                                 alt="Me at FIT Club's Day"
                                 decoding="async"
                                 className="max-h-[80vh] w-full object-contain"

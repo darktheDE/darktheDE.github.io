@@ -43,6 +43,6 @@ export const RTIC_INFO = {
 
 export const ASSETS = {
     certificatesBundle: '/docs/Certificates_Bundle_DO_KIEN_HUNG.pdf',
-    profileImage: '/assets/profile/profile01.png',
+    profileImage: '/assets/profile/profile01.webp',
     favicon: '/assets/profile-favicon.png',
 };

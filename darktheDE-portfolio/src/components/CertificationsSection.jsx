@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { motion as Motion, AnimatePresence } from 'framer-motion';
 import { FiAward, FiChevronLeft, FiChevronRight, FiExternalLink, FiFileText, FiShield, FiX } from 'react-icons/fi';
 import { cn } from '../utils/cn';
@@ -7,7 +7,7 @@ import { ASSETS } from '../data/config';
 const certifications = [
     {
         title: 'AWS Academy Graduate - Data Engineering',
-        image: '/assets/certi/AWS_Academy_Graduate___Data_Engineering___Training_Badge_Badge20251105-31-bxq0qw.png',
+        image: '/assets/certi/AWS_Academy_Graduate___Data_Engineering___Training_Badge_Badge20251105-31-bxq0qw.webp',
         category: 'AWS',
         issuer: 'Amazon Web Services (AWS)',
         date: '05/11/2025',
@@ -16,7 +16,7 @@ const certifications = [
     },
     {
         title: 'AWS Academy Graduate - Cloud Foundations',
-        image: '/assets/certi/AWS_Academy_Graduate___Cloud_Foundations___Training_Badge_Badge20251008-32-bqq8cg.png',
+        image: '/assets/certi/AWS_Academy_Graduate___Cloud_Foundations___Training_Badge_Badge20251008-32-bqq8cg.webp',
         category: 'AWS',
         issuer: 'Amazon Web Services (AWS)',
         date: '08/10/2025',
@@ -25,7 +25,7 @@ const certifications = [
     },
     {
         title: 'AWS Academy Graduate - Cloud Web App Builder',
-        image: '/assets/certi/AWS_Academy_Graduate___Cloud_Web_Application_Builder___Training_Badge_Badge20251009-31-2kz8o3.png',
+        image: '/assets/certi/AWS_Academy_Graduate___Cloud_Web_Application_Builder___Training_Badge_Badge20251009-31-2kz8o3.webp',
         category: 'AWS',
         issuer: 'Amazon Web Services (AWS)',
         date: '09/10/2025',
@@ -34,7 +34,7 @@ const certifications = [
     },
     {
         title: 'Gemini Certified Student (University)',
-        image: '/assets/certi/GEMINI_STU_CER.png',
+        image: '/assets/certi/GEMINI_STU_CER.webp',
         category: 'Google',
         issuer: 'Google for Education',
         date: '12/07/2025',
@@ -43,7 +43,7 @@ const certifications = [
     },
     {
         title: 'Google AI Essentials',
-        image: '/assets/certi/Coursera MUBWNUSDXG3A-AI.png',
+        image: '/assets/certi/Coursera MUBWNUSDXG3A-AI.webp',
         category: 'Google',
         issuer: 'Google (via Coursera)',
         date: '29/07/2024',
@@ -52,7 +52,7 @@ const certifications = [
     },
     {
         title: 'Google Crash Course on Python',
-        image: '/assets/certi/Coursera 094KUDHE0SP7-Python.png',
+        image: '/assets/certi/Coursera 094KUDHE0SP7-Python.webp',
         category: 'Google',
         issuer: 'Google (via Coursera)',
         date: '03/10/2024',
@@ -61,7 +61,7 @@ const certifications = [
     },
     {
         title: 'Samsung Innovation Campus - Big Data Course',
-        image: '/assets/certi/certi-samsung.jpg',
+        image: '/assets/certi/certi-samsung.webp',
         category: 'Industry',
         issuer: 'Samsung Vietnam & LetuinEdu',
         date: '09/2025',
@@ -70,7 +70,7 @@ const certifications = [
     },
     {
         title: 'FIT-HCMUTE Hackathon 2025 - Consolation Prize',
-        image: '/assets/certi/certi-fit-hackathon.jpg',
+        image: '/assets/certi/certi-fit-hackathon.webp',
         category: 'Award',
         issuer: 'Khoa CNTT - HCM-UTE',
         date: '16/11/2025',
@@ -79,7 +79,7 @@ const certifications = [
     },
     {
         title: 'Mastering IT XVII 2024 - Certificate of Participation',
-        image: '/assets/certi/Mastering IT.png',
+        image: '/assets/certi/Mastering IT.webp',
         category: 'Award',
         issuer: 'Khoa CNTT & GDSC HCMUTE',
         date: '12/05/2024',
@@ -88,7 +88,7 @@ const certifications = [
     },
     {
         title: 'Scholarship for Academic Excellence (Semester 1 - Year 1)',
-        image: '/assets/certi/chinh-sach-hoc-bong.png',
+        image: '/assets/certi/chinh-sach-hoc-bong.webp',
         category: 'Academic',
         issuer: 'Trường ĐH Sư phạm Kỹ thuật TP.HCM',
         date: 'HK1 2023-2024',
@@ -97,7 +97,7 @@ const certifications = [
     },
     {
         title: 'Title of Very Good Student (2 Consecutive Years)',
-        image: '/assets/certi/quyet-dinh-sinh-vien.png',
+        image: '/assets/certi/quyet-dinh-sinh-vien.webp',
         category: 'Academic',
         issuer: 'Trường ĐH Sư phạm Kỹ thuật TP.HCM',
         date: '2024 — 2025',
@@ -118,9 +118,27 @@ const CertificationsSection = () => {
     }, [activeFilter]);
 
     const selectedCert = selectedIdx !== null ? visibleCertifications[selectedIdx] : null;
-    const closeLightbox = () => setSelectedIdx(null);
-    const goPrev = () => setSelectedIdx((prev) => (prev > 0 ? prev - 1 : visibleCertifications.length - 1));
-    const goNext = () => setSelectedIdx((prev) => (prev < visibleCertifications.length - 1 ? prev + 1 : 0));
+    const closeLightbox = useCallback(() => setSelectedIdx(null), []);
+    const goPrev = useCallback(() => setSelectedIdx((prev) => (prev > 0 ? prev - 1 : visibleCertifications.length - 1)), [visibleCertifications.length]);
+    const goNext = useCallback(() => setSelectedIdx((prev) => (prev < visibleCertifications.length - 1 ? prev + 1 : 0)), [visibleCertifications.length]);
+
+    // Lock body scroll and handle keyboard navigation
+    useEffect(() => {
+        if (selectedIdx === null) return;
+        document.body.style.overflow = 'hidden';
+
+        const handleKeyDown = (e) => {
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') goPrev();
+            if (e.key === 'ArrowRight') goNext();
+        };
+
+        window.addEventListener('keydown', handleKeyDown);
+        return () => {
+            document.body.style.overflow = '';
+            window.removeEventListener('keydown', handleKeyDown);
+        };
+    }, [selectedIdx, closeLightbox, goPrev, goNext]);
 
     return (
         <section className="mx-auto max-w-7xl scroll-mt-28 px-4 py-16 sm:px-6 lg:px-8" id="certifications">
@@ -233,6 +251,9 @@ const CertificationsSection = () => {
                         onClick={closeLightbox}
                     >
                         <Motion.div
+                            role="dialog"
+                            aria-modal="true"
+                            aria-labelledby="cert-modal-title"
                             initial={{ scale: 0.92, opacity: 0 }}
                             animate={{ scale: 1, opacity: 1 }}
                             exit={{ scale: 0.92, opacity: 0 }}
@@ -253,7 +274,7 @@ const CertificationsSection = () => {
                                     <FiAward className="h-4 w-4" />
                                     <span>{selectedCert.category} Credential</span>
                                 </div>
-                                <h3 className="text-lg sm:text-xl font-black text-white">{selectedCert.title}</h3>
+                                <h3 id="cert-modal-title" className="text-lg sm:text-xl font-black text-white">{selectedCert.title}</h3>
                                 <div className="grid grid-cols-2 gap-2 text-xs font-mono text-text-muted pt-2 border-t border-white/10">
                                     <div><strong>Issuer:</strong> {selectedCert.issuer}</div>
                                     <div><strong>Issued Date:</strong> {selectedCert.date}</div>
@@ -292,15 +313,15 @@ const CertificationsSection = () => {
                             {/* Prev / Next Controls */}
                             <button
                                 onClick={(e) => { e.stopPropagation(); goPrev(); }}
-                                className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-black/80 border border-white/10 p-2 text-text-muted backdrop-blur-sm transition-colors hover:text-white hover:border-primary hidden md:block"
-                                aria-label="Previous"
+                                className="absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 rounded-full bg-black/80 border border-white/10 p-2.5 text-text-muted backdrop-blur-sm transition-colors hover:text-white hover:border-primary flex items-center justify-center z-10"
+                                aria-label="Previous Certificate"
                             >
                                 <FiChevronLeft className="h-5 w-5" />
                             </button>
                             <button
                                 onClick={(e) => { e.stopPropagation(); goNext(); }}
-                                className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-black/80 border border-white/10 p-2 text-text-muted backdrop-blur-sm transition-colors hover:text-white hover:border-primary hidden md:block"
-                                aria-label="Next"
+                                className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 rounded-full bg-black/80 border border-white/10 p-2.5 text-text-muted backdrop-blur-sm transition-colors hover:text-white hover:border-primary flex items-center justify-center z-10"
+                                aria-label="Next Certificate"
                             >
                                 <FiChevronRight className="h-5 w-5" />
                             </button>

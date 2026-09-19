@@ -6,15 +6,15 @@ import { cn } from '../utils/cn';
 import { trackOutboundLink } from '../utils/analytics';
 
 const profileImages = [
-    '/assets/profile/profile01.png',
-    '/assets/profile/profile02.jpg',
-    '/assets/profile/profile03.jpg',
-    '/assets/profile/profile04.jpg',
-    '/assets/profile/profile05.jpg',
-    '/assets/profile/profile06.jpg',
-    '/assets/profile/profile07.jpg',
-    '/assets/profile/profile08.jpg',
-    '/assets/profile/profile09.jpg',
+    '/assets/profile/profile01.webp',
+    '/assets/profile/profile02.webp',
+    '/assets/profile/profile03.webp',
+    '/assets/profile/profile04.webp',
+    '/assets/profile/profile05.webp',
+    '/assets/profile/profile06.webp',
+    '/assets/profile/profile07.webp',
+    '/assets/profile/profile08.webp',
+    '/assets/profile/profile09.webp',
 ];
 
 const operatingProfile = [
@@ -48,13 +48,15 @@ const SectionLabel = ({ icon, children }) => (
 
 const AboutSection = () => {
     const [currentImageIdx, setCurrentImageIdx] = useState(0);
+    const [isHovered, setIsHovered] = useState(false);
 
     useEffect(() => {
+        if (isHovered) return;
         const interval = setInterval(() => {
             setCurrentImageIdx((prev) => (prev + 1) % profileImages.length);
-        }, 3000);
+        }, 5000);
         return () => clearInterval(interval);
-    }, []);
+    }, [isHovered]);
 
     return (
         <section className="mx-auto max-w-7xl scroll-mt-28 px-4 py-16 sm:px-6 lg:px-8" id="about">
@@ -62,13 +64,19 @@ const AboutSection = () => {
                 {/* About / Operating Profile */}
                 <BentoItem id="profile-summary" className="md:col-span-4 lg:col-span-4">
                     <div className="grid gap-7 sm:grid-cols-[180px_1fr] sm:items-center">
-                        <div className="mx-auto w-full max-w-[180px]">
-                            <div className="relative aspect-square overflow-hidden rounded-lg border border-primary/30 bg-slate-950 shadow-2xl shadow-black/30">
+                        <div 
+                            className="mx-auto w-full max-w-[180px] flex flex-col items-center gap-2.5"
+                            onMouseEnter={() => setIsHovered(true)}
+                            onMouseLeave={() => setIsHovered(false)}
+                        >
+                            <div className="relative aspect-square w-full overflow-hidden rounded-lg border border-primary/30 bg-slate-950 shadow-2xl shadow-black/30">
                                 <AnimatePresence mode="wait">
                                     <Motion.img
                                         key={currentImageIdx}
                                         src={profileImages[currentImageIdx]}
                                         alt="DO KIEN HUNG Profile"
+                                        width={180}
+                                        height={180}
                                         loading="lazy"
                                         decoding="async"
                                         initial={{ opacity: 0, scale: 1.04 }}
@@ -78,7 +86,24 @@ const AboutSection = () => {
                                         className="h-full w-full object-cover"
                                     />
                                 </AnimatePresence>
-                                <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent pointer-events-none" />
+                            </div>
+
+                            {/* Gallery Dots Indicator */}
+                            <div className="flex items-center gap-1.5 pt-1" aria-label="Profile photos">
+                                {profileImages.map((_, dotIdx) => (
+                                    <button
+                                        key={dotIdx}
+                                        onClick={() => setCurrentImageIdx(dotIdx)}
+                                        aria-label={`View photo ${dotIdx + 1}`}
+                                        className={cn(
+                                            "h-1.5 rounded-full transition-all duration-300",
+                                            currentImageIdx === dotIdx 
+                                                ? "w-4 bg-primary" 
+                                                : "w-1.5 bg-white/20 hover:bg-white/50"
+                                        )}
+                                    />
+                                ))}
                             </div>
                         </div>
 

@@ -5,11 +5,14 @@ import AboutSection from './components/AboutSection';
 import CareerSection from './components/CareerSection';
 import ProjectsSection from './components/ProjectsSection';
 import Footer from './components/Footer';
+import { useKeyboardNavigation } from './hooks/useKeyboardNavigation';
 
 const RTICSection = lazy(() => import('./components/RTICSection'));
 const CertificationsSection = lazy(() => import('./components/CertificationsSection'));
 
 function App() {
+  useKeyboardNavigation();
+
   return (
     <div className="min-h-screen bg-background text-text-light selection:bg-primary/30 relative">
       <a href="#main-content" className="skip-link">

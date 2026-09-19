@@ -7,7 +7,7 @@ export const projects = [
   {
     id: 1,
     title: "Vietnamese Banking Financial Analytics Platform",
-    image: "/assets/project/vn-banking-de.png",
+    image: "/assets/project/vn-banking-de.webp",
     featuredBadge: "Featured Project",
     description: "An end-to-end financial data warehouse analyzing 20+ years of Vietnamese banking performance on Google BigQuery. Automated ELT pipelines clean and transform financial datasets into a Star Schema, coupled with a Random Forest credit-risk classification model and interactive analytics dashboards.",
     highlights: [
@@ -23,7 +23,7 @@ export const projects = [
   {
     id: 2,
     title: "UTE Phone Hub (E-Commerce Platform)",
-    image: "/assets/project/ute-phone-hub-SW.png",
+    image: "/assets/project/ute-phone-hub-SW.webp",
     description: "Full-stack e-commerce web platform for browsing and purchasing mobile devices and tech accessories. Built with Next.js and Spring Boot, featuring user authentication, product catalogs, shopping cart management, order checkout, and administrative dashboard.",
     highlights: [
       "Developed responsive frontend user interface with Next.js, React, and Tailwind CSS for seamless catalog browsing and shopping.",
@@ -38,7 +38,7 @@ export const projects = [
   {
     id: 3,
     title: "Olist E-Commerce Lakehouse",
-    image: "/assets/project/SYSARCH_OLIST-DE.jpg",
+    image: "/assets/project/SYSARCH_OLIST-DE.webp",
     description: "A modern Data Lakehouse pipeline processing 100K+ Brazilian e-commerce transaction records from the Olist public dataset. Built using PySpark and Delta Lake following the Medallion Architecture (Bronze -> Silver -> Gold), orchestrated by Apache Airflow with MinIO S3 object storage.",
     highlights: [
       "Implemented Medallion Architecture: Bronze layer for raw ingestion, Silver layer for cleaning & deduplication, and Gold layer for business analytics aggregations.",
@@ -53,7 +53,7 @@ export const projects = [
   {
     id: 4,
     title: "Vietnamese LLM KV Cache Compression Benchmark",
-    image: "/assets/project/vietllm-ml.png",
+    image: "/assets/project/vietllm-ml.webp",
     description: "An experimental benchmarking suite evaluating memory optimization and compression techniques (KV Cache compression and TurboQuant) on Vietnamese Large Language Models. Measures real-world tradeoffs across inference throughput, VRAM usage, latency, and language quality.",
     highlights: [
       "Built reproducible benchmark pipelines across open-source Vietnamese LLMs using vLLM and PyTorch frameworks.",

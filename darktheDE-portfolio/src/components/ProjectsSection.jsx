@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { motion as Motion, AnimatePresence } from 'framer-motion';
-import { FiArrowRight, FiCheck, FiChevronLeft, FiChevronRight, FiExternalLink, FiGithub, FiLayers, FiX } from 'react-icons/fi';
+import { FiCheck, FiChevronLeft, FiChevronRight, FiExternalLink, FiGithub, FiLayers, FiX } from 'react-icons/fi';
 import { projects } from '../data/projectsData';
 import { cn } from '../utils/cn';
 import { trackProjectInteraction } from '../utils/analytics';
@@ -35,9 +35,27 @@ const ProjectsSection = () => {
     const supportingProjects = projects.slice(1);
 
     const selectedProject = selectedProjectIdx !== null ? projects[selectedProjectIdx] : null;
-    const closeProjectLightbox = () => setSelectedProjectIdx(null);
-    const goPrevProject = () => setSelectedProjectIdx((prev) => (prev > 0 ? prev - 1 : projects.length - 1));
-    const goNextProject = () => setSelectedProjectIdx((prev) => (prev < projects.length - 1 ? prev + 1 : 0));
+    const closeProjectLightbox = useCallback(() => setSelectedProjectIdx(null), []);
+    const goPrevProject = useCallback(() => setSelectedProjectIdx((prev) => (prev > 0 ? prev - 1 : projects.length - 1)), []);
+    const goNextProject = useCallback(() => setSelectedProjectIdx((prev) => (prev < projects.length - 1 ? prev + 1 : 0)), []);
+
+    // Lock body scroll and listen to keyboard controls
+    useEffect(() => {
+        if (selectedProjectIdx === null) return;
+        document.body.style.overflow = 'hidden';
+
+        const handleKeyDown = (e) => {
+            if (e.key === 'Escape') closeProjectLightbox();
+            if (e.key === 'ArrowLeft') goPrevProject();
+            if (e.key === 'ArrowRight') goNextProject();
+        };
+
+        window.addEventListener('keydown', handleKeyDown);
+        return () => {
+            document.body.style.overflow = '';
+            window.removeEventListener('keydown', handleKeyDown);
+        };
+    }, [selectedProjectIdx, closeProjectLightbox, goPrevProject, goNextProject]);
 
     return (
         <section className="mx-auto max-w-7xl scroll-mt-28 px-4 py-16 sm:px-6 lg:px-8" id="projects">
@@ -187,6 +205,9 @@ const ProjectsSection = () => {
                         onClick={closeProjectLightbox}
                     >
                         <Motion.div
+                            role="dialog"
+                            aria-modal="true"
+                            aria-labelledby="project-modal-title"
                             initial={{ scale: 0.92, opacity: 0 }}
                             animate={{ scale: 1, opacity: 1 }}
                             exit={{ scale: 0.92, opacity: 0 }}
@@ -209,7 +230,7 @@ const ProjectsSection = () => {
                             </div>
 
                             <div className="space-y-3">
-                                <h3 className="text-xl sm:text-2xl font-black text-white leading-tight">
+                                <h3 id="project-modal-title" className="text-xl sm:text-2xl font-black text-white leading-tight">
                                     {selectedProject.title}
                                 </h3>
                                 <p className="text-sm leading-relaxed text-text-muted">
@@ -274,14 +295,14 @@ const ProjectsSection = () => {
                             {/* Navigation Arrows */}
                             <button
                                 onClick={(e) => { e.stopPropagation(); goPrevProject(); }}
-                                className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-black/80 border border-white/10 p-2.5 text-text-muted backdrop-blur-sm transition-colors hover:text-white hover:border-primary hidden md:block"
+                                className="absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 rounded-full bg-black/80 border border-white/10 p-2.5 text-text-muted backdrop-blur-sm transition-colors hover:text-white hover:border-primary flex items-center justify-center z-10"
                                 aria-label="Previous"
                             >
                                 <FiChevronLeft className="h-5 w-5" />
                             </button>
                             <button
                                 onClick={(e) => { e.stopPropagation(); goNextProject(); }}
-                                className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-black/80 border border-white/10 p-2.5 text-text-muted backdrop-blur-sm transition-colors hover:text-white hover:border-primary hidden md:block"
+                                className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 rounded-full bg-black/80 border border-white/10 p-2.5 text-text-muted backdrop-blur-sm transition-colors hover:text-white hover:border-primary flex items-center justify-center z-10"
                                 aria-label="Next"
                             >
                                 <FiChevronRight className="h-5 w-5" />
