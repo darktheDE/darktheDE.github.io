@@ -4,6 +4,7 @@ import Hero from './components/Hero';
 import AboutSection from './components/AboutSection';
 import CareerSection from './components/CareerSection';
 import ProjectsSection from './components/ProjectsSection';
+import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 import { useKeyboardNavigation } from './hooks/useKeyboardNavigation';
 
@@ -40,6 +41,8 @@ function App() {
           <RTICSection />
           <CertificationsSection />
         </Suspense>
+
+        <ContactSection />
       </main>
 
       <div className="relative z-10">

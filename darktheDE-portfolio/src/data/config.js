@@ -46,3 +46,16 @@ export const ASSETS = {
     profileImage: '/assets/profile/profile01.webp',
     favicon: '/assets/profile-favicon.png',
 };
+
+export const CONTACT_CONFIG = {
+    // Read from .env file (VITE_WEB3FORMS_ACCESS_KEY), fallback to empty string
+    web3formsAccessKey: import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || '',
+    recipientEmail: 'dkh1105.work@gmail.com',
+    topics: [
+        'Saying Hello / Networking',
+        'Project Collaboration',
+        'Career / Opportunity',
+        'General Question',
+    ],
+};
+
