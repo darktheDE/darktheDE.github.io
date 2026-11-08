@@ -139,18 +139,11 @@ const ContactSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
-                className="mb-10 border-b border-white/10 pb-6"
+                className="mb-8 border-b border-white/10 pb-6"
             >
-                <div className="mb-3 flex items-center gap-2 text-primary">
-                    <FiSend className="h-5 w-5" />
-                    <span className="font-mono text-xs uppercase tracking-[0.22em] font-bold">Get In Touch</span>
-                </div>
                 <h2 className="text-3xl font-black text-white tracking-tight sm:text-4xl">
-                    Initiate Contact<span className="text-primary">.</span>
+                    Get In Touch<span className="text-primary">.</span>
                 </h2>
-                <p className="mt-2 max-w-3xl text-sm leading-relaxed text-text-muted">
-                    Have a project in mind, want to discuss IT audit and data systems, or just want to say hello? Drop a message below or connect directly.
-                </p>
             </Motion.div>
 
             <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-start">
@@ -196,7 +189,7 @@ const ContactSection = () => {
                                 </div>
                                 <div>
                                     <div className="text-[10px] font-mono uppercase tracking-wider text-text-muted">Location</div>
-                                    <div className="text-xs sm:text-sm font-semibold text-white">Ho Chi Minh City, Vietnam</div>
+                                    <div className="text-xs sm:text-sm font-semibold text-white">Thu Duc City, Ho Chi Minh City, Vietnam</div>
                                 </div>
                             </div>
 
@@ -212,23 +205,12 @@ const ContactSection = () => {
                             </a>
                         </div>
                     </div>
-
-                    {/* Security & System Assurance Note */}
-                    <div className="rounded-xl border border-white/10 bg-slate-950/60 p-5 text-xs text-text-muted space-y-2">
-                        <div className="flex items-center gap-2 font-mono text-primary font-bold uppercase tracking-wider text-[11px]">
-                            <span className="h-2 w-2 rounded-full bg-primary animate-pulse" />
-                            <span>System Reliability & Assurance</span>
-                        </div>
-                        <p className="leading-relaxed">
-                            Messages are securely transmitted over TLS encryption directly to personal email. No marketing tracking, third-party selling, or data retention on public databases.
-                        </p>
-                    </div>
                 </div>
 
                 {/* Right Column: Contact Form */}
                 <div className="lg:col-span-7">
                     <div className="rounded-xl border border-white/15 bg-card p-6 sm:p-8 backdrop-blur-md shadow-2xl shadow-black/40 relative overflow-hidden">
-                        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-emerald-400 to-transparent" />
+                        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary to-transparent" />
 
                         {status === 'success' ? (
                             <Motion.div

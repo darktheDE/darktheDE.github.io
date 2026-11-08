@@ -1,26 +1,13 @@
-import { useState, useEffect } from 'react';
-import { motion as Motion, AnimatePresence } from 'framer-motion';
-import { FiArrowRight, FiTarget, FiUser } from 'react-icons/fi';
-import { PERSONAL_INFO, SOCIAL_LINKS } from '../data/config';
+import { motion as Motion } from 'framer-motion';
+import { FiArrowRight, FiBookOpen } from 'react-icons/fi';
+import { PERSONAL_INFO, EDUCATION, SOCIAL_LINKS, ASSETS } from '../data/config';
 import { cn } from '../utils/cn';
 import { trackOutboundLink } from '../utils/analytics';
 
-const profileImages = [
-    '/assets/profile/profile01.webp',
-    '/assets/profile/profile02.webp',
-    '/assets/profile/profile03.webp',
-    '/assets/profile/profile04.webp',
-    '/assets/profile/profile05.webp',
-    '/assets/profile/profile06.webp',
-    '/assets/profile/profile07.webp',
-    '/assets/profile/profile08.webp',
-    '/assets/profile/profile09.webp',
-];
-
 const operatingProfile = [
-    { title: 'ITGC & Controls' },
-    { title: 'Audit Analytics' },
-    { title: 'ERP & Pipeline Audit' },
+    { title: 'IT Data Analytics' },
+    { title: 'Controls & Compliance' },
+    { title: 'Database Systems' },
 ];
 
 const BentoItem = ({ className, children, delay = 0, id }) => (
@@ -28,10 +15,10 @@ const BentoItem = ({ className, children, delay = 0, id }) => (
         id={id}
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: '-80px' }}
-        transition={{ duration: 0.5, delay }}
+        viewport={{ once: true, margin: '-60px' }}
+        transition={{ duration: 0.4, delay }}
         className={cn(
-            'relative scroll-mt-28 overflow-hidden rounded-xl border border-white/10 bg-card p-6 backdrop-blur-md transition-all duration-500 hover:border-primary/40',
+            'relative scroll-mt-28 overflow-hidden rounded-xl border border-white/10 bg-card p-6 backdrop-blur-md transition-all duration-300 hover:border-primary/40',
             className
         )}
     >
@@ -39,86 +26,39 @@ const BentoItem = ({ className, children, delay = 0, id }) => (
     </Motion.div>
 );
 
-const SectionLabel = ({ icon, children }) => (
-    <div className="mb-5 flex items-center gap-2 text-primary">
-        {icon}
-        <span className="font-mono text-xs uppercase tracking-[0.22em] font-bold">{children}</span>
-    </div>
-);
-
 const AboutSection = () => {
-    const [currentImageIdx, setCurrentImageIdx] = useState(0);
-    const [isHovered, setIsHovered] = useState(false);
-
-    useEffect(() => {
-        if (isHovered) return;
-        const interval = setInterval(() => {
-            setCurrentImageIdx((prev) => (prev + 1) % profileImages.length);
-        }, 5000);
-        return () => clearInterval(interval);
-    }, [isHovered]);
-
     return (
         <section className="mx-auto max-w-7xl scroll-mt-28 px-4 py-16 sm:px-6 lg:px-8" id="about">
-            <div className="grid grid-cols-1 gap-4 md:grid-cols-4 lg:grid-cols-6">
-                {/* About / Operating Profile */}
+            <div className="grid grid-cols-1 gap-5 md:grid-cols-4 lg:grid-cols-6">
+                {/* Profile Card */}
                 <BentoItem id="profile-summary" className="md:col-span-4 lg:col-span-4">
                     <div className="grid gap-7 sm:grid-cols-[180px_1fr] sm:items-center">
-                        <div 
-                            className="mx-auto w-full max-w-[180px] flex flex-col items-center gap-2.5"
-                            onMouseEnter={() => setIsHovered(true)}
-                            onMouseLeave={() => setIsHovered(false)}
-                        >
-                            <div className="relative aspect-square w-full overflow-hidden rounded-lg border border-primary/30 bg-slate-950 shadow-2xl shadow-black/30">
-                                <AnimatePresence mode="wait">
-                                    <Motion.img
-                                        key={currentImageIdx}
-                                        src={profileImages[currentImageIdx]}
-                                        alt="DO KIEN HUNG Profile"
-                                        width={180}
-                                        height={180}
-                                        loading="lazy"
-                                        decoding="async"
-                                        initial={{ opacity: 0, scale: 1.04 }}
-                                        animate={{ opacity: 1, scale: 1 }}
-                                        exit={{ opacity: 0, scale: 0.98 }}
-                                        transition={{ duration: 0.45 }}
-                                        className="h-full w-full object-cover"
-                                    />
-                                </AnimatePresence>
-                                <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent pointer-events-none" />
-                            </div>
-
-                            {/* Gallery Dots Indicator */}
-                            <div className="flex items-center gap-1.5 pt-1" aria-label="Profile photos">
-                                {profileImages.map((_, dotIdx) => (
-                                    <button
-                                        key={dotIdx}
-                                        onClick={() => setCurrentImageIdx(dotIdx)}
-                                        aria-label={`View photo ${dotIdx + 1}`}
-                                        className={cn(
-                                            "h-1.5 rounded-full transition-all duration-300",
-                                            currentImageIdx === dotIdx 
-                                                ? "w-4 bg-primary" 
-                                                : "w-1.5 bg-white/20 hover:bg-white/50"
-                                        )}
-                                    />
-                                ))}
+                        <div className="mx-auto w-full max-w-[180px] flex flex-col items-center">
+                            <div className="relative aspect-square w-full overflow-hidden rounded-lg border border-white/15 bg-slate-950 shadow-xl shadow-black/40">
+                                <img
+                                    src={ASSETS.profileImage}
+                                    alt="DO KIEN HUNG Profile"
+                                    width={180}
+                                    height={180}
+                                    loading="lazy"
+                                    decoding="async"
+                                    className="h-full w-full object-cover"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent pointer-events-none" />
                             </div>
                         </div>
 
                         <div>
-                            <SectionLabel icon={<FiUser className="h-5 w-5" />}>About Me</SectionLabel>
                             <h2 className="max-w-2xl text-2xl font-black leading-tight text-white sm:text-3xl">
-                                Applying data engineering foundations to IT audit & internal controls.
+                                IT Data Analyst with a Data Engineering Background<span className="text-primary">.</span>
                             </h2>
                             <p className="mt-3 text-sm leading-relaxed text-text-muted">
-                                Final-year Data Engineering student at HCM-UTE with experience in database systems, data pipelines, and software planning. Now focusing on IT General Controls (ITGC), system flows, and audit analytics.
+                                {PERSONAL_INFO.description}
                             </p>
-                            <div className="mt-5 grid gap-3 sm:grid-cols-3">
+                            <div className="mt-5 grid gap-2.5 sm:grid-cols-3">
                                 {operatingProfile.map((item) => (
-                                    <div key={item.title} className="rounded-lg border border-white/10 bg-white/[0.035] p-3.5 flex items-center justify-center min-h-[58px]">
-                                        <h3 className="text-xs font-bold text-white text-center font-mono">{item.title}</h3>
+                                    <div key={item.title} className="rounded-lg border border-white/10 bg-white/[0.03] p-3 flex items-center justify-center min-h-[46px]">
+                                        <span className="text-xs font-semibold text-text-light text-center font-mono">{item.title}</span>
                                     </div>
                                 ))}
                             </div>
@@ -126,27 +66,44 @@ const AboutSection = () => {
                     </div>
                 </BentoItem>
 
-                {/* Key Signals */}
-                <BentoItem className="md:col-span-2 lg:col-span-2">
-                    <SectionLabel icon={<FiTarget className="h-5 w-5" />}>Key Signals</SectionLabel>
-                    <div className="grid grid-cols-2 gap-3">
-                        {PERSONAL_INFO.metrics.map((metric) => (
-                            <div key={metric.label} className="rounded-lg border border-white/10 bg-slate-950/60 p-3.5">
-                                <div className="font-mono text-2xl font-bold text-white">{metric.value}</div>
-                                <div className="mt-1 text-[10px] uppercase tracking-[0.16em] text-text-muted">{metric.label}</div>
-                            </div>
-                        ))}
-                        <a
-                          href={SOCIAL_LINKS.linkedin}
-                          target="_blank"
-                          rel="noreferrer"
-                          onClick={() => trackOutboundLink(SOCIAL_LINKS.linkedin, 'LinkedIn Profile (Bento)')}
-                          className="group col-span-2 flex items-center justify-between rounded-lg border border-primary/25 bg-primary/10 p-3.5 text-primary transition-colors hover:bg-primary/20"
-                        >
-                            <span className="font-semibold text-xs font-mono uppercase tracking-wider">Connect on LinkedIn</span>
-                            <FiArrowRight className="transition-transform group-hover:translate-x-1" />
-                        </a>
+                {/* Education & Academic Background */}
+                <BentoItem className="md:col-span-2 lg:col-span-2 flex flex-col justify-between">
+                    <div>
+                        <div className="flex items-center gap-2 text-primary mb-3">
+                            <FiBookOpen className="h-4 w-4" />
+                            <h3 className="font-mono text-xs font-bold uppercase tracking-wider text-white">
+                                Education
+                            </h3>
+                        </div>
+
+                        <div className="space-y-3">
+                            {EDUCATION.map((edu) => (
+                                <div key={edu.institution} className="rounded-lg border border-white/10 bg-slate-950/60 p-3">
+                                    <div className="font-bold text-xs text-white leading-snug">
+                                        {edu.institution}
+                                    </div>
+                                    <div className="mt-1 text-[11px] text-primary font-mono">
+                                        {edu.degree}
+                                    </div>
+                                    <div className="mt-1 flex items-center justify-between text-[10px] text-text-muted font-mono">
+                                        <span>{edu.period}</span>
+                                        {edu.detail && <span className="text-text-light font-semibold">{edu.detail}</span>}
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
                     </div>
+
+                    <a
+                      href={SOCIAL_LINKS.linkedin}
+                      target="_blank"
+                      rel="noreferrer"
+                      onClick={() => trackOutboundLink(SOCIAL_LINKS.linkedin, 'LinkedIn Profile (Bento)')}
+                      className="group mt-4 flex items-center justify-between rounded-lg border border-primary/25 bg-primary/10 p-3 text-primary transition-colors hover:bg-primary/20"
+                    >
+                        <span className="font-semibold text-xs font-mono uppercase tracking-wider">Connect on LinkedIn</span>
+                        <FiArrowRight className="transition-transform group-hover:translate-x-1" />
+                    </a>
                 </BentoItem>
             </div>
         </section>

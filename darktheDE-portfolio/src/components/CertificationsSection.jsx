@@ -149,18 +149,11 @@ const CertificationsSection = () => {
                 transition={{ duration: 0.5 }}
             >
                 {/* Section Header */}
-                <div className="mb-8 flex flex-col justify-between gap-5 border-y border-white/10 py-6 sm:flex-row sm:items-end">
+                <div className="mb-8 flex flex-col justify-between gap-4 border-y border-white/10 py-6 sm:flex-row sm:items-center">
                     <div>
-                        <div className="mb-3 flex items-center gap-2 text-primary">
-                            <FiAward className="h-5 w-5" />
-                            <span className="font-mono text-xs uppercase tracking-[0.22em] font-bold">Verified Credentials & Evidence</span>
-                        </div>
                         <h2 className="text-3xl font-black text-white tracking-tight sm:text-4xl">
-                            11 Verified Credentials for Enterprise Trust.
+                            Certifications & Honors<span className="text-primary">.</span>
                         </h2>
-                        <p className="mt-2 text-sm text-text-muted">
-                            Authentic digital badges and academic honors officially issued and verifiable online via Credly, Coursera, and HCM-UTE.
-                        </p>
                     </div>
 
                     <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
@@ -171,7 +164,7 @@ const CertificationsSection = () => {
                             rel="noreferrer"
                             className="inline-flex items-center gap-2 rounded-lg border border-primary/40 bg-primary/10 px-4 py-2 font-mono text-xs font-semibold text-primary transition-all hover:bg-primary hover:text-slate-950 shadow-sm"
                         >
-                            <FiFileText className="h-4 w-4" /> View Evidence Bundle PDF (12 Pages)
+                            <FiFileText className="h-4 w-4" /> Evidence Bundle (PDF)
                         </a>
 
                         <div className="flex flex-wrap gap-1.5">
@@ -218,9 +211,6 @@ const CertificationsSection = () => {
                                     className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-60" />
-                                <span className="absolute right-2.5 top-2.5 rounded border border-primary/30 bg-slate-950/90 px-2 py-0.5 font-mono text-[10px] text-primary">
-                                    {cert.category}
-                                </span>
                             </div>
 
                             <div className="p-4 space-y-1.5">
@@ -298,7 +288,7 @@ const CertificationsSection = () => {
                                     rel="noreferrer"
                                     className="inline-flex items-center gap-1.5 text-xs font-mono text-text-muted hover:text-primary transition-colors"
                                 >
-                                    <FiFileText /> Official PDF Bundle
+                                    <FiFileText className="h-3.5 w-3.5" /> Bundle PDF
                                 </a>
                             </div>
 
@@ -310,18 +300,18 @@ const CertificationsSection = () => {
                                 <FiX className="h-5 w-5" />
                             </button>
 
-                            {/* Prev / Next Controls */}
+                            {/* Navigation Arrows */}
                             <button
                                 onClick={(e) => { e.stopPropagation(); goPrev(); }}
-                                className="absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 rounded-full bg-black/80 border border-white/10 p-2.5 text-text-muted backdrop-blur-sm transition-colors hover:text-white hover:border-primary flex items-center justify-center z-10"
-                                aria-label="Previous Certificate"
+                                className="absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 rounded-full bg-black/80 border border-white/10 p-2 text-text-muted backdrop-blur-sm transition-colors hover:text-white hover:border-primary flex items-center justify-center z-10"
+                                aria-label="Previous"
                             >
                                 <FiChevronLeft className="h-5 w-5" />
                             </button>
                             <button
                                 onClick={(e) => { e.stopPropagation(); goNext(); }}
-                                className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 rounded-full bg-black/80 border border-white/10 p-2.5 text-text-muted backdrop-blur-sm transition-colors hover:text-white hover:border-primary flex items-center justify-center z-10"
-                                aria-label="Next Certificate"
+                                className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 rounded-full bg-black/80 border border-white/10 p-2 text-text-muted backdrop-blur-sm transition-colors hover:text-white hover:border-primary flex items-center justify-center z-10"
+                                aria-label="Next"
                             >
                                 <FiChevronRight className="h-5 w-5" />
                             </button>

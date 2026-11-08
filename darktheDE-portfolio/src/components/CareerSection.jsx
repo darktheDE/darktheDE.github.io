@@ -1,5 +1,5 @@
 import { motion as Motion } from 'framer-motion';
-import { FiBriefcase, FiCalendar, FiCheck, FiMapPin } from 'react-icons/fi';
+import { FiCalendar, FiCheck, FiMapPin } from 'react-icons/fi';
 import { careerExperiences } from '../data/careerData';
 import { cn } from '../utils/cn';
 
@@ -10,22 +10,13 @@ const CareerSection = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
+                transition={{ duration: 0.5 }}
             >
                 {/* Section Header */}
-                <div className="mb-10 border-b border-white/10 pb-6">
-                    <div className="mb-3 flex items-center gap-2 text-primary">
-                        <FiBriefcase className="h-5 w-5" />
-                        <span className="font-mono text-xs uppercase tracking-[0.22em]">Career & Experience</span>
-                    </div>
-                    <div>
-                        <h2 className="text-3xl font-black tracking-tight text-white sm:text-4xl">
-                            Work Experience
-                        </h2>
-                        <p className="mt-2 max-w-3xl text-sm leading-relaxed text-text-muted">
-                            Experience spanning IT audit, software planning & analysis, data engineering, and academic instruction.
-                        </p>
-                    </div>
+                <div className="mb-8 border-b border-white/10 pb-6">
+                    <h2 className="text-3xl font-black tracking-tight text-white sm:text-4xl">
+                        Work Experience<span className="text-primary">.</span>
+                    </h2>
                 </div>
 
                 {/* Timeline Grid */}
@@ -40,16 +31,16 @@ const CareerSection = () => {
                             className={cn(
                                 "group relative overflow-hidden rounded-xl border p-6 backdrop-blur-md transition-all duration-300 md:p-8",
                                 item.isCurrent
-                                    ? "border-primary/40 bg-gradient-to-br from-surface/90 via-surface/60 to-primary/5 shadow-xl shadow-primary/5 hover:border-primary"
+                                    ? "border-primary/40 bg-surface/90 shadow-xl shadow-black/30 hover:border-primary"
                                     : "border-white/10 bg-surface/70 hover:border-white/20 hover:bg-surface/90"
                             )}
                         >
-                            {/* Decorative Accent Line */}
+                            {/* Accent Line */}
                             <div
                                 className={cn(
-                                    "absolute left-0 top-0 h-full w-1.5 transition-all duration-300",
+                                    "absolute left-0 top-0 h-full w-1 transition-all duration-300",
                                     item.isCurrent
-                                        ? "bg-primary shadow-[0_0_12px_#86BC25]"
+                                        ? "bg-primary"
                                         : "bg-white/20 group-hover:bg-primary/60"
                                 )}
                             />
@@ -57,19 +48,6 @@ const CareerSection = () => {
                             <div className="grid gap-6 lg:grid-cols-[1.1fr_1.9fr]">
                                 {/* Left Column: Role, Company & Metadata */}
                                 <div className="space-y-3">
-                                    <div className="flex flex-wrap items-center gap-2.5">
-                                        <span
-                                            className={cn(
-                                                "rounded px-2.5 py-1 font-mono text-[11px] font-bold uppercase tracking-wider",
-                                                item.isCurrent
-                                                    ? "bg-primary text-slate-950"
-                                                    : "border border-white/10 bg-white/[0.05] text-text-muted"
-                                            )}
-                                        >
-                                            {item.badge}
-                                        </span>
-                                    </div>
-
                                     <div>
                                         <h3 className="text-xl font-black text-white sm:text-2xl tracking-tight">
                                             {item.role}

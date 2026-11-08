@@ -52,7 +52,7 @@ const Navbar = () => {
                   key={link.name}
                   href={link.href}
                   onClick={() => trackNavigation(link.name)}
-                  className="text-xs font-mono font-semibold uppercase tracking-wider text-text-muted hover:text-primary transition-colors hover:text-glow-light"
+                  className="text-xs font-mono font-semibold uppercase tracking-wider text-text-muted hover:text-primary transition-colors"
                 >
                   {link.name}
                 </a>

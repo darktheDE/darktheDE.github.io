@@ -31,32 +31,7 @@ export default {
         sans: ['Inter', 'sans-serif'],
         mono: ['Fira Code', 'monospace'],
       },
-
-      animation: {
-        'glow': 'glow 2s ease-in-out infinite alternate',
-      },
-      keyframes: {
-        glow: {
-          '0%': { boxShadow: '0 0 5px #86BC25, 0 0 10px #86BC25' },
-          '100%': { boxShadow: '0 0 20px #86BC25, 0 0 30px #86BC25' },
-        }
-      }
     },
   },
-  plugins: [
-    function ({ addUtilities, theme }) {
-      const newUtilities = {
-        '.text-glow': {
-          textShadow: `0 0 10px ${theme('colors.primary')}, 0 0 20px ${theme('colors.primary')}`,
-        },
-        '.text-glow-light': {
-          textShadow: `0 0 5px ${theme('colors.primary')}`,
-        },
-        '.box-glow': {
-          boxShadow: `0 0 15px ${theme('colors.primary')}`,
-        }
-      }
-      addUtilities(newUtilities)
-    }
-  ],
+  plugins: [],
 }

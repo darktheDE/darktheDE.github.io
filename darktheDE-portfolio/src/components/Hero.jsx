@@ -6,7 +6,7 @@ import { trackCTA } from '../utils/analytics';
 const Hero = () => {
   return (
     <section id="hero" className="relative min-h-[82vh] overflow-hidden px-4 pt-28 sm:px-6 lg:px-8">
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/60 to-transparent" />
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
 
       <Motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -21,13 +21,13 @@ const Hero = () => {
 
           <h1 className="max-w-4xl text-4xl font-black leading-[1.05] tracking-tight text-white sm:text-6xl lg:text-7xl">
             {PERSONAL_INFO.nickname}<span className="text-primary">.</span>
-            <span className="block bg-gradient-to-r from-primary via-emerald-400 to-[#A8D84E] bg-clip-text text-transparent">
-              IT Audit & Tech Risk.
+            <span className="block text-white">
+              IT Data Analyst<span className="text-primary">.</span>
             </span>
           </h1>
 
-          <p className="mt-6 max-w-2xl text-base leading-8 text-text-muted sm:text-lg">
-            Final-year Data Engineering student at HCM-UTE and IT Audit Intern at Deloitte Vietnam. Combining data engineering background with IT general controls (ITGC), system flows, and audit analytics.
+          <p className="mt-6 max-w-2xl text-base leading-relaxed text-text-muted sm:text-lg">
+            Data Engineering student at HCM-UTE and IT Data Analyst at Deloitte Vietnam.
           </p>
 
           {/* Action CTAs */}
@@ -35,7 +35,7 @@ const Hero = () => {
             <a
               href="#projects"
               onClick={() => trackCTA('View Projects', 'hero')}
-              className="inline-flex items-center justify-center gap-2 rounded bg-primary px-6 py-3 font-semibold text-slate-950 shadow-lg shadow-primary/20 transition-all hover:bg-emerald-400 hover:shadow-primary/30 font-mono text-sm"
+              className="inline-flex items-center justify-center gap-2 rounded bg-primary px-6 py-3 font-semibold text-slate-950 shadow-md shadow-primary/20 transition-all hover:bg-emerald-400 font-mono text-sm"
             >
               View Projects <FiArrowRight className="shrink-0" />
             </a>
@@ -43,9 +43,9 @@ const Hero = () => {
             <a
               href="#career"
               onClick={() => trackCTA('Explore Career', 'hero')}
-              className="inline-flex items-center justify-center gap-2 rounded border border-primary/30 bg-surface/70 px-6 py-3 font-semibold text-primary backdrop-blur-md transition-all hover:border-primary hover:bg-primary/10 font-mono text-sm"
+              className="inline-flex items-center justify-center gap-2 rounded border border-white/15 bg-surface/70 px-6 py-3 font-semibold text-text-light backdrop-blur-md transition-all hover:border-primary hover:text-primary font-mono text-sm"
             >
-              <FiBriefcase className="shrink-0" /> Explore Career Path
+              <FiBriefcase className="shrink-0" /> View Experience
             </a>
           </div>
         </div>
